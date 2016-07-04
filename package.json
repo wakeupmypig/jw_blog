@@ -15,7 +15,6 @@
     "idoc": {
         "theme": "blog",
         "md": [
-            "index.md",
             "angular.md",
             {
                 "JAVASCRIPT": [
