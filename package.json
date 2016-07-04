@@ -1,0 +1,40 @@
+{
+    "name": "BLOG",
+    "version": "0.0.1",
+    "description": "",
+    "keywords": [
+        ""
+    ],
+    "homepage": "http://JSLite.io",
+    "author": "zhufengpeixun1 <894918097@qq.com>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/WakeUpPig/jw_blog.git"
+    },
+    "licenses": "MIT",
+    "idoc": {
+        "theme": "blog",
+        "md": [
+            "index.md",
+            "angular.md",
+            {
+                "JAVASCRIPT": [
+                    "es6课程.md"
+                ]
+            },
+            {
+                "使用方法": [
+                    "js初级.md",
+                    "webstorage.md"
+                ]
+            },
+            {
+                "自动化工具": [
+                    "webpack基础.md",
+                    "webpack应用.md",
+                    "babel.md"
+                ]
+            }
+        ]
+    }
+}

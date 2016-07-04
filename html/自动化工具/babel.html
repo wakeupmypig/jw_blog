@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BLOG</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                BLOG
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="../../html/angular.html">angular</a></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/es6课程.html">es6课程</a></li></ul></li><li><a href="#"><span></span>使用方法</a><ul><li><a href="../../html/使用方法/js初级.html">js初级</a></li><li><a href="../../html/使用方法/webstorage.html">webstorage</a></li></ul></li><li><a href="#"><span></span>自动化工具</a><ul><li><a href="../../html/自动化工具/webpack基础.html">webpack基础</a></li><li><a href="../../html/自动化工具/webpack应用.html">webpack应用</a></li><li class="active"><a href="../../html/自动化工具/babel.html">babel</a></li></ul></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://github.com/WakeUpPig/jw_blog.git">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0Babel介绍">Babel介绍</a></li><li><a href="#t11.babel的安装">1.babel的安装</a><ul><li><a href="#t21.1安装全局的babel">1.1安装全局的babel</a></li><li><a href="#t31.2查看babel的帮助">1.2查看babel的帮助</a></li></ul></li><li><a href="#t42.babel的使用">2.babel的使用</a><ul><li><a href="#t52.1编译单独文件">2.1编译单独文件</a></li><li><a href="#t62.2编译文件夹">2.2编译文件夹</a></li></ul></li><li><a href="#t73.使用本地babel">3.使用本地babel</a><ul><li><a href="#t83.1安装babel">3.1安装babel</a></li><li><a href="#t93.2在package.json中使用本地babel">3.2在package.json中使用本地babel</a></li></ul></li><li><a href="#t104.配置babel">4.配置babel</a><ul><li><a href="#t114.1创建.babelrc文件">4.1创建.babelrc文件</a></li><li><a href="#t124.2安装常用的预设">4.2安装常用的预设</a><ul><li><a href="#t134.2.1解析es6">4.2.1解析es6</a></li><li><a href="#t144.2.2解析react">4.2.2解析react</a></li><li><a href="#t154.2.3解析es7的不同版本">4.2.3解析es7的不同版本</a></li></ul></li><li><a href="#t164.3配置.babelrc">4.3配置.babelrc</a></li><li><a href="#t174.4编译es6">4.4编译es6</a></li></ul></li><li><a href="#t185.babel与webpack结合">5.babel与webpack结合</a><ul><li><a href="#t195.1安装loader">5.1安装loader</a></li><li><a href="#t205.2配置loader">5.2配置loader</a></li><li><a href="#t215.3解析es6api">5.3解析es6api</a></li></ul></li><li><a href="#t226.代码整洁">6.代码整洁</a><ul><li><a href="#t236.1安装runtime">6.1安装runtime</a></li><li><a href="#t246.2更改.babelrc">6.2更改.babelrc</a></li></ul></li><li><a href="#t257.babel编译loose模式">7.babel编译loose模式</a><ul><li><a href="#t267.1安装插件">7.1安装插件</a></li><li><a href="#t277.2定义宽松模式">7.2定义宽松模式</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h2 id="t0Babel&#x4ECB;&#x7ECD;">Babel&#x4ECB;&#x7ECD; <a href="#t0Babel&#x4ECB;&#x7ECD;"> # </a></h2>
+<p>Babel &#x662F;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684;&#x591A;&#x7528;&#x9014; JavaScript &#x7F16;&#x8BD1;&#x5668;<br>Babel &#x628A;&#x7528;&#x6700;&#x65B0;&#x6807;&#x51C6;&#x7F16;&#x5199;&#x7684; JavaScript &#x4EE3;&#x7801;&#x5411;&#x4E0B;&#x7F16;&#x8BD1;&#x6210;&#x53EF;&#x4EE5;&#x5728;&#x4ECA;&#x5929;&#x968F;&#x5904;&#x53EF;&#x7528;&#x7684;&#x7248;&#x672C;&#x3002;  </p>
+<h2 id="t11.babel&#x7684;&#x5B89;&#x88C5;">1.babel&#x7684;&#x5B89;&#x88C5; <a href="#t11.babel&#x7684;&#x5B89;&#x88C5;"> # </a></h2>
+<h3 id="t21.1&#x5B89;&#x88C5;&#x5168;&#x5C40;&#x7684;babel">1.1&#x5B89;&#x88C5;&#x5168;&#x5C40;&#x7684;babel <a href="#t21.1&#x5B89;&#x88C5;&#x5168;&#x5C40;&#x7684;babel"> # </a></h3>
+<pre><code class="lang-javascript">$ npm install --global babel-cli
+</code></pre>
+<h3 id="t31.2&#x67E5;&#x770B;babel&#x7684;&#x5E2E;&#x52A9;">1.2&#x67E5;&#x770B;babel&#x7684;&#x5E2E;&#x52A9; <a href="#t31.2&#x67E5;&#x770B;babel&#x7684;&#x5E2E;&#x52A9;"> # </a></h3>
+<pre><code class="lang-javascript">$ babel --help
+</code></pre>
+<h2 id="t42.babel&#x7684;&#x4F7F;&#x7528;">2.babel&#x7684;&#x4F7F;&#x7528; <a href="#t42.babel&#x7684;&#x4F7F;&#x7528;"> # </a></h2>
+<h3 id="t52.1&#x7F16;&#x8BD1;&#x5355;&#x72EC;&#x6587;&#x4EF6;">2.1&#x7F16;&#x8BD1;&#x5355;&#x72EC;&#x6587;&#x4EF6; <a href="#t52.1&#x7F16;&#x8BD1;&#x5355;&#x72EC;&#x6587;&#x4EF6;"> # </a></h3>
+<pre><code class="lang-javascript">$ babel a.js --out-file b.js
+# &#x6216;
+$ babel a.js -o b.js
+</code></pre>
+<h3 id="t62.2&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x5939;">2.2&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x5939; <a href="#t62.2&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x5939;"> # </a></h3>
+<pre><code class="lang-javascript">$ mkdir src build
+$ babel src --out-dir build
+</code></pre>
+<blockquote>
+<p>&#x4EC5;&#x4EC5;&#x662F;&#x7B80;&#x5355;&#x7684;&#x62F7;&#x8D1D;  </p>
+</blockquote>
+<h2 id="t73.&#x4F7F;&#x7528;&#x672C;&#x5730;babel">3.&#x4F7F;&#x7528;&#x672C;&#x5730;babel <a href="#t73.&#x4F7F;&#x7528;&#x672C;&#x5730;babel"> # </a></h2>
+<p>&#x521D;&#x59CB;&#x5316;package.json</p>
+<h3 id="t83.1&#x5B89;&#x88C5;babel">3.1&#x5B89;&#x88C5;babel <a href="#t83.1&#x5B89;&#x88C5;babel"> # </a></h3>
+<pre><code class="lang-javascript">npm install --save-dev babel-cli
+</code></pre>
+<h3 id="t93.2&#x5728;package.json&#x4E2D;&#x4F7F;&#x7528;&#x672C;&#x5730;babel">3.2&#x5728;package.json&#x4E2D;&#x4F7F;&#x7528;&#x672C;&#x5730;babel <a href="#t93.2&#x5728;package.json&#x4E2D;&#x4F7F;&#x7528;&#x672C;&#x5730;babel"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-string">&quot;scripts&quot;</span>: {
+    <span class="hljs-string">&quot;babel&quot;</span>: <span class="hljs-string">&quot;babel src --out-dir build&quot;</span>
+},
+</code></pre>
+<h2 id="t104.&#x914D;&#x7F6E;babel">4.&#x914D;&#x7F6E;babel <a href="#t104.&#x914D;&#x7F6E;babel"> # </a></h2>
+<h3 id="t114.1&#x521B;&#x5EFA;.babelrc&#x6587;&#x4EF6;">4.1&#x521B;&#x5EFA;.babelrc&#x6587;&#x4EF6; <a href="#t114.1&#x521B;&#x5EFA;.babelrc&#x6587;&#x4EF6;"> # </a></h3>
+<pre><code class="lang-javascript">$ touch .babelrc
+</code></pre>
+<h3 id="t124.2&#x5B89;&#x88C5;&#x5E38;&#x7528;&#x7684;&#x9884;&#x8BBE;">4.2&#x5B89;&#x88C5;&#x5E38;&#x7528;&#x7684;&#x9884;&#x8BBE; <a href="#t124.2&#x5B89;&#x88C5;&#x5E38;&#x7528;&#x7684;&#x9884;&#x8BBE;"> # </a></h3>
+<h4 id="t134.2.1&#x89E3;&#x6790;es6">4.2.1&#x89E3;&#x6790;es6 <a href="#t134.2.1&#x89E3;&#x6790;es6"> # </a></h4>
+<pre><code class="lang-javascript">$ npm install --save-dev babel-preset-es2015
+</code></pre>
+<h4 id="t144.2.2&#x89E3;&#x6790;react">4.2.2&#x89E3;&#x6790;react <a href="#t144.2.2&#x89E3;&#x6790;react"> # </a></h4>
+<pre><code class="lang-javascript">$ npm install --save-dev babel-preset-react
+</code></pre>
+<h4 id="t154.2.3&#x89E3;&#x6790;es7&#x7684;&#x4E0D;&#x540C;&#x7248;&#x672C;">4.2.3&#x89E3;&#x6790;es7&#x7684;&#x4E0D;&#x540C;&#x7248;&#x672C; <a href="#t154.2.3&#x89E3;&#x6790;es7&#x7684;&#x4E0D;&#x540C;&#x7248;&#x672C;"> # </a></h4>
+<pre><code class="lang-javascript">$ npm install --save-dev babel-preset-stage-x
+</code></pre>
+<h3 id="t164.3&#x914D;&#x7F6E;.babelrc">4.3&#x914D;&#x7F6E;.babelrc <a href="#t164.3&#x914D;&#x7F6E;.babelrc"> # </a></h3>
+<pre><code class="lang-javascript">{
+  presets: [<span class="hljs-string">&quot;es2015&quot;</span>] <span class="hljs-comment">//es2015&#x4E3A;es6&#x7684;&#x9884;&#x8BBE;</span>
+}
+</code></pre>
+<h3 id="t174.4&#x7F16;&#x8BD1;es6">4.4&#x7F16;&#x8BD1;es6 <a href="#t174.4&#x7F16;&#x8BD1;es6"> # </a></h3>
+<pre><code class="lang-javascript">$ babel src --out-dir build
+</code></pre>
+<h2 id="t185.babel&#x4E0E;webpack&#x7ED3;&#x5408;">5.babel&#x4E0E;webpack&#x7ED3;&#x5408; <a href="#t185.babel&#x4E0E;webpack&#x7ED3;&#x5408;"> # </a></h2>
+<h3 id="t195.1&#x5B89;&#x88C5;loader">5.1&#x5B89;&#x88C5;loader <a href="#t195.1&#x5B89;&#x88C5;loader"> # </a></h3>
+<pre><code class="lang-javascript">$ npm install babel-loader --save-dev
+</code></pre>
+<h3 id="t205.2&#x914D;&#x7F6E;loader">5.2&#x914D;&#x7F6E;loader <a href="#t205.2&#x914D;&#x7F6E;loader"> # </a></h3>
+<pre><code class="lang-diff">    loaders:[
+<span class="hljs-addition">+       {test:/.js$,loader:&apos;babel-loader&apos;/}</span>
+    ]
+</code></pre>
+<h3 id="t215.3&#x89E3;&#x6790;es6api">5.3&#x89E3;&#x6790;es6api <a href="#t215.3&#x89E3;&#x6790;es6api"> # </a></h3>
+<pre><code class="lang-javascript">$ npm install --save-dev babel-polyfill
+</code></pre>
+<h2 id="t226.&#x4EE3;&#x7801;&#x6574;&#x6D01;">6.&#x4EE3;&#x7801;&#x6574;&#x6D01; <a href="#t226.&#x4EE3;&#x7801;&#x6574;&#x6D01;"> # </a></h2>
+<p>&#x7531;&#x4E8E;&#x52A9;&#x624B;&#x65B9;&#x6CD5;&#x53EF;&#x80FD;&#x4F1A;&#x7279;&#x522B;&#x957F;&#x5E76;&#x4E14;&#x4F1A;&#x88AB;&#x6DFB;&#x52A0;&#x5230;&#x6BCF;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x9876;&#x90E8;&#xFF0C;&#x56E0;&#x6B64;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x4EEC;&#x7EDF;&#x4E00;&#x79FB;&#x52A8;&#x5230;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x7684;&#x201C;&#x8FD0;&#x884C;&#x65F6;&#xFF08;runtime&#xFF09;&#x201D;&#x4E2D;&#x53BB;&#x3002;</p>
+<h3 id="t236.1&#x5B89;&#x88C5;runtime">6.1&#x5B89;&#x88C5;runtime <a href="#t236.1&#x5B89;&#x88C5;runtime"> # </a></h3>
+<pre><code class="lang-javascript">$ npm install --save-dev babel-plugin-transform-runtime
+$ npm install --save babel-runtime
+</code></pre>
+<h3 id="t246.2&#x66F4;&#x6539;.babelrc">6.2&#x66F4;&#x6539;.babelrc <a href="#t246.2&#x66F4;&#x6539;.babelrc"> # </a></h3>
+<pre><code class="lang-javascript">  {
+    <span class="hljs-string">&quot;plugins&quot;</span>: [
++     <span class="hljs-string">&quot;transform-runtime&quot;</span>,
+    ]
+  }
+</code></pre>
+<h2 id="t257.babel&#x7F16;&#x8BD1;loose&#x6A21;&#x5F0F;">7.babel&#x7F16;&#x8BD1;loose&#x6A21;&#x5F0F; <a href="#t257.babel&#x7F16;&#x8BD1;loose&#x6A21;&#x5F0F;"> # </a></h2>
+<h3 id="t267.1&#x5B89;&#x88C5;&#x63D2;&#x4EF6;">7.1&#x5B89;&#x88C5;&#x63D2;&#x4EF6; <a href="#t267.1&#x5B89;&#x88C5;&#x63D2;&#x4EF6;"> # </a></h3>
+<pre><code class="lang-javascript">npm install --save-dev babel-plugin-transform-es2015-classes
+</code></pre>
+<h3 id="t277.2&#x5B9A;&#x4E49;&#x5BBD;&#x677E;&#x6A21;&#x5F0F;">7.2&#x5B9A;&#x4E49;&#x5BBD;&#x677E;&#x6A21;&#x5F0F; <a href="#t277.2&#x5B9A;&#x4E49;&#x5BBD;&#x677E;&#x6A21;&#x5F0F;"> # </a></h3>
+<pre><code class="lang-javascript">  {
+    <span class="hljs-string">&quot;plugins&quot;</span>: [
++     [<span class="hljs-string">&quot;transform-es2015-classes&quot;</span>, { <span class="hljs-string">&quot;loose&quot;</span>: <span class="hljs-literal">true</span> }]
+    ]
+  }
+</code></pre>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    .markdown-body pre code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+</script>
+</body>
+</html>
