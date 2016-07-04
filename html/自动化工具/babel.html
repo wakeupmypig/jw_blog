@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BLOG</title>
+    <title>Talent Wen</title>
         
     <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
 </head>
@@ -12,12 +12,12 @@
     <div class="container">
         <div class="logo">
             
-                BLOG
+                Talent Wen
             
         </div>
         <input type="checkbox" id="idoc_nav" />
         <div class="menu_tree">
-        <ul><li><a href="../../index.html">angular</a></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/es6课程.html">es6课程</a></li></ul></li><li><a href="#"><span></span>使用方法</a><ul><li><a href="../../html/使用方法/js初级.html">js初级</a></li><li><a href="../../html/使用方法/webstorage.html">webstorage</a></li></ul></li><li><a href="#"><span></span>自动化工具</a><ul><li><a href="../../html/自动化工具/webpack基础.html">webpack基础</a></li><li><a href="../../html/自动化工具/webpack应用.html">webpack应用</a></li><li class="active"><a href="../../html/自动化工具/babel.html">babel</a></li></ul></li></ul>    
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/es6课程.html">es6课程</a></li></ul></li><li><a href="#"><span></span>使用方法</a><ul><li><a href="../../html/使用方法/js初级.html">js初级</a></li><li><a href="../../html/使用方法/webstorage.html">webstorage</a></li></ul></li><li><a href="#"><span></span>自动化工具</a><ul><li><a href="../../html/自动化工具/webpack基础.html">webpack基础</a></li><li><a href="../../html/自动化工具/webpack应用.html">webpack应用</a></li><li class="active"><a href="../../html/自动化工具/babel.html">babel</a></li></ul></li></ul>
         </div>
         
         
@@ -35,13 +35,14 @@
 
 
 <div class="container">
-
-    <div class="page-toc">
-        <ul><li><a href="#t0Babel介绍">Babel介绍</a></li><li><a href="#t11.babel的安装">1.babel的安装</a><ul><li><a href="#t21.1安装全局的babel">1.1安装全局的babel</a></li><li><a href="#t31.2查看babel的帮助">1.2查看babel的帮助</a></li></ul></li><li><a href="#t42.babel的使用">2.babel的使用</a><ul><li><a href="#t52.1编译单独文件">2.1编译单独文件</a></li><li><a href="#t62.2编译文件夹">2.2编译文件夹</a></li></ul></li><li><a href="#t73.使用本地babel">3.使用本地babel</a><ul><li><a href="#t83.1安装babel">3.1安装babel</a></li><li><a href="#t93.2在package.json中使用本地babel">3.2在package.json中使用本地babel</a></li></ul></li><li><a href="#t104.配置babel">4.配置babel</a><ul><li><a href="#t114.1创建.babelrc文件">4.1创建.babelrc文件</a></li><li><a href="#t124.2安装常用的预设">4.2安装常用的预设</a><ul><li><a href="#t134.2.1解析es6">4.2.1解析es6</a></li><li><a href="#t144.2.2解析react">4.2.2解析react</a></li><li><a href="#t154.2.3解析es7的不同版本">4.2.3解析es7的不同版本</a></li></ul></li><li><a href="#t164.3配置.babelrc">4.3配置.babelrc</a></li><li><a href="#t174.4编译es6">4.4编译es6</a></li></ul></li><li><a href="#t185.babel与webpack结合">5.babel与webpack结合</a><ul><li><a href="#t195.1安装loader">5.1安装loader</a></li><li><a href="#t205.2配置loader">5.2配置loader</a></li><li><a href="#t215.3解析es6api">5.3解析es6api</a></li></ul></li><li><a href="#t226.代码整洁">6.代码整洁</a><ul><li><a href="#t236.1安装runtime">6.1安装runtime</a></li><li><a href="#t246.2更改.babelrc">6.2更改.babelrc</a></li></ul></li><li><a href="#t257.babel编译loose模式">7.babel编译loose模式</a><ul><li><a href="#t267.1安装插件">7.1安装插件</a></li><li><a href="#t277.2定义宽松模式">7.2定义宽松模式</a></li></ul></li></ul>
-    </div>
     
-    <div class="content markdown-body">
-        <h2 id="t0Babel&#x4ECB;&#x7ECD;">Babel&#x4ECB;&#x7ECD; <a href="#t0Babel&#x4ECB;&#x7ECD;"> # </a></h2>
+        <div class="page-toc">
+            <ul><li><a href="#t0Babel介绍">Babel介绍</a></li><li><a href="#t11.babel的安装">1.babel的安装</a><ul><li><a href="#t21.1安装全局的babel">1.1安装全局的babel</a></li><li><a href="#t31.2查看babel的帮助">1.2查看babel的帮助</a></li></ul></li><li><a href="#t42.babel的使用">2.babel的使用</a><ul><li><a href="#t52.1编译单独文件">2.1编译单独文件</a></li><li><a href="#t62.2编译文件夹">2.2编译文件夹</a></li></ul></li><li><a href="#t73.使用本地babel">3.使用本地babel</a><ul><li><a href="#t83.1安装babel">3.1安装babel</a></li><li><a href="#t93.2在package.json中使用本地babel">3.2在package.json中使用本地babel</a></li></ul></li><li><a href="#t104.配置babel">4.配置babel</a><ul><li><a href="#t114.1创建.babelrc文件">4.1创建.babelrc文件</a></li><li><a href="#t124.2安装常用的预设">4.2安装常用的预设</a><ul><li><a href="#t134.2.1解析es6">4.2.1解析es6</a></li><li><a href="#t144.2.2解析react">4.2.2解析react</a></li><li><a href="#t154.2.3解析es7的不同版本">4.2.3解析es7的不同版本</a></li></ul></li><li><a href="#t164.3配置.babelrc">4.3配置.babelrc</a></li><li><a href="#t174.4编译es6">4.4编译es6</a></li></ul></li><li><a href="#t185.babel与webpack结合">5.babel与webpack结合</a><ul><li><a href="#t195.1安装loader">5.1安装loader</a></li><li><a href="#t205.2配置loader">5.2配置loader</a></li><li><a href="#t215.3解析es6api">5.3解析es6api</a></li></ul></li><li><a href="#t226.代码整洁">6.代码整洁</a><ul><li><a href="#t236.1安装runtime">6.1安装runtime</a></li><li><a href="#t246.2更改.babelrc">6.2更改.babelrc</a></li></ul></li><li><a href="#t257.babel编译loose模式">7.babel编译loose模式</a><ul><li><a href="#t267.1安装插件">7.1安装插件</a></li><li><a href="#t277.2定义宽松模式">7.2定义宽松模式</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t0Babel&#x4ECB;&#x7ECD;">Babel&#x4ECB;&#x7ECD; <a href="#t0Babel&#x4ECB;&#x7ECD;"> # </a></h2>
 <p>Babel &#x662F;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684;&#x591A;&#x7528;&#x9014; JavaScript &#x7F16;&#x8BD1;&#x5668;<br>Babel &#x628A;&#x7528;&#x6700;&#x65B0;&#x6807;&#x51C6;&#x7F16;&#x5199;&#x7684; JavaScript &#x4EE3;&#x7801;&#x5411;&#x4E0B;&#x7F16;&#x8BD1;&#x6210;&#x53EF;&#x4EE5;&#x5728;&#x4ECA;&#x5929;&#x968F;&#x5904;&#x53EF;&#x7528;&#x7684;&#x7248;&#x672C;&#x3002;  </p>
 <h2 id="t11.babel&#x7684;&#x5B89;&#x88C5;">1.babel&#x7684;&#x5B89;&#x88C5; <a href="#t11.babel&#x7684;&#x5B89;&#x88C5;"> # </a></h2>
 <h3 id="t21.1&#x5B89;&#x88C5;&#x5168;&#x5C40;&#x7684;babel">1.1&#x5B89;&#x88C5;&#x5168;&#x5C40;&#x7684;babel <a href="#t21.1&#x5B89;&#x88C5;&#x5168;&#x5C40;&#x7684;babel"> # </a></h3>
@@ -132,11 +133,10 @@ $ npm install --save babel-runtime
   }
 </code></pre>
 
-        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
-    </div>
 
+        </div>
+    
 </div>
-
 <style>
     .page-toc{
         overflow: hidden;
@@ -231,3 +231,11 @@ $(window).on('scroll',dark);
 </script>
 </body>
 </html>
+
+<style>
+.jw-style{
+    font-size: 1.75em;
+    color: #1d3e81;
+    line-height: 2em;
+}
+</style>

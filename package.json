@@ -1,5 +1,5 @@
 {
-    "name": "BLOG",
+    "name": "Talent Wen",
     "version": "0.0.1",
     "description": "",
     "keywords": [
@@ -15,7 +15,7 @@
     "idoc": {
         "theme": "blog",
         "md": [
-            "angular.md",
+            "首页.md",
             {
                 "JAVASCRIPT": [
                     "es6课程.md"
