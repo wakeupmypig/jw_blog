@@ -40,6 +40,11 @@
                 "nodejs": [
                     "文件上传.md"
                 ]
+            },
+            {
+                "AngularJS": [
+                    "angular入门.md"
+                ]
             }
         ]
     }
