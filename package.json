@@ -22,16 +22,17 @@
                 ]
             },
             {
-                "使用方法": [
-                    "js初级.md",
-                    "webstorage.md"
-                ]
-            },
-            {
                 "自动化工具": [
                     "webpack基础.md",
                     "webpack应用.md",
                     "babel.md"
+                ]
+            },
+            {
+                "js基础": [
+                    "初识JS.md",
+                    "js常用方法.md",
+                    "预解析作用域闭包this.md"
                 ]
             }
         ]
