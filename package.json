@@ -43,7 +43,8 @@
             },
             {
                 "AngularJS": [
-                    "angular入门.md"
+                    "angular入门.md",
+                    "angular基础.md"
                 ]
             }
         ]
