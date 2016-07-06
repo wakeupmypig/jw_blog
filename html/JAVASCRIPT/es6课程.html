@@ -461,6 +461,17 @@ map.clear(); <span class="hljs-comment">//&#x6E05;&#x7A7A;</span>
     html,body,.container{
       font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
     }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("/static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
     .markdown-body pre code,.markdown-body code{
         font-size: 20px;
         line-height: 24px;
@@ -477,7 +488,7 @@ map.clear(); <span class="hljs-comment">//&#x6E05;&#x7A7A;</span>
 </style>
 <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
 <script>
-
+if(!$('.understand-me').length){
 var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
 var count =  bar/26/2;
 var barHeight = $('.page-toc').outerHeight();
@@ -515,7 +526,9 @@ function dark(){
     }
 }
 $(window).on('scroll',dark);
+}
 </script>
+<div style="background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px"></div>
 </body>
 </html>
 
@@ -580,3 +593,6 @@ $(window).on('scroll',dark);
     }
 }
 </style>
+<script>
+
+</script>
