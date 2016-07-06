@@ -485,6 +485,79 @@ map.clear(); <span class="hljs-comment">//&#x6E05;&#x7A7A;</span>
     .markdown-body h4{
         font-size:1em;
     }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
 </style>
 <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
 <script>
@@ -528,71 +601,11 @@ function dark(){
 $(window).on('scroll',dark);
 }
 </script>
-<div style="background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px"></div>
+<div class="footers"></div>
 </body>
 </html>
 
-<style>
-.jw-style{
-    font-size: 1.75em;
-    color: #1d3e81;
-    line-height: 2em;
-}
 
-.understand-me {
-    text-align: center;
-    margin: 100px auto 0;
-}
-
-.understand-me li {
-    vertical-align: top;
-    width: 33.3333%;
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
-    text-align: center;
-}
-
-.understand-me li span {
-    color: #1a1a1a;
-    font-size: 1.6em;
-
-}
-
-.understand-me p {
-    margin: 0 auto;
-    width: 90%;
-    text-align: left;
-    color: #4c4c4c;
-    font-size: 1em;
-    line-height: 1.2em;
-}
-
-.understand-me img {
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    transition: all 0.4s;
-}
-
-.understand-me img:hover {
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-}
-@media screen and (max-width: 479px) {
-    .understand-me li{
-        width: 100%;
-        margin-bottom: 2em;
-    }
-    .understand-me p {
-        width: 60%;
-    }
-}
-</style>
 <script>
 
 </script>
