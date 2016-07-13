@@ -37,7 +37,7 @@
 <div class="container">
     
         <div class="page-toc">
-            <ul><li><a href="#t01.ng-route路由">1.ng-route路由</a><ul><li><a href="#t11.1 安装路由">1.1 安装路由</a></li><li><a href="#t21.2 依赖模块">1.2 依赖模块</a></li><li><a href="#t31.3 配置路由">1.3 配置路由</a></li><li><a href="#t41.4 创建路由链接">1.4 创建路由链接</a></li><li><a href="#t51.5 监控路由变化">1.5 监控路由变化</a></li><li><a href="#t61.6 获取路由参数">1.6 获取路由参数</a></li></ul></li><li><a href="#t72.angular-ui-route">2.angular-ui-route</a><ul><li><a href="#t82.1 配置路由">2.1 配置路由</a></li><li><a href="#t92.2 创建路由连接">2.2 创建路由连接</a></li><li><a href="#t102.3 监控路由变化">2.3 监控路由变化</a><ul><li><a href="#t112.3.1 监听不存在的路由">2.3.1 监听不存在的路由</a></li><li><a href="#t122.3.2 切换出错">2.3.2 切换出错</a></li><li><a href="#t132.3.3 进入路由时">2.3.3 进入路由时</a></li><li><a href="#t142.3.4 退出路由时">2.3.4 退出路由时</a></li><li><a href="#t152.3.4 设置服务">2.3.4 设置服务</a></li></ul></li><li><a href="#t162.4 路由嵌套">2.4 路由嵌套</a></li><li><a href="#t172.5 配置多视图">2.5 配置多视图</a></li><li><a href="#t183.路由demo">3.路由demo</a><ul><li><a href="#t193.1 配置根view">3.1 配置根view</a></li><li><a href="#t203.2 引入样式">3.2 引入样式</a></li><li><a href="#t213.3 配置路由">3.3 配置路由</a></li><li><a href="#t223.4 设置子路由">3.4 设置子路由</a></li></ul></li></ul></li></ul>
+            <ul><li><a href="#t01.ng-route路由">1.ng-route路由</a><ul><li><a href="#t11.1 安装路由">1.1 安装路由</a></li><li><a href="#t21.2 依赖模块">1.2 依赖模块</a></li><li><a href="#t31.3 配置路由">1.3 配置路由</a></li><li><a href="#t41.4 创建路由链接">1.4 创建路由链接</a></li><li><a href="#t51.5 监控路由变化">1.5 监控路由变化</a></li><li><a href="#t61.6 获取路由参数">1.6 获取路由参数</a></li></ul></li><li><a href="#t72.angular-ui-route">2.angular-ui-route</a><ul><li><a href="#t82.1 配置路由">2.1 配置路由</a></li><li><a href="#t92.2 创建路由连接">2.2 创建路由连接</a></li><li><a href="#t102.3 监控路由变化">2.3 监控路由变化</a><ul><li><a href="#t112.3.1 监听不存在的路由">2.3.1 监听不存在的路由</a></li><li><a href="#t122.3.2 切换出错">2.3.2 切换出错</a></li><li><a href="#t132.3.3 进入路由时">2.3.3 进入路由时</a></li><li><a href="#t142.3.4 退出路由时">2.3.4 退出路由时</a></li><li><a href="#t152.3.4 设置服务">2.3.4 设置服务</a></li></ul></li><li><a href="#t162.4 路由嵌套">2.4 路由嵌套</a></li><li><a href="#t172.5 配置多视图">2.5 配置多视图</a></li><li><a href="#t183.路由demo">3.路由demo</a><ul><li><a href="#t193.1 配置根view">3.1 配置根view</a></li><li><a href="#t203.2 引入样式">3.2 引入样式</a></li><li><a href="#t213.3 配置路由">3.3 配置路由</a></li><li><a href="#t223.4 设置子路由">3.4 设置子路由</a></li><li><a href="#t233.5 参数的传递">3.5 参数的传递</a></li></ul></li></ul></li></ul>
         </div>
 
         <div class="content markdown-body">
@@ -302,7 +302,34 @@ app.config(function ($stateProvider,$urlRouterProvider) {
     <span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
-
+<h4 id="t233.5 &#x53C2;&#x6570;&#x7684;&#x4F20;&#x9012;">3.5 &#x53C2;&#x6570;&#x7684;&#x4F20;&#x9012; <a href="#t233.5 &#x53C2;&#x6570;&#x7684;&#x4F20;&#x9012;"> # </a></h4>
+<pre><code class="lang-javascript">state(<span class="hljs-string">&apos;tab.home&apos;</span>, {
+    url:<span class="hljs-string">&apos;/home/:id&apos;</span>,
+    views:{
+        <span class="hljs-string">&apos;&apos;</span>:{
+            templateUrl:<span class="hljs-string">&apos;tmpl/home.html&apos;</span>,
+            controller: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope,$stateParams</span>) </span>{
+                $scope.id = $stateParams.id
+            }
+        }
+    },
+}).state(<span class="hljs-string">&apos;tab.car&apos;</span>, {
+    url:<span class="hljs-string">&apos;/car&apos;</span>,
+    views:{
+        <span class="hljs-string">&apos;&apos;</span>:{
+            templateUrl:<span class="hljs-string">&apos;tmpl/list.html&apos;</span>,
+            controller: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope,$state</span>) </span>{
+                $scope.go = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                    $state.go(<span class="hljs-string">&apos;tab.home&apos;</span>,{id:<span class="hljs-number">100</span>})
+                }
+            }
+        }
+    },
+})
+</code></pre>
+<p>&#x589E;&#x52A0;&#x8DF3;&#x8F6C;&#x6309;&#x94AE;</p>
+<pre><code>&lt;button ng-click=&quot;go()&quot;&gt;&#x70B9;&#x51FB;&lt;/button&gt;
+</code></pre>
 
         </div>
     
