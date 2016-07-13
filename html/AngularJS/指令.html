@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Talent Coder</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Talent Coder
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/es6课程.html">es6课程</a></li></ul></li><li><a href="#"><span></span>自动化工具</a><ul><li><a href="../../html/自动化工具/webpack基础.html">webpack基础</a></li><li><a href="../../html/自动化工具/webpack应用.html">webpack应用</a></li><li><a href="../../html/自动化工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>js基础</a><ul><li><a href="../../html/js基础/初识JS.html">初识JS</a></li><li><a href="../../html/js基础/预解析作用域闭包this.html">预解析作用域闭包this</a></li><li><a href="../../html/js基础/原型链.html">原型链</a></li><li><a href="../../html/js基础/js基础知识.html">js基础知识</a></li></ul></li><li><a href="#"><span></span>nodejs</a><ul><li><a href="../../html/nodejs/文件上传.html">文件上传</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../html/AngularJS/angular基础.html">angular基础</a></li><li class="active"><a href="../../html/AngularJS/指令.html">指令</a></li><li><a href="../../html/AngularJS/服务.html">服务</a></li></ul></li></ul>
+        </div>
+        
+        <!--
+        <div class="forkgithub"><a target="_blank" href="https://github.com/WakeUpPig/jw_blog.git">fork on github</a></div>
+        -->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01.angular中的指令">1.angular中的指令</a><ul><li><a href="#t11.1 创建指令">1.1 创建指令</a></li><li><a href="#t21.2 模板">1.2 模板</a></li><li><a href="#t31.3 transclude">1.3 transclude</a><ul><li><a href="#t41.3.1 面板">1.3.1 面板</a></li></ul></li><li><a href="#t51.4 link函数">1.4 link函数</a><ul><li><a href="#t61.4.1 给面板增加传入的标题">1.4.1 给面板增加传入的标题</a></li></ul></li><li><a href="#t71.5 独立作用域">1.5 独立作用域</a></li><li><a href="#t81.6 动态引用数据">1.6 动态引用数据</a><ul><li><a href="#t91.6.1 "@"引用字符串">1.6.1 "@"引用字符串</a></li><li><a href="#t101.6.2 "="引用scope上的属性">1.6.2 "="引用scope上的属性</a></li><li><a href="#t111.6.3 "="与"@"区别">1.6.3 "="与"@"区别</a></li><li><a href="#t121.6.4 &绑定函数">1.6.4 &绑定函数</a></li></ul></li><li><a href="#t131.7 replace替换指令">1.7 replace替换指令</a></li><li><a href="#t141.8 compile函数">1.8 compile函数</a></li></ul></li><li><a href="#t152.指令和指令间的交互">2.指令和指令间的交互</a></li><li><a href="#t163.opener指令demo">3.opener指令demo</a></li><li><a href="#t174.opener组">4.opener组</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t01.angular&#x4E2D;&#x7684;&#x6307;&#x4EE4;">1.angular&#x4E2D;&#x7684;&#x6307;&#x4EE4; <a href="#t01.angular&#x4E2D;&#x7684;&#x6307;&#x4EE4;"> # </a></h2>
+<h3 id="t11.1 &#x521B;&#x5EFA;&#x6307;&#x4EE4;">1.1 &#x521B;&#x5EFA;&#x6307;&#x4EE4; <a href="#t11.1 &#x521B;&#x5EFA;&#x6307;&#x4EE4;"> # </a></h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">my-dire</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">my-dire</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">&apos;appModule&apos;</span>,[]);
+app.directive(<span class="hljs-string">&apos;myDire&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {
+
+    }
+});
+</code></pre>
+<h3 id="t21.2 &#x6A21;&#x677F;">1.2 &#x6A21;&#x677F; <a href="#t21.2 &#x6A21;&#x677F;"> # </a></h3>
+<pre><code class="lang-diff">var app = angular.module(&apos;appModule&apos;,[]);
+app.directive(&apos;myDire&apos;,function () {
+    return {
+<span class="hljs-addition">+       template:&apos;&lt;div&gt;Hello&lt;/div&gt;&apos;   </span>
+    }
+});
+</code></pre>
+<h3 id="t31.3 transclude">1.3 transclude <a href="#t31.3 transclude"> # </a></h3>
+<p>&#x4FDD;&#x7559;&#x6307;&#x4EE4;&#x4E2D;&#x7684;&#x5185;&#x5BB9;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">my-dire</span>&gt;</span>world<span class="hljs-tag">&lt;/<span class="hljs-title">my-dire</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-diff">return {
+<span class="hljs-addition">+    transclude:true,</span>
+<span class="hljs-deletion">-    template:&apos;&lt;div&gt;Hello&lt;/div&gt;&apos;</span>
+<span class="hljs-addition">+    template:&apos;&lt;div&gt;Hello &lt;span ng-transclude&gt;&lt;/span&gt;&lt;/div&gt;&apos;</span>
+}
+</code></pre>
+<h4 id="t41.3.1 &#x9762;&#x677F;">1.3.1 &#x9762;&#x677F; <a href="#t41.3.1 &#x9762;&#x677F;"> # </a></h4>
+<p>&#x5F15;&#x5165;bootstrap</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.css&quot;&gt;
+</code></pre><p>&#x589E;&#x52A0;panel.html</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel panel-default&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-heading&quot;</span>&gt;</span>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x9762;&#x677F;<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-body&quot;</span> <span class="hljs-attribute">ng-transclude</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<p>&#x4FEE;&#x6539;&#x6307;&#x4EE4;&#x4EE3;&#x7801;</p>
+<pre><code class="lang-diff">return {
+    transclude:true,
+<span class="hljs-addition">+   templateUrl:&apos;panel.html&apos;,</span>
+}
+</code></pre>
+<h3 id="t51.4 link&#x51FD;&#x6570;">1.4 link&#x51FD;&#x6570; <a href="#t51.4 link&#x51FD;&#x6570;"> # </a></h3>
+<p>link&#x51FD;&#x6570;&#x662F;&#x7528;&#x6765;&#x94FE;&#x63A5;&#x89C6;&#x56FE;&#x548C;scope  </p>
+<ol>
+<li>scope:&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;</li>
+<li>element:jq&#x5BF9;&#x8C61;</li>
+<li>attrs:&#x5F53;&#x524D;&#x6307;&#x4EE4;&#x4E0A;&#x7684;&#x5C5E;&#x6027;  </li>
+</ol>
+<pre><code class="lang-diff">return {
+       transclude:true,
+       templateUrl:&apos;panel.html&apos;,
+<span class="hljs-addition">+      link: function (scope,element,attrs) {</span>
+<span class="hljs-addition">+                      </span>
+<span class="hljs-addition">+      }</span>
+}
+</code></pre>
+<h4 id="t61.4.1 &#x7ED9;&#x9762;&#x677F;&#x589E;&#x52A0;&#x4F20;&#x5165;&#x7684;&#x6807;&#x9898;">1.4.1 &#x7ED9;&#x9762;&#x677F;&#x589E;&#x52A0;&#x4F20;&#x5165;&#x7684;&#x6807;&#x9898; <a href="#t61.4.1 &#x7ED9;&#x9762;&#x677F;&#x589E;&#x52A0;&#x4F20;&#x5165;&#x7684;&#x6807;&#x9898;"> # </a></h4>
+<p>&#x589E;&#x52A0;title&#x5C5E;&#x6027;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">my-dire</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;&#x8FD9;&#x662F;&#x5934;&#x90E8;&quot;</span>&gt;</span>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x9762;&#x677F;&#xFF0C;helloAngular<span class="hljs-tag">&lt;/<span class="hljs-title">my-dire</span>&gt;</span>
+</code></pre>
+<p>&#x589E;&#x52A0;&#x5C5E;&#x6027;&#x503C;</p>
+<pre><code class="lang-diff">&lt;div class=&quot;panel panel-default&quot;&gt;
+<span class="hljs-addition">+    &lt;div class=&quot;panel-heading&quot;&gt;{{title}}&lt;/div&gt;</span>
+     &lt;div class=&quot;panel-body&quot; ng-transclude&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>&#x58F0;&#x660E;&#x6807;&#x9898;</p>
+<pre><code class="lang-diff">return{
+    link: function (scope,element,attrs) {
+<span class="hljs-addition">+      scope.title = attrs[&quot;title&quot;];</span>
+    }
+}
+</code></pre>
+<h3 id="t71.5 &#x72EC;&#x7ACB;&#x4F5C;&#x7528;&#x57DF;">1.5 &#x72EC;&#x7ACB;&#x4F5C;&#x7528;&#x57DF; <a href="#t71.5 &#x72EC;&#x7ACB;&#x4F5C;&#x7528;&#x57DF;"> # </a></h3>
+<p>&#x53EF;&#x4EE5;&#x4E3A;&#x5F53;&#x524D;&#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x72EC;&#x7ACB;&#x4F5C;&#x7528;&#x57DF;</p>
+<pre><code class="lang-diff">return {
+<span class="hljs-addition">+  scope:true,</span>
+}
+</code></pre>
+<h3 id="t81.6 &#x52A8;&#x6001;&#x5F15;&#x7528;&#x6570;&#x636E;">1.6 &#x52A8;&#x6001;&#x5F15;&#x7528;&#x6570;&#x636E; <a href="#t81.6 &#x52A8;&#x6001;&#x5F15;&#x7528;&#x6570;&#x636E;"> # </a></h3>
+<h4 id="t91.6.1 &quot;@&quot;&#x5F15;&#x7528;&#x5B57;&#x7B26;&#x4E32;">1.6.1 &quot;@&quot;&#x5F15;&#x7528;&#x5B57;&#x7B26;&#x4E32; <a href="#t91.6.1 " @"引用字符串"=""> # </a></h4>
+<p>&#x6307;&#x4EE4;&#x548C;&#x4F5C;&#x7528;&#x57DF;&#x95F4;&#x7684;&#x4EA4;&#x4E92;
+&#x58F0;&#x660E;&#x63A7;&#x5236;&#x5668;</p>
+<pre><code>app.controller(&apos;appCtrl&apos;,function ($scope) {
+    $scope.title = [
+        {name:&apos;&#x7B2C;&#x4E00;&#x4E2A;&#x9762;&#x677F;&apos;},
+        {name:&apos;&#x7B2C;&#x4E8C;&#x4E2A;&#x9762;&#x677F;&apos;}
+    ]
+});
+</code></pre><p>&#x6302;&#x8F7D;scope&#x4E0A;&#x7684;&#x5C5E;&#x6027;</p>
+<pre><code class="lang-javascript">&lt;my-dire title=&quot;{{title[0].name}}&quot;&gt;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x9762;&#x677F;&#xFF0C;helloAngular&lt;/my-dire&gt;
+&lt;my-dire title=&quot;{{title[1].name}}&quot;&gt;&#x8FD9;&#x662F;&#x4E8C;&#x4E2A;&#x9762;&#x677F;&#xFF0C;helloAngular&lt;/my-dire&gt;
+</code></pre>
+<p>&#x5728;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x4E0B;&#x58F0;&#x660E;title&#x5C5E;&#x6027;&#xFF0C;&#x5F15;&#x7528;&#x5BF9;&#x5E94;&#x7684;&#x503C;</p>
+<pre><code>return {
+    transclude:true,
+    templateUrl:&apos;panel.html&apos;,
+    scope:{
+        title:&apos;@&apos;
+    }
+}
+</code></pre><h4 id="t101.6.2 &quot;=&quot;&#x5F15;&#x7528;scope&#x4E0A;&#x7684;&#x5C5E;&#x6027;">1.6.2 &quot;=&quot;&#x5F15;&#x7528;scope&#x4E0A;&#x7684;&#x5C5E;&#x6027; <a href="#t101.6.2 " ="引用scope上的属性"=""> # </a></h4>
+<p>&#x4FEE;&#x6539;html</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">my-dire</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;title1&quot;</span>&gt;</span>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x9762;&#x677F;&#xFF0C;helloAngular<span class="hljs-tag">&lt;/<span class="hljs-title">my-dire</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">my-dire</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;title2&quot;</span>&gt;</span>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x9762;&#x677F;&#xFF0C;helloAngular<span class="hljs-tag">&lt;/<span class="hljs-title">my-dire</span>&gt;</span>
+</code></pre>
+<p>&#x589E;&#x52A0;&#x52A8;&#x6001;&#x5C5E;&#x6027;</p>
+<pre><code class="lang-javascript">app.controller(<span class="hljs-string">&apos;appCtrl&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope</span>) </span>{
+    $scope.title1 = <span class="hljs-string">&apos;hello1&apos;</span>;
+    $scope.title2 = <span class="hljs-string">&apos;hello2&apos;</span>
+});
+</code></pre>
+<p>&#x4FEE;&#x6539;&#x6307;&#x4EE4;</p>
+<pre><code>scope:{
+    title:&apos;=&apos;
+}
+</code></pre><h4 id="t111.6.3 &quot;=&quot;&#x4E0E;&quot;@&quot;&#x533A;&#x522B;">1.6.3 &quot;=&quot;&#x4E0E;&quot;@&quot;&#x533A;&#x522B; <a href="#t111.6.3 " ="与"@"区别"=""> # </a></h4>
+<p>@&#x5355;&#x5411;&#x7ED1;&#x5B9A;
+html&#x9875;&#x9762;</p>
+<pre><code>&#x63A7;&#x5236;&#x5668;&#xFF1A;&lt;input type=&quot;text&quot; ng-model=&quot;home&quot;&gt;
+&lt;my-dire home=&quot;{{home}}&quot;&gt;&lt;/my-dire&gt;
+</code></pre><p>&#x63A7;&#x5236;&#x5668;</p>
+<pre><code>app.controller(&apos;appCtrl&apos;,function ($scope) {
+    $scope.home = &apos;home&apos;
+});
+app.directive(&apos;myDire&apos;,function () {
+    return {
+        transclude:true,
+        template:&apos;&#x6307;&#x4EE4;&#x5185;&#x90E8;&lt;input type=&quot;text&quot; ng-model=&quot;home&quot;&gt;&apos;,
+        scope:{
+            home:&apos;@&apos;
+        }
+    }
+});
+</code></pre><p>=&#x53CC;&#x5411;&#x7ED1;&#x5B9A;
+html&#x9875;&#x9762;</p>
+<pre><code>&#x63A7;&#x5236;&#x5668;&#xFF1A;&lt;input type=&quot;text&quot; ng-model=&quot;hobby&quot;&gt;
+</code></pre><pre><code class="lang-diff">app.controller(&apos;appCtrl&apos;,function ($scope) {
+     $scope.home = &apos;home&apos;;
+<span class="hljs-addition">+    $scope.hobby = &apos;hobby&apos;;</span>
+});
+return {
+<span class="hljs-addition">+   template:&apos;&#x6307;&#x4EE4;&#x5185;&#x90E8;&lt;input type=&quot;text&quot; ng-model=&quot;hobby&quot;&gt;&apos;,</span>
+    scope:{
+         home:&apos;@&apos;,
+<span class="hljs-addition">+        hobby:&apos;=&apos;</span>
+    }
+}
+</code></pre>
+<h4 id="t121.6.4 &amp;&#x7ED1;&#x5B9A;&#x51FD;&#x6570;">1.6.4 &amp;&#x7ED1;&#x5B9A;&#x51FD;&#x6570; <a href="#t121.6.4 &amp;&#x7ED1;&#x5B9A;&#x51FD;&#x6570;"> # </a></h4>
+<p>html&#x7ED1;&#x5B9A;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">my-dire</span> <span class="hljs-attribute">home</span> =<span class="hljs-value">&quot;home(person)&quot;</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;{{name}}&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">my-dire</span>&gt;</span>
+</code></pre>
+<p>&#x6307;&#x4EE4;&#x4E2D;&#x8C03;&#x7528;&#x51FD;&#x6570;</p>
+<pre><code class="lang-javascript">app.controller(<span class="hljs-string">&apos;appCtrl&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope</span>) </span>{
+    $scope.name = <span class="hljs-string">&apos;zfpx&apos;</span>;
+    $scope.home = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">who</span>) </span>{
+        alert(who);
+    }
+});
+app.directive(<span class="hljs-string">&apos;myDire&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {
+        template:<span class="hljs-string">&apos;{{name}}&lt;div ng-click=&quot;home({person:name})&quot;&gt;&#x8C01;&#x7684;&#x5BB6;&lt;/div&gt;&apos;</span>,
+        scope:{
+            home:<span class="hljs-string">&apos;&amp;&apos;</span>,name:<span class="hljs-string">&apos;@&apos;</span>
+        }
+    }
+});
+</code></pre>
+<h3 id="t131.7 replace&#x66FF;&#x6362;&#x6307;&#x4EE4;">1.7 replace&#x66FF;&#x6362;&#x6307;&#x4EE4; <a href="#t131.7 replace&#x66FF;&#x6362;&#x6307;&#x4EE4;"> # </a></h3>
+<p>&#x589E;&#x52A0;replace:true&#x66FF;&#x6362;&#x539F;&#x6709;&#x6307;&#x4EE4;</p>
+<pre><code>return {
+    replace:true
+}
+</code></pre><h3 id="t141.8 compile&#x51FD;&#x6570;">1.8 compile&#x51FD;&#x6570; <a href="#t141.8 compile&#x51FD;&#x6570;"> # </a></h3>
+<p>&#x5728;link&#x51FD;&#x6570;&#x524D;&#x6267;&#x884C;&#xFF0C;&#x7F16;&#x8BD1;&#x6A21;&#x677F;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x51FD;&#x6570;&#x4E3A;link&#x51FD;&#x6570;</p>
+<pre><code>&lt;my-dire time=&quot;3&quot;&gt;&lt;/my-dire&gt;
+</code></pre><p>&#x6307;&#x4EE4;&#x4E2D;&#x589E;&#x52A0;compile&#x51FD;&#x6570;</p>
+<pre><code>return {
+    transclude:true,
+    template:&apos;&lt;div&gt;Hello,zfpx {{title}}&lt;/div&gt;&apos;,
+    compile: function (element,attrs) {
+        var tmpl = element.children();
+        for(var i = 0; i &lt; attrs.time-1;i++){
+            element.append(tmpl.clone());
+        }
+        return function (scope,element,attrs) {
+            scope.title = &apos;123&apos;;
+        }
+    },
+}
+</code></pre><h2 id="t152.&#x6307;&#x4EE4;&#x548C;&#x6307;&#x4EE4;&#x95F4;&#x7684;&#x4EA4;&#x4E92;">2.&#x6307;&#x4EE4;&#x548C;&#x6307;&#x4EE4;&#x95F4;&#x7684;&#x4EA4;&#x4E92; <a href="#t152.&#x6307;&#x4EE4;&#x548C;&#x6307;&#x4EE4;&#x95F4;&#x7684;&#x4EA4;&#x4E92;"> # </a></h2>
+<p>&#x521B;&#x5EFA;&#x591A;&#x4E2A;&#x6307;&#x4EE4;&#xFF0C;&#x4F9D;&#x8D56;&#x4E8E;girl&#x6307;&#x4EE4;</p>
+<pre><code>&lt;girl love-money  ng-click=&quot;show()&quot;&gt;Angular MM&lt;/girl&gt;
+</code></pre><p>&#x521B;&#x5EFA;&#x6307;&#x4EE4;&#x516C;&#x6709;&#x90E8;&#x5206;</p>
+<pre><code class="lang-javascript">app.directive(<span class="hljs-string">&apos;girl&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {
+        controller: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope</span>) </span>{
+            <span class="hljs-keyword">var</span> arr = [];
+            <span class="hljs-keyword">this</span>.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">attrs</span>) </span>{
+                arr.push(attrs);
+            };
+            $scope.show = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                alert(arr);
+            }
+        }
+    }
+});
+</code></pre>
+<p>&#x521B;&#x5EFA;&#x6307;&#x4EE4;&#x95F4;&#x7684;&#x4F9D;&#x8D56;</p>
+<pre><code class="lang-javascript">app.directive(<span class="hljs-string">&apos;loveMoney&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-built_in">require</span>:<span class="hljs-string">&apos;^girl&apos;</span>,
+        link: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">scope,element,attrs,girlCtrl</span>) </span>{
+            girlCtrl.add(<span class="hljs-string">&apos;loveMoney&apos;</span>);
+        }
+    }
+});
+</code></pre>
+<h2 id="t163.opener&#x6307;&#x4EE4;demo">3.opener&#x6307;&#x4EE4;demo <a href="#t163.opener&#x6307;&#x4EE4;demo"> # </a></h2>
+<p>&#x589E;&#x52A0;css&#x6837;&#x5F0F;</p>
+<pre><code class="lang-css"><span class="hljs-class">.title</span><span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">30px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">line-height</span>:<span class="hljs-value"> <span class="hljs-number">30px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> yellow</span></span>;
+}</span>
+<span class="hljs-class">.content</span><span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> red</span></span>;
+}</span>
+</code></pre>
+<p>&#x589E;&#x52A0;&#x6307;&#x4EE4;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">opener</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;&#x6807;&#x9898;1&quot;</span>&gt;</span>&#x8FD9;&#x662F;&#x5185;&#x5BB9;1<span class="hljs-tag">&lt;/<span class="hljs-title">opener</span>&gt;</span>
+</code></pre>
+<p>&#x589E;&#x52A0;&#x5F15;&#x7528;&#x6A21;&#x677F;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;title&quot;</span> <span class="hljs-attribute">ng-click</span>=<span class="hljs-value">&quot;show()&quot;</span>&gt;</span>{{title}}<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;content&quot;</span> <span class="hljs-attribute">ng-show</span>=<span class="hljs-value">&quot;flag&quot;</span> <span class="hljs-attribute">ng-transclude</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<p>&#x589E;&#x52A0;&#x6307;&#x4EE4;</p>
+<pre><code class="lang-javascript">app.directive(<span class="hljs-string">&apos;opener&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {
+        templateUrl:<span class="hljs-string">&apos;open.html&apos;</span>,
+        transclude:<span class="hljs-literal">true</span>,
+        scope:{
+            title:<span class="hljs-string">&apos;@&apos;</span>
+        },
+        link:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">scope,element,attrs</span>)</span>{
+            scope.flag = <span class="hljs-literal">true</span>;
+            scope.show = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                scope.flag = !scope.flag;
+            }
+        }
+    }
+});
+</code></pre>
+<h2 id="t174.opener&#x7EC4;">4.opener&#x7EC4; <a href="#t174.opener&#x7EC4;"> # </a></h2>
+<p>&#x589E;&#x52A0;&#x7EC4;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">group</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">opener</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;&#x6807;&#x9898;1&quot;</span>&gt;</span>&#x8FD9;&#x662F;&#x5185;&#x5BB9;1<span class="hljs-tag">&lt;/<span class="hljs-title">opener</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">opener</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;&#x6807;&#x9898;2&quot;</span>&gt;</span>&#x8FD9;&#x662F;&#x5185;&#x5BB9;2<span class="hljs-tag">&lt;/<span class="hljs-title">opener</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">group</span>&gt;</span>
+</code></pre>
+<p>&#x8BBE;&#x7F6E;&#x6307;&#x4EE4;</p>
+<pre><code>app.directive(&apos;group&apos;, function () {
+    return {
+        controller: function ($scope) {
+            var arr = [];
+            this.add = function (scope) {
+                arr.push(scope);
+            }
+            this.close = function (scope) {
+                for(var i = 0; i&lt;arr.length;i++){
+                    if(arr[i]!=scope){
+                        arr[i].flag = false;
+                    }
+                }
+            }
+        }
+    }
+});
+app.directive(&apos;opener&apos;,function () {
+    return {
+        templateUrl:&apos;open.html&apos;,
+        transclude:true,
+        require:&apos;^group&apos;,
+        scope:{
+            title:&apos;@&apos;
+        },
+        link:function(scope,element,attrs,groupCtrl){
+            scope.flag = false;
+            scope.show = function () {
+                scope.flag = !scope.flag;
+                groupCtrl.close(scope);
+            };
+            groupCtrl.add(scope);
+        }
+    }
+});
+</code></pre>
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>

@@ -31,9 +31,9 @@
             {
                 "js基础": [
                     "初识JS.md",
-                    "js常用方法.md",
                     "预解析作用域闭包this.md",
-                    "原型链.md"
+                    "原型链.md",
+                    "js基础知识.md"
                 ]
             },
             {
@@ -44,7 +44,9 @@
             {
                 "AngularJS": [
                     "angular入门.md",
-                    "angular基础.md"
+                    "angular基础.md",
+                    "指令.md",
+                    "服务.md"
                 ]
             }
         ]
