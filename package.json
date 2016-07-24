@@ -9,7 +9,7 @@
     "author": "wakeuppig <1035465284@qq.com>",
     "repository": {
         "type": "git",
-        "url": "https://github.com/WakeUpPig/jw_blog.git"
+        "url": "https://github.com/WakeUpMyPig/jw_blog.git"
     },
     "licenses": "MIT",
     "idoc": {
@@ -33,12 +33,14 @@
                     "初识JS.md",
                     "预解析作用域闭包this.md",
                     "原型链.md",
-                    "js基础知识.md"
+                    "js基础知识.md",
+                    "原型深入.md"
                 ]
             },
             {
                 "nodejs": [
-                    "文件上传.md"
+                    "文件上传.md",
+                    "流.md"
                 ]
             },
             {
