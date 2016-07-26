@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Talent Coder</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Talent Coder
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/es6课程.html">es6课程</a></li></ul></li><li><a href="#"><span></span>自动化工具</a><ul><li><a href="../../html/自动化工具/webpack基础.html">webpack基础</a></li><li><a href="../../html/自动化工具/webpack应用.html">webpack应用</a></li><li><a href="../../html/自动化工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>js基础</a><ul><li><a href="../../html/js基础/初识JS.html">初识JS</a></li><li><a href="../../html/js基础/原型链.html">原型链</a></li><li><a href="../../html/js基础/原型深入.html">原型深入</a></li><li><a href="../../html/js基础/JS常用方法.html">JS常用方法</a></li><li><a href="../../html/js基础/预解析作用域闭包.html">预解析作用域闭包</a></li></ul></li><li><a href="#"><span></span>nodejs</a><ul><li><a href="../../html/nodejs/文件上传.html">文件上传</a></li><li><a href="../../html/nodejs/流.html">流</a></li><li><a href="../../html/nodejs/express.html">express</a></li><li class="active"><a href="../../html/nodejs/cookie.html">cookie</a></li><li><a href="../../html/nodejs/session.html">session</a></li><li><a href="../../html/nodejs/mongodb.html">mongodb</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../html/AngularJS/angular基础.html">angular基础</a></li><li><a href="../../html/AngularJS/指令.html">指令</a></li><li><a href="../../html/AngularJS/服务.html">服务</a></li><li><a href="../../html/AngularJS/route.html">route</a></li></ul></li><li><a href="#"><span></span>Vue.js</a><ul><li><a href="../../html/Vue.js/Vue入门.html">Vue入门</a></li></ul></li></ul>
+        </div>
+        
+        <!--
+        <div class="forkgithub"><a target="_blank" href="https://github.com/WakeUpMyPig/jw_blog.git">fork on github</a></div>
+        -->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01.cookie介绍">1.cookie介绍</a></li><li><a href="#t12.使用cookie">2.使用cookie</a></li><li><a href="#t23.cookie属性">3.cookie属性</a></li><li><a href="#t34.express向客户端发送cookie">4.express向客户端发送cookie</a><ul><li><a href="#t44.1 安装cookie-parser">4.1 安装cookie-parser</a></li><li><a href="#t54.2 设置cookie">4.2 设置cookie</a></li><li><a href="#t64.3 获取cookie">4.3 获取cookie</a></li><li><a href="#t74.4 express中的使用">4.4 express中的使用</a></li><li><a href="#t84.5 设置cookie的实现">4.5 设置cookie的实现</a></li><li><a href="#t94.6 选项参数">4.6 选项参数</a></li></ul></li><li><a href="#t105.加密">5.加密</a></li><li><a href="#t116.对访问次数进行加密">6.对访问次数进行加密</a><ul><li><a href="#t126.1 加密的实现">6.1 加密的实现</a></li></ul></li><li><a href="#t137.控制权限">7.控制权限</a></li><li><a href="#t148. 自动登录">8. 自动登录</a></li><li><a href="#t159.cookie使用注意事项">9.cookie使用注意事项</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t01.cookie&#x4ECB;&#x7ECD;">1.cookie&#x4ECB;&#x7ECD; <a href="#t01.cookie&#x4ECB;&#x7ECD;"> # </a></h2>
+<p>&#x50A8;&#x5B58;&#x5728;&#x7528;&#x6237;&#x672C;&#x5730;&#x7EC8;&#x7AEF;&#x4E0A;&#x7684;&#x6570;&#x636E;
+&#x4E3A;&#x4E86;&#x8FA8;&#x522B;&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x3001;&#x8FDB;&#x884C;&#x8DDF;&#x8E2A;&#x800C;&#x50A8;&#x5B58;&#x5728;&#x7528;&#x6237;&#x672C;&#x5730;&#x7EC8;&#x7AEF;&#x4E0A;&#x7684;&#x6570;&#x636E;&#xFF08;&#x901A;&#x5E38;&#x7ECF;&#x8FC7;&#x52A0;&#x5BC6;&#xFF09;&#x3002;</p>
+<h2 id="t12.&#x4F7F;&#x7528;cookie">2.&#x4F7F;&#x7528;cookie <a href="#t12.&#x4F7F;&#x7528;cookie"> # </a></h2>
+<ol>
+<li><p>&#x5BA2;&#x6237;&#x7AEF;&#x7B2C;&#x4E00;&#x6B21;&#x8BBF;&#x95EE;&#x670D;&#x52A1;&#x5668;&#x7684;&#x65F6;&#x5019;&#x670D;&#x52A1;&#x5668;&#x901A;&#x8FC7;&#x54CD;&#x5E94;&#x5934;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;Cookie,&#x5C5E;&#x6027;&#x4E4B;&#x95F4;&#x7528;&#x5206;&#x53F7;&#x7A7A;&#x683C;&#x5206;&#x9694;</p>
+<pre><code class="lang-javascript"> <span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>);
+ http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+     <span class="hljs-keyword">if</span>(req.url==<span class="hljs-string">&apos;/write&apos;</span>){
+         res.setHeader(<span class="hljs-string">&apos;Set-Cookie&apos;</span>,[<span class="hljs-string">&apos;name=zfpx; domain=.zfpx.cn&apos;</span>,<span class="hljs-string">&apos;age=7&apos;</span>]);
+         res.end(<span class="hljs-string">&apos;write&apos;</span>);
+     }
+ }).listen(<span class="hljs-number">8080</span>);
+</code></pre>
+</li>
+<li><p>&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x7684;cookie&#xFF0C;&#x5C5E;&#x6027;&#x4E4B;&#x95F4;&#x7528;&#x5206;&#x53F7;&#x7A7A;&#x683C;&#x5206;&#x9694;</p>
+<pre><code class="lang-javascript"> <span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>);
+ <span class="hljs-keyword">var</span> querystring = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;querystring&apos;</span>)
+ http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+     <span class="hljs-keyword">if</span>(req.url==<span class="hljs-string">&apos;/read&apos;</span>){
+     <span class="hljs-comment">//&quot;name=zfpx; age=7&quot;</span>
+          res.end(<span class="hljs-built_in">JSON</span>.stringify(querystring.parse(req.headers[<span class="hljs-string">&apos;cookie&apos;</span>],<span class="hljs-string">&apos;; &apos;</span>)));
+
+     }
+ }).listen(<span class="hljs-number">8080</span>);
+</code></pre>
+</li>
+</ol>
+<h2 id="t23.cookie&#x5C5E;&#x6027;">3.cookie&#x5C5E;&#x6027; <a href="#t23.cookie&#x5C5E;&#x6027;"> # </a></h2>
+<table>
+<thead>
+<tr>
+<th>&#x5C5E;&#x6027;</th>
+<th style="text-align:center">&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name=value</td>
+<td style="text-align:center">&#x591A;&#x7EC4;&#x4EE5;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#xFF0C;&#x5B58;&#x50A8;key/value</td>
+</tr>
+<tr>
+<td>Path</td>
+<td style="text-align:center">&#x9ED8;&#x8BA4;&#x662F;/,&#x5339;&#x914D;&#x5230;&#x540E;&#x53D1;&#x9001;cookie</td>
+</tr>
+<tr>
+<td>secure</td>
+<td style="text-align:center">&#x5F53; secure &#x503C;&#x4E3A; true &#x65F6;&#xFF0C;cookie &#x5728; HTTP &#x4E2D;&#x662F;&#x65E0;&#x6548;&#xFF0C;&#x5728; HTTPS &#x4E2D;&#x624D;&#x6709;&#x6548;</td>
+</tr>
+<tr>
+<td>Domain</td>
+<td style="text-align:center">&#x9ED8;&#x8BA4;&#x662F;&#x5F53;&#x524D;&#x57DF;&#x540D;,&#x53EF;&#x4EE5;&#x7528;.&#x8868;&#x793A;&#x4EFB;&#x610F;</td>
+</tr>
+<tr>
+<td>maxAge</td>
+<td style="text-align:center">&#x6700;&#x5927;&#x5931;&#x6548;&#x65F6;&#x95F4;(&#x79D2;),&#x8BBE;&#x7F6E;&#x5728;&#x591A;&#x5C11;&#x79D2;&#x540E;&#x5931;&#x6548;</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td style="text-align:center">&#x8FC7;&#x671F;&#x65F6;&#x95F4;(&#x79D2;)&#xFF0C;&#x5728;&#x8BBE;&#x7F6E;&#x7684;&#x67D0;&#x4E2A;&#x65F6;&#x95F4;&#x70B9;&#x540E;&#x8BE5; Cookie &#x5C31;&#x4F1A;&#x5931;&#x6548;&#xFF0C;&#x5982; expires=(new Date(Date.now()+4000)).toGMTString()</td>
+</tr>
+<tr>
+<td>httpOnly</td>
+<td style="text-align:center">&#x5982;&#x679C;&#x5728;COOKIE&#x4E2D;&#x8BBE;&#x7F6E;&#x4E86;httpOnly&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x901A;&#x8FC7;&#x7A0B;&#x5E8F;(JS&#x811A;&#x672C;)&#x5C06;&#x65E0;&#x6CD5;&#x8BFB;&#x53D6;&#x5230;COOKIE&#x4FE1;&#x606F;&#xFF0C;&#x9632;&#x6B62;XSS&#x653B;&#x51FB;&#x4EA7;&#x751F;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="t34.express&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;cookie">4.express&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;cookie <a href="#t34.express&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;cookie"> # </a></h2>
+<h3 id="t44.1 &#x5B89;&#x88C5;cookie-parser">4.1 &#x5B89;&#x88C5;cookie-parser <a href="#t44.1 &#x5B89;&#x88C5;cookie-parser"> # </a></h3>
+<pre><code class="lang-javascript">$ npm install cookie-parser
+</code></pre>
+<h3 id="t54.2 &#x8BBE;&#x7F6E;cookie">4.2 &#x8BBE;&#x7F6E;cookie <a href="#t54.2 &#x8BBE;&#x7F6E;cookie"> # </a></h3>
+<pre><code class="lang-javascript">res.cookie(name,value,[options]);
+</code></pre>
+<h3 id="t64.3 &#x83B7;&#x53D6;cookie">4.3 &#x83B7;&#x53D6;cookie <a href="#t64.3 &#x83B7;&#x53D6;cookie"> # </a></h3>
+<pre><code class="lang-javascript">req.cookies
+</code></pre>
+<h3 id="t74.4 express&#x4E2D;&#x7684;&#x4F7F;&#x7528;">4.4 express&#x4E2D;&#x7684;&#x4F7F;&#x7528; <a href="#t74.4 express&#x4E2D;&#x7684;&#x4F7F;&#x7528;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
+<span class="hljs-keyword">var</span> app = express();
+<span class="hljs-keyword">var</span> cookieParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cookie-parser&apos;</span>);
+app.use(cookieParser());
+app.get(<span class="hljs-string">&apos;/write&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    res.cookie(<span class="hljs-string">&apos;name&apos;</span>,<span class="hljs-string">&apos;zfpx&apos;</span>);
+    res.send(<span class="hljs-string">&apos;&apos;</span>);
+});
+app.get(<span class="hljs-string">&apos;/read&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    res.clearCookie(<span class="hljs-string">&apos;name&apos;</span>);<span class="hljs-comment">//&#x6E05;&#x9664;cookie</span>
+    res.send(req.cookies); 
+
+});
+</code></pre>
+<h3 id="t84.5 &#x8BBE;&#x7F6E;cookie&#x7684;&#x5B9E;&#x73B0;">4.5 &#x8BBE;&#x7F6E;cookie&#x7684;&#x5B9E;&#x73B0; <a href="#t84.5 &#x8BBE;&#x7F6E;cookie&#x7684;&#x5B9E;&#x73B0;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cookieParser</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res,next</span>) </span>{
+        <span class="hljs-keyword">var</span> arr = [];
+        res.cookie = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">name,value,options</span>) </span>{
+            arr.push(<span class="hljs-string">`<span class="hljs-subst">${name}</span>=<span class="hljs-subst">${value}</span>`</span>);
+            res.setHeader(<span class="hljs-string">&apos;Set-Cookie&apos;</span>,arr);
+        }
+        req.cookies = querystring.parse(req.headers[<span class="hljs-string">&apos;cookie&apos;</span>],<span class="hljs-string">&apos;; &apos;</span>)
+        next();
+    }
+}
+app.use(cookieParser());
+</code></pre>
+<h3 id="t94.6 &#x9009;&#x9879;&#x53C2;&#x6570;">4.6 &#x9009;&#x9879;&#x53C2;&#x6570; <a href="#t94.6 &#x9009;&#x9879;&#x53C2;&#x6570;"> # </a></h3>
+<p>options&#x9009;&#x9879;  </p>
+<ol>
+<li>&#x8BBE;&#x7F6E;domain&#xFF0C;&#x5728;&#x5F53;&#x524D;&#x57DF;&#x540D;&#x4E0B;&#x8BBF;&#x95EE;cookie<pre><code class="lang-javascript">res.cookie(<span class="hljs-string">&apos;name&apos;</span>,<span class="hljs-string">&apos;zfpx&apos;</span>,{domain:<span class="hljs-string">&apos;a.zfpx.cn&apos;</span>});
+</code></pre>
+</li>
+<li>&#x8BBE;&#x7F6E;path&#xFF0C;&#x5728;&#x5176;&#x4ED6;&#x8DEF;&#x5F84;&#x4E0B;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;cookie<pre><code class="lang-javascript">res.cookie(<span class="hljs-string">&apos;name&apos;</span>,<span class="hljs-string">&apos;zfpx&apos;</span>,{path:<span class="hljs-string">&apos;/read&apos;</span>});
+</code></pre>
+</li>
+<li>&#x8BBE;&#x7F6E;expires,&#x7ED9;&#x5B9A;&#x7EDD;&#x5BF9;&#x65F6;&#x95F4;<pre><code class="lang-javascript">res.cookie(<span class="hljs-string">&apos;name&apos;</span>,<span class="hljs-string">&apos;zfpx&apos;</span>,{expires:<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-built_in">Date</span>.now()+<span class="hljs-number">4000</span>)});
+</code></pre>
+</li>
+<li>&#x8BBE;&#x7F6E;maxAge,&#x7ED9;&#x5B9A;&#x76F8;&#x5BF9;&#x65F6;&#x95F4;(&#x6BEB;&#x79D2;)<pre><code class="lang-javascript">res.cookie(<span class="hljs-string">&apos;name&apos;</span>,<span class="hljs-string">&apos;zfpx&apos;</span>,{maxAge:<span class="hljs-number">2000</span>});
+</code></pre>
+</li>
+<li>httpOnly&#x5BA2;&#x6237;&#x7AEF;&#x4E0D;&#x80FD;&#x8BBE;&#x7F6E;cookie<pre><code class="lang-javascript">res.cookie(<span class="hljs-string">&apos;name&apos;</span>,<span class="hljs-string">&apos;zfpx&apos;</span>,{httpOnly:<span class="hljs-literal">true</span>});
+</code></pre>
+</li>
+<li>secure&#x53EA;&#x80FD;&#x901A;&#x8FC7;https&#x8FDB;&#x884C;&#x8BBF;&#x95EE;<pre><code class="lang-javascript">res.cookie(<span class="hljs-string">&apos;name&apos;</span>,<span class="hljs-string">&apos;zfpx&apos;</span>,{secure:<span class="hljs-literal">true</span>});
+</code></pre>
+</li>
+</ol>
+<h2 id="t105.&#x52A0;&#x5BC6;">5.&#x52A0;&#x5BC6; <a href="#t105.&#x52A0;&#x5BC6;"> # </a></h2>
+<p>&#x901A;&#x8FC7;crypto&#x6765;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;    </p>
+<ol>
+<li><p>md5&#x52A0;&#x5BC6;(&#x6563;&#x5217;&#x7B97;&#x6CD5;)  </p>
+<pre><code class="lang-javascript"> <span class="hljs-keyword">var</span> crypto = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;crypto&apos;</span>);
+ <span class="hljs-built_in">console</span>.log(crypto.getHashes());
+ <span class="hljs-keyword">var</span> md5 = crypto.createHash(<span class="hljs-string">&apos;md5&apos;</span>);
+ <span class="hljs-keyword">var</span> result = md5.update(<span class="hljs-string">&apos;hello&apos;</span>).digest(<span class="hljs-string">&apos;hex&apos;</span>);
+ <span class="hljs-built_in">console</span>.log(result);
+</code></pre>
+</li>
+<li><p>HMAC(&#x6563;&#x5217;&#x7B97;&#x6CD5;&#x4E0E;&#x5BC6;&#x94A5;&#x7ED3;&#x5408;)  </p>
+<pre><code class="lang-javascript"> <span class="hljs-keyword">var</span> crypto = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;crypto&apos;</span>);
+ <span class="hljs-keyword">var</span> hmac = crypto.createHmac(<span class="hljs-string">&apos;sha256&apos;</span>,<span class="hljs-string">&apos;jw&apos;</span>);
+ <span class="hljs-keyword">var</span> md5Sum = hmac.update(<span class="hljs-string">&apos;hello&apos;</span>).digest(<span class="hljs-string">&apos;hex&apos;</span>);
+ <span class="hljs-built_in">console</span>.log(md5Sum);
+</code></pre>
+</li>
+</ol>
+<h2 id="t116.&#x5BF9;&#x8BBF;&#x95EE;&#x6B21;&#x6570;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;">6.&#x5BF9;&#x8BBF;&#x95EE;&#x6B21;&#x6570;&#x8FDB;&#x884C;&#x52A0;&#x5BC6; <a href="#t116.&#x5BF9;&#x8BBF;&#x95EE;&#x6B21;&#x6570;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;"> # </a></h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
+<span class="hljs-keyword">var</span> app = express();
+<span class="hljs-keyword">var</span> cookieParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cookie-parser&apos;</span>);
+app.use(cookieParser(<span class="hljs-string">&apos;jw&apos;</span>));
+app.get(<span class="hljs-string">&apos;/visit&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    <span class="hljs-keyword">var</span> visit = req.signedCookies.visit;
+    <span class="hljs-keyword">if</span>(visit){
+        visit++;
+    }<span class="hljs-keyword">else</span>{
+        visit = <span class="hljs-number">1</span>;
+    }
+    res.cookie(<span class="hljs-string">&apos;visit&apos;</span>,visit,{signed:<span class="hljs-literal">true</span>});
+    res.send(<span class="hljs-string">`&#x4F60;&#x662F;<span class="hljs-subst">${visit}</span>&#x6B21;&#x8BBF;&#x95EE;`</span>);
+});
+app.listen(<span class="hljs-number">8080</span>);
+</code></pre>
+<h3 id="t126.1 &#x52A0;&#x5BC6;&#x7684;&#x5B9E;&#x73B0;">6.1 &#x52A0;&#x5BC6;&#x7684;&#x5B9E;&#x73B0; <a href="#t126.1 &#x52A0;&#x5BC6;&#x7684;&#x5B9E;&#x73B0;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sha256</span>(<span class="hljs-params">value,flag</span>)</span>{
+    <span class="hljs-keyword">var</span> crypto = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;crypto&apos;</span>);
+    <span class="hljs-keyword">return</span> value+<span class="hljs-string">&apos;.&apos;</span>+crypto.createHmac(<span class="hljs-string">&apos;sha256&apos;</span>,flag).update(value).digest(<span class="hljs-string">&apos;base64&apos;</span>).replace(<span class="hljs-regexp">/\=/g</span>,<span class="hljs-string">&apos;&apos;</span>);
+}
+</code></pre>
+<h2 id="t137.&#x63A7;&#x5236;&#x6743;&#x9650;">7.&#x63A7;&#x5236;&#x6743;&#x9650; <a href="#t137.&#x63A7;&#x5236;&#x6743;&#x9650;"> # </a></h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
+<span class="hljs-keyword">var</span> app = express();
+<span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+app.set(<span class="hljs-string">&apos;view engine&apos;</span>,<span class="hljs-string">&apos;html&apos;</span>);
+app.set(<span class="hljs-string">&apos;views&apos;</span>,path.resolve(<span class="hljs-string">&apos;views&apos;</span>));
+app.engine(<span class="hljs-string">&apos;html&apos;</span>,<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;ejs&apos;</span>).__express);
+<span class="hljs-keyword">var</span> cookieParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cookie-parser&apos;</span>);
+<span class="hljs-keyword">var</span> bodyParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;body-parser&apos;</span>);
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended:<span class="hljs-literal">true</span>}));
+<span class="hljs-keyword">var</span> flag = <span class="hljs-literal">true</span>;
+app.get(<span class="hljs-string">&apos;/login&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    res.render(<span class="hljs-string">&apos;login&apos;</span>,{title:<span class="hljs-string">&apos;&#x767B;&#x9646;&apos;</span>,flag:flag})
+});
+app.post(<span class="hljs-string">&apos;/login&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    <span class="hljs-keyword">if</span>(req.body.username){
+        res.cookie(<span class="hljs-string">&apos;username&apos;</span>,req.body.username);
+        flag = <span class="hljs-literal">false</span>;
+        res.redirect(<span class="hljs-string">&apos;/user&apos;</span>);
+    }<span class="hljs-keyword">else</span>{
+        res.redirect(<span class="hljs-string">&apos;back&apos;</span>);
+    }
+});
+app.get(<span class="hljs-string">&apos;/user&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    <span class="hljs-keyword">if</span>(req.cookies.username){
+        res.render(<span class="hljs-string">&apos;user&apos;</span>,{title:<span class="hljs-string">&apos;&#x7528;&#x6237;&#x5217;&#x8868;&apos;</span>,username:req.cookies.username})
+    }<span class="hljs-keyword">else</span>{
+        res.redirect(<span class="hljs-string">&apos;/&apos;</span>);
+    }
+});
+app.get(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    res.render(<span class="hljs-string">&apos;index&apos;</span>,{title:<span class="hljs-string">&apos;&#x9996;&#x9875;&apos;</span>})
+});
+app.get(<span class="hljs-string">&apos;/logout&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    res.clearCookie(<span class="hljs-string">&apos;username&apos;</span>);
+    flag=<span class="hljs-literal">true</span>;
+    res.redirect(<span class="hljs-string">&apos;/login&apos;</span>);
+});
+app.listen(<span class="hljs-number">8080</span>);
+</code></pre>
+<h2 id="t148. &#x81EA;&#x52A8;&#x767B;&#x5F55;">8. &#x81EA;&#x52A8;&#x767B;&#x5F55; <a href="#t148. &#x81EA;&#x52A8;&#x767B;&#x5F55;"> # </a></h2>
+<p>&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x8BBE;&#x7F6E;cookie</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
+<span class="hljs-keyword">var</span> app = express();
+<span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+app.set(<span class="hljs-string">&apos;view engine&apos;</span>,<span class="hljs-string">&apos;html&apos;</span>);
+app.set(<span class="hljs-string">&apos;views&apos;</span>,path.resolve(<span class="hljs-string">&apos;views&apos;</span>));
+app.engine(<span class="hljs-string">&apos;html&apos;</span>,<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;ejs&apos;</span>).__express);
+<span class="hljs-keyword">var</span> cookieParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cookie-parser&apos;</span>);
+<span class="hljs-keyword">var</span> bodyParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;body-parser&apos;</span>);
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended:<span class="hljs-literal">true</span>}));
+app.get(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    res.sendFile(<span class="hljs-string">&apos;./login.html&apos;</span>,{root:__dirname});
+});
+app.post(<span class="hljs-string">&apos;/login&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+   <span class="hljs-keyword">if</span>(req.body.username == <span class="hljs-string">&apos;admin&apos;</span>){
+       res.cookie(<span class="hljs-string">&apos;username&apos;</span>,req.body.username);
+       res.cookie(<span class="hljs-string">&apos;password&apos;</span>,<span class="hljs-string">&apos;hello&apos;</span>);
+       res.send(<span class="hljs-string">&apos;&#x767B;&#x9646;&#x6210;&#x529F;&apos;</span>);
+   }<span class="hljs-keyword">else</span>{
+        res.redirect(<span class="hljs-string">&apos;back&apos;</span>);
+   }
+});
+app.listen(<span class="hljs-number">8080</span>);
+</code></pre>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x6839;&#x636E;&#x8BBE;&#x7F6E;&#x7684;cookie&#x81EA;&#x52A8;&#x767B;&#x5F55;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> cookies = <span class="hljs-built_in">document</span>.cookie.split(<span class="hljs-string">&apos;; &apos;</span>);
+    <span class="hljs-keyword">var</span> bb = cookies.map(item=&gt;{
+        <span class="hljs-keyword">var</span> arr = item.split(<span class="hljs-string">&apos;=&apos;</span>);
+        <span class="hljs-keyword">return</span> {name:arr[<span class="hljs-number">0</span>],value:arr[<span class="hljs-number">1</span>]}
+    }).find(item=&gt;{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;username&apos;</span> ==item.name;
+    });
+    username.value=bb.value;
+    myform.submit();
+}
+</code></pre>
+<h2 id="t159.cookie&#x4F7F;&#x7528;&#x6CE8;&#x610F;&#x4E8B;&#x9879;">9.cookie&#x4F7F;&#x7528;&#x6CE8;&#x610F;&#x4E8B;&#x9879; <a href="#t159.cookie&#x4F7F;&#x7528;&#x6CE8;&#x610F;&#x4E8B;&#x9879;"> # </a></h2>
+<ul>
+<li>&#x53EF;&#x80FD;&#x88AB;&#x5BA2;&#x6237;&#x7AEF;&#x7BE1;&#x6539;&#xFF0C;&#x4F7F;&#x7528;&#x524D;&#x9A8C;&#x8BC1;&#x5408;&#x6CD5;&#x6027;</li>
+<li>&#x4E0D;&#x8981;&#x5B58;&#x50A8;&#x654F;&#x611F;&#x6570;&#x636E;&#xFF0C;&#x6BD4;&#x5982;&#x7528;&#x6237;&#x5BC6;&#x7801;&#xFF0C;&#x8D26;&#x6237;&#x4F59;&#x989D;</li>
+<li>&#x4F7F;&#x7528;httpOnly&#x4FDD;&#x8BC1;&#x5B89;&#x5168;</li>
+<li>&#x5C3D;&#x91CF;&#x51CF;&#x5C11;cookie&#x7684;&#x4F53;&#x79EF;</li>
+<li>&#x8BBE;&#x7F6E;&#x6B63;&#x786E;&#x7684;domain&#x548C;path&#xFF0C;&#x51CF;&#x5C11;&#x6570;&#x636E;&#x4F20;&#x8F93;</li>
+</ul>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>

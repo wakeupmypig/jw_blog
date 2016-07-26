@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Talent Coder</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Talent Coder
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/es6课程.html">es6课程</a></li></ul></li><li><a href="#"><span></span>自动化工具</a><ul><li><a href="../../html/自动化工具/webpack基础.html">webpack基础</a></li><li><a href="../../html/自动化工具/webpack应用.html">webpack应用</a></li><li><a href="../../html/自动化工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>js基础</a><ul><li><a href="../../html/js基础/初识JS.html">初识JS</a></li><li><a href="../../html/js基础/原型链.html">原型链</a></li><li><a href="../../html/js基础/原型深入.html">原型深入</a></li><li><a href="../../html/js基础/JS常用方法.html">JS常用方法</a></li><li><a href="../../html/js基础/预解析作用域闭包.html">预解析作用域闭包</a></li></ul></li><li><a href="#"><span></span>nodejs</a><ul><li><a href="../../html/nodejs/文件上传.html">文件上传</a></li><li><a href="../../html/nodejs/流.html">流</a></li><li><a href="../../html/nodejs/express.html">express</a></li><li><a href="../../html/nodejs/cookie.html">cookie</a></li><li class="active"><a href="../../html/nodejs/session.html">session</a></li><li><a href="../../html/nodejs/mongodb.html">mongodb</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../html/AngularJS/angular基础.html">angular基础</a></li><li><a href="../../html/AngularJS/指令.html">指令</a></li><li><a href="../../html/AngularJS/服务.html">服务</a></li><li><a href="../../html/AngularJS/route.html">route</a></li></ul></li><li><a href="#"><span></span>Vue.js</a><ul><li><a href="../../html/Vue.js/Vue入门.html">Vue入门</a></li></ul></li></ul>
+        </div>
+        
+        <!--
+        <div class="forkgithub"><a target="_blank" href="https://github.com/WakeUpMyPig/jw_blog.git">fork on github</a></div>
+        -->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01.cookie与session区别">1.cookie与session区别</a></li><li><a href="#t12.session的原理">2.session的原理</a></li><li><a href="#t23.express中的session中间件">3.express中的session中间件</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t01.cookie&#x4E0E;session&#x533A;&#x522B;">1.cookie&#x4E0E;session&#x533A;&#x522B; <a href="#t01.cookie&#x4E0E;session&#x533A;&#x522B;"> # </a></h2>
+<ol>
+<li>cookie&#x6570;&#x636E;&#x5B58;&#x653E;&#x5728;&#x5BA2;&#x6237;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x4E0A;&#xFF0C;session&#x6570;&#x636E;&#x653E;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x3002;</li>
+<li>cookie&#x4E0D;&#x662F;&#x5F88;&#x5B89;&#x5168;&#xFF0C;&#x522B;&#x4EBA;&#x53EF;&#x4EE5;&#x5206;&#x6790;&#x5B58;&#x653E;&#x5728;&#x672C;&#x5730;&#x7684;COOKIE&#x5E76;&#x8FDB;&#x884C;COOKIE&#x6B3A;&#x9A97; &#x8003;&#x8651;&#x5230;&#x5B89;&#x5168;&#x5E94;&#x5F53;&#x4F7F;&#x7528;session</li>
+<li>session&#x4F1A;&#x5728;&#x4E00;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x4FDD;&#x5B58;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x3002;&#x5F53;&#x8BBF;&#x95EE;&#x589E;&#x591A;&#xFF0C;&#x4F1A;&#x6BD4;&#x8F83;&#x5360;&#x7528;&#x4F60;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6027;&#x80FD; &#x8003;&#x8651;&#x5230;&#x51CF;&#x8F7B;&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;&#x65B9;&#x9762;,&#x5E94;&#x5F53;&#x4F7F;&#x7528;COOKIE</li>
+<li>&#x5355;&#x4E2A;cookie&#x4FDD;&#x5B58;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;4K&#xFF0C;&#x5F88;&#x591A;&#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x9650;&#x5236;&#x4E00;&#x4E2A;&#x7AD9;&#x70B9;&#x6700;&#x591A;&#x4FDD;&#x5B58;20&#x4E2A;cookie</li>
+</ol>
+<h2 id="t12.session&#x7684;&#x539F;&#x7406;">2.session&#x7684;&#x539F;&#x7406; <a href="#t12.session&#x7684;&#x539F;&#x7406;"> # </a></h2>
+<ol>
+<li>&#x5728;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x751F;&#x6210;&#x5168;&#x5C40;&#x552F;&#x4E00;&#x6807;&#x8BC6;session_id</li>
+<li>&#x5728;&#x670D;&#x52A1;&#x5668;&#x5185;&#x5B58;&#x91CC;&#x5F00;&#x8F9F;session_id&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;</li>
+<li>&#x5C06;session_id&#x4F5C;&#x4E3A;&#x6807;&#x8BC6;&#x901A;&#x8FC7;cookie&#x53D1;&#x9001;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x8BBF;&#x95EE;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x65F6;&#x5C06;session_id&#x53D1;&#x9001;&#x56DE;&#x670D;&#x52A1;&#x5668;&#x7AEF;</li>
+<li>&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x901A;&#x8FC7;session_id&#x53D6;&#x51FA;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;</li>
+</ol>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
+<span class="hljs-keyword">var</span> app = express();
+<span class="hljs-keyword">var</span> cookieParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cookie-parser&apos;</span>);
+app.use(cookieParser());
+<span class="hljs-keyword">var</span> sessions = {};
+<span class="hljs-keyword">var</span> SESSION_KEY = <span class="hljs-string">&apos;connect_sid&apos;</span>;
+app.get(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    <span class="hljs-comment">//&#x5224;&#x65AD;&#x7528;&#x6237;&#x6709;&#x6CA1;&#x6709;&#x5361;</span>
+    <span class="hljs-keyword">var</span> card = req.cookies[SESSION_KEY];
+    <span class="hljs-comment">//&#x5224;&#x65AD;&#x6709;&#x6CA1;&#x6709;&#x5361;&#xFF0C;&#x5E76;&#x4E14;&#x73B0;&#x5728;&#x5E97;&#x8FD8;&#x6709;&#x6CA1;&#x6709;&#x5F00;</span>
+    <span class="hljs-keyword">if</span>(card&amp;&amp;sessions[card]){
+        sessions[card].mny-=<span class="hljs-number">100</span>;
+        res.send(<span class="hljs-string">`&#x8FD8;&#x6709;<span class="hljs-subst">${sessions[card].mny}</span>`</span>);
+    }<span class="hljs-keyword">else</span>{
+        <span class="hljs-comment">//&#x7ED9;&#x5361;&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x7ED9;&#x4E00;&#x5F20;&#x552F;&#x4E00;&#x7684;&#x5361;</span>
+        <span class="hljs-keyword">var</span> cardId = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()+<span class="hljs-built_in">Math</span>.random();
+        <span class="hljs-comment">//&#x7ED9;&#x8FD9;&#x4E2A;&#x5361;&#x5B58;&#x94B1;</span>
+        sessions[cardId] = {
+            mny:<span class="hljs-number">500</span>
+        };
+        <span class="hljs-comment">//&#x628A;&#x5361;&#x53F7;&#x7ED9;&#x7528;&#x6237;</span>
+        res.cookie(SESSION_KEY,cardId);
+        <span class="hljs-comment">//&#x5982;&#x679C;&#x662F;&#x65B0;&#x7528;&#x6237;&#x5148;&#x7ED9;&#x4E00;&#x5F20;&#x5361;</span>
+        res.send(<span class="hljs-string">&apos;&#x8FD9;&#x662F;&#x4E00;&#x5F20;500&#x5143;&#x7684;&#x65B0;&#x5361;&apos;</span>);
+    }
+});
+app.listen(<span class="hljs-number">8080</span>);
+</code></pre>
+<h2 id="t23.express&#x4E2D;&#x7684;session&#x4E2D;&#x95F4;&#x4EF6;">3.express&#x4E2D;&#x7684;session&#x4E2D;&#x95F4;&#x4EF6; <a href="#t23.express&#x4E2D;&#x7684;session&#x4E2D;&#x95F4;&#x4EF6;"> # </a></h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
+<span class="hljs-keyword">var</span> app = express();
+<span class="hljs-keyword">var</span> session = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express-session&apos;</span>);
+app.use(session({
+    resave:<span class="hljs-literal">true</span>, <span class="hljs-comment">//&#x6BCF;&#x6B21;&#x91CD;&#x65B0;&#x4FDD;&#x5B58;</span>
+    saveUninitialized:<span class="hljs-literal">true</span>,<span class="hljs-comment">//&#x4FDD;&#x5B58;&#x521D;&#x59CB;&#x5316;&#x7684;</span>
+    secret:<span class="hljs-string">&apos;jw&apos;</span><span class="hljs-comment">//&#x5BC6;&#x94A5;</span>
+}));
+app.get(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    <span class="hljs-keyword">var</span> visit = req.session.visit;
+    <span class="hljs-keyword">if</span>(visit){
+        visit++;
+    }<span class="hljs-keyword">else</span>{
+        visit = <span class="hljs-number">1</span>
+    }
+    req.session.visit = visit;
+    res.send(<span class="hljs-string">`&#x7B2C;<span class="hljs-subst">${req.session.visit}</span>&#x6B21;&#x8BBF;&#x95EE;`</span>)
+});
+app.listen(<span class="hljs-number">9999</span>);
+</code></pre>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
