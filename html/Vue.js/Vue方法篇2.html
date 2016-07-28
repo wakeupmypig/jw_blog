@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Talent Coder</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Talent Coder
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/es6课程.html">es6课程</a></li></ul></li><li><a href="#"><span></span>自动化工具</a><ul><li><a href="../../html/自动化工具/webpack基础.html">webpack基础</a></li><li><a href="../../html/自动化工具/webpack应用.html">webpack应用</a></li><li><a href="../../html/自动化工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>js基础</a><ul><li><a href="../../html/js基础/初识JS.html">初识JS</a></li><li><a href="../../html/js基础/原型链.html">原型链</a></li><li><a href="../../html/js基础/原型深入.html">原型深入</a></li><li><a href="../../html/js基础/JS常用方法.html">JS常用方法</a></li><li><a href="../../html/js基础/预解析作用域闭包.html">预解析作用域闭包</a></li><li><a href="../../html/js基础/正则.html">正则</a></li><li><a href="../../html/js基础/盒子模型.html">盒子模型</a></li></ul></li><li><a href="#"><span></span>nodejs</a><ul><li><a href="../../html/nodejs/文件上传.html">文件上传</a></li><li><a href="../../html/nodejs/流.html">流</a></li><li><a href="../../html/nodejs/express.html">express</a></li><li><a href="../../html/nodejs/cookie.html">cookie</a></li><li><a href="../../html/nodejs/session.html">session</a></li><li><a href="../../html/nodejs/mongodb.html">mongodb</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../html/AngularJS/angular基础.html">angular基础</a></li><li><a href="../../html/AngularJS/指令.html">指令</a></li><li><a href="../../html/AngularJS/服务.html">服务</a></li><li><a href="../../html/AngularJS/route.html">route</a></li></ul></li><li><a href="#"><span></span>Vue.js</a><ul><li><a href="../../html/Vue.js/Vue入门.html">Vue入门</a></li><li><a href="../../html/Vue.js/Vue方法篇.html">Vue方法篇</a></li><li class="active"><a href="../../html/Vue.js/Vue方法篇2.html">Vue方法篇2</a></li><li><a href="../../html/Vue.js/Vue组件.html">Vue组件</a></li></ul></li></ul>
+        </div>
+        
+        <!--
+        <div class="forkgithub"><a target="_blank" href="https://github.com/WakeUpMyPig/jw_blog.git">fork on github</a></div>
+        -->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01. v-on中的修饰符">1. v-on中的修饰符</a><ul><li><a href="#t11.1 阻止冒泡">1.1 阻止冒泡</a></li><li><a href="#t21.2 自己身上触发">1.2 自己身上触发</a></li><li><a href="#t31.3 阻止默认事件">1.3 阻止默认事件</a></li><li><a href="#t41.4 按键修饰符">1.4 按键修饰符</a></li><li><a href="#t51.5 自定义修饰符">1.5 自定义修饰符</a></li></ul></li><li><a href="#t62.绑定样式">2.绑定样式</a><ul><li><a href="#t72.1 通过{{}}方式绑定">2.1 通过{{}}方式绑定</a></li><li><a href="#t82.2 优雅的绑定方式">2.2 优雅的绑定方式</a></li><li><a href="#t92.3 根据boolean类型增加样式">2.3 根据boolean类型增加样式</a></li><li><a href="#t102.4 绑定数组">2.4 绑定数组</a></li><li><a href="#t112.5 根据条件绑定样式">2.5 根据条件绑定样式</a></li><li><a href="#t122.6 数组和对象混用">2.6 数组和对象混用</a></li></ul></li><li><a href="#t133 绑定行内样式">3 绑定行内样式</a><ul><li><a href="#t143.1 直接绑定">3.1 直接绑定</a></li><li><a href="#t153.2 绑定对象">3.2 绑定对象</a></li><li><a href="#t163.3 数组方式绑定多组对象">3.3 数组方式绑定多组对象</a></li></ul></li><li><a href="#t174.过滤器">4.过滤器</a><ul><li><a href="#t184.1 内置过滤器">4.1 内置过滤器</a><ul><li><a href="#t194.1.1 capitalize">4.1.1 capitalize</a></li><li><a href="#t204.1.2 uppercase">4.1.2 uppercase</a></li><li><a href="#t214.1.3 lowercase">4.1.3 lowercase</a></li><li><a href="#t224.1.4 currency">4.1.4 currency</a></li><li><a href="#t234.1.5 pluralize">4.1.5 pluralize</a></li><li><a href="#t244.1.6 pluralize">4.1.6 pluralize</a></li><li><a href="#t254.1.7 debounce">4.1.7 debounce</a></li><li><a href="#t264.1.8 limitBy">4.1.8 limitBy</a></li><li><a href="#t274.1.9 filterBy">4.1.9 filterBy</a></li><li><a href="#t284.1.10 orderBy">4.1.10 orderBy</a></li></ul></li></ul></li><li><a href="#t295.自定义过滤器">5.自定义过滤器</a></li><li><a href="#t306.表单元素">6.表单元素</a><ul><li><a href="#t316.1 checkbox">6.1 checkbox</a></li><li><a href="#t326.2 radio">6.2 radio</a></li><li><a href="#t336.3 select">6.3 select</a></li><li><a href="#t346.4 表单元素参数特性">6.4 表单元素参数特性</a><ul><li><a href="#t356.4.1 lazy">6.4.1 lazy</a></li><li><a href="#t366.4.2 debounce">6.4.2 debounce</a></li></ul></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t01. v-on&#x4E2D;&#x7684;&#x4FEE;&#x9970;&#x7B26;">1. v-on&#x4E2D;&#x7684;&#x4FEE;&#x9970;&#x7B26; <a href="#t01. v-on&#x4E2D;&#x7684;&#x4FEE;&#x9970;&#x7B26;"> # </a></h2>
+<h3 id="t11.1 &#x963B;&#x6B62;&#x5192;&#x6CE1;">1.1 &#x963B;&#x6B62;&#x5192;&#x6CE1; <a href="#t11.1 &#x963B;&#x6B62;&#x5192;&#x6CE1;"> # </a></h3>
+<p>&#x9632;&#x6B62;&#x5B50;&#x7EA7;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x65F6;&#xFF0C;&#x89E6;&#x53D1;&#x7236;&#x7EA7;&#x7684;&#x4E8B;&#x4EF6;</p>
+<pre><code class="lang-javascript">&lt;div id=<span class="hljs-string">&quot;app&quot;</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&quot;parent&quot;</span>&gt;</span>
+        parent
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> @<span class="hljs-attribute">click.stop</span>=<span class="hljs-value">&quot;child&quot;</span>&gt;</span>child<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</span></code></pre>
+<p>&#x7ED9;&#x5B50;&#x7236;&#x7EA7;&#x589E;&#x52A0;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue({
+    el:<span class="hljs-string">&apos;#app&apos;</span>,
+    methods:{
+        parent: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;parent&apos;</span>);
+        },
+        child: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;child&apos;</span>);
+        }
+    }
+});
+</code></pre>
+<h3 id="t21.2 &#x81EA;&#x5DF1;&#x8EAB;&#x4E0A;&#x89E6;&#x53D1;">1.2 &#x81EA;&#x5DF1;&#x8EAB;&#x4E0A;&#x89E6;&#x53D1; <a href="#t21.2 &#x81EA;&#x5DF1;&#x8EAB;&#x4E0A;&#x89E6;&#x53D1;"> # </a></h3>
+<pre><code class="lang-javascript">&lt;div id=<span class="hljs-string">&quot;app&quot;</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> @<span class="hljs-attribute">clickt.self</span>=<span class="hljs-value">&quot;parent&quot;</span>&gt;</span>
+        parent
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&quot;child&quot;</span>&gt;</span>child<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</span></code></pre>
+<h3 id="t31.3 &#x963B;&#x6B62;&#x9ED8;&#x8BA4;&#x4E8B;&#x4EF6;">1.3 &#x963B;&#x6B62;&#x9ED8;&#x8BA4;&#x4E8B;&#x4EF6; <a href="#t31.3 &#x963B;&#x6B62;&#x9ED8;&#x8BA4;&#x4E8B;&#x4EF6;"> # </a></h3>
+<pre><code class="lang-javascript">&lt;a href=&quot;http://www.baidu.com&quot; @click.prevent&gt;goBD&lt;/a&gt;
+</code></pre>
+<h3 id="t41.4 &#x6309;&#x952E;&#x4FEE;&#x9970;&#x7B26;">1.4 &#x6309;&#x952E;&#x4FEE;&#x9970;&#x7B26; <a href="#t41.4 &#x6309;&#x952E;&#x4FEE;&#x9970;&#x7B26;"> # </a></h3>
+<pre><code class="lang-javascript">&lt;input type=<span class="hljs-string">&quot;text&quot;</span> @keyup<span class="hljs-number">.13</span>=<span class="hljs-string">&quot;dosome&quot;</span>&gt;
+  &#x6216;
+&lt;input type=<span class="hljs-string">&quot;text&quot;</span> @keyup.enter=<span class="hljs-string">&quot;dosome&quot;</span>&gt;
+</code></pre>
+<p>&#x5185;&#x7F6E;&#x7684;&#x4FEE;&#x9970;&#x7B26; </p>
+<table>
+<thead>
+<tr>
+<th>&#x952E;&#x4F4D;</th>
+<th>&#x4FEE;&#x9970;&#x7B26;&#x542B;&#x4E49;</th>
+<th>&#x952E;&#x4F4D;</th>
+<th>&#x4FEE;&#x9970;&#x7B26;&#x542B;&#x4E49;</th>
+<th>&#x952E;&#x4F4D;</th>
+<th>&#x4FEE;&#x9970;&#x7B26;&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enter</td>
+<td>&#x6309;&#x4E0B;&#x56DE;&#x8F66;&#x952E;</td>
+<td>up</td>
+<td>&#x6309;&#x4E0B;&#x4E0A;&#x952E;</td>
+<td>left</td>
+<td>&#x6309;&#x4E0B;&#x5DE6;&#x952E; </td>
+</tr>
+<tr>
+<td>tab</td>
+<td>&#x6309;&#x4E0B;tab&#x952E;</td>
+<td>down</td>
+<td>&#x6309;&#x4E0B;&#x4E0B;&#x952E;</td>
+<td>delete</td>
+<td>&#x6309;&#x4E0B;&#x5220;&#x9664;&#x952E; </td>
+</tr>
+<tr>
+<td>esc</td>
+<td>&#x6309;&#x4E0B;ESC&#x952E;</td>
+<td>right</td>
+<td>&#x6309;&#x4E0B;&#x53F3;&#x952E;</td>
+<td>space</td>
+<td>&#x6309;&#x4E0B;&#x7A7A;&#x683C;&#x952E; </td>
+</tr>
+</tbody>
+</table>
+<h3 id="t51.5 &#x81EA;&#x5B9A;&#x4E49;&#x4FEE;&#x9970;&#x7B26;">1.5 &#x81EA;&#x5B9A;&#x4E49;&#x4FEE;&#x9970;&#x7B26; <a href="#t51.5 &#x81EA;&#x5B9A;&#x4E49;&#x4FEE;&#x9970;&#x7B26;"> # </a></h3>
+<pre><code class="lang-javascript">Vue.directive(<span class="hljs-string">&apos;on&apos;</span>).keyCodes.A = <span class="hljs-number">65</span>;
+</code></pre>
+<blockquote>
+<p>&#x589E;&#x52A0;&#x6307;&#x4EE4;&#xFF0C;&#x540E;&#x671F;&#x4F1A;&#x5728;&#x6307;&#x4EE4;&#x7BC7;&#x4E2D;&#x8BE6;&#x7EC6;&#x8BB2;&#x89E3;&#x5982;&#x4F55;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;</p>
+</blockquote>
+<h2 id="t62.&#x7ED1;&#x5B9A;&#x6837;&#x5F0F;">2.&#x7ED1;&#x5B9A;&#x6837;&#x5F0F; <a href="#t62.&#x7ED1;&#x5B9A;&#x6837;&#x5F0F;"> # </a></h2>
+<p>&#x5F88;&#x591A;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x6837;&#x5F0F;&#xFF0C;&#x8981;&#x6839;&#x636E;&#x6211;&#x4EEC;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;</p>
+<h3 id="t72.1 &#x901A;&#x8FC7;{{}}&#x65B9;&#x5F0F;&#x7ED1;&#x5B9A;">2.1 &#x901A;&#x8FC7;{{}}&#x65B9;&#x5F0F;&#x7ED1;&#x5B9A; <a href="#t72.1 &#x901A;&#x8FC7;{{}}&#x65B9;&#x5F0F;&#x7ED1;&#x5B9A;"> # </a></h3>
+<pre><code class="lang-javascript">&lt;div class=&quot;{{hello}}&quot;&gt;&#x76F4;&#x63A5;&#x53D6;data&#x4E0A;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&lt;/div&gt;
+</code></pre>
+<h3 id="t82.2 &#x4F18;&#x96C5;&#x7684;&#x7ED1;&#x5B9A;&#x65B9;&#x5F0F;">2.2 &#x4F18;&#x96C5;&#x7684;&#x7ED1;&#x5B9A;&#x65B9;&#x5F0F; <a href="#t82.2 &#x4F18;&#x96C5;&#x7684;&#x7ED1;&#x5B9A;&#x65B9;&#x5F0F;"> # </a></h3>
+<pre><code class="lang-javascript">&lt;div :class=&quot;hello&quot;&gt;&#x76F4;&#x63A5;&#x53D6;data&#x4E0A;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&lt;/div&gt;
+</code></pre>
+<h3 id="t92.3 &#x6839;&#x636E;boolean&#x7C7B;&#x578B;&#x589E;&#x52A0;&#x6837;&#x5F0F;">2.3 &#x6839;&#x636E;boolean&#x7C7B;&#x578B;&#x589E;&#x52A0;&#x6837;&#x5F0F; <a href="#t92.3 &#x6839;&#x636E;boolean&#x7C7B;&#x578B;&#x589E;&#x52A0;&#x6837;&#x5F0F;"> # </a></h3>
+<pre><code class="lang-javascript">&lt;div v-bind:<span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;{class1:true,class2:false}&quot;</span>&gt;&#x6839;&#x636E;&#x6570;&#x636E;&#x7684;boolean&#x7C7B;&#x578B;&#x589E;&#x52A0;<span class="hljs-class"><span class="hljs-keyword">class</span>&#x6837;&#x5F0F;&lt;/<span class="hljs-title">div</span>&gt;
+</span></code></pre>
+<h3 id="t102.4 &#x7ED1;&#x5B9A;&#x6570;&#x7EC4;">2.4 &#x7ED1;&#x5B9A;&#x6570;&#x7EC4; <a href="#t102.4 &#x7ED1;&#x5B9A;&#x6570;&#x7EC4;"> # </a></h3>
+<pre><code class="lang-javascript">&lt;div v-bind:class=&quot;[class1,class2]&quot;&gt;&#x589E;&#x52A0;class1,&#x548C;class2&#x4E24;&#x4E2A;&#x6837;&#x5F0F;&lt;/div&gt;
+</code></pre>
+<h3 id="t112.5 &#x6839;&#x636E;&#x6761;&#x4EF6;&#x7ED1;&#x5B9A;&#x6837;&#x5F0F;">2.5 &#x6839;&#x636E;&#x6761;&#x4EF6;&#x7ED1;&#x5B9A;&#x6837;&#x5F0F; <a href="#t112.5 &#x6839;&#x636E;&#x6761;&#x4EF6;&#x7ED1;&#x5B9A;&#x6837;&#x5F0F;"> # </a></h3>
+<pre><code class="lang-javascript">&lt;div v-bind:class=&quot;[class1,isTrue?&apos;class2&apos;:&apos;class3&apos;]&quot;&gt;&#x4E09;&#x5143;&#x8868;&#x8FBE;&#x5F0F;&#x5224;&#x65AD;&lt;/div&gt;
+</code></pre>
+<h3 id="t122.6 &#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;&#x6DF7;&#x7528;">2.6 &#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;&#x6DF7;&#x7528; <a href="#t122.6 &#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;&#x6DF7;&#x7528;"> # </a></h3>
+<pre><code class="lang-javascript">&lt;div v-bind:class=&quot;[class1,{class2:isTrue}]&quot;&gt;&#x6BD4;&#x8F83;&#x5E38;&#x89C1;&#x7684;&#x589E;&#x52A0;&#x6837;&#x5F0F;&#x7528;&#x6CD5;&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>{{className}}&#x548C;v-bind:class&#x4E0D;&#x8981;&#x6DF7;&#x7528;; class &#x548C;v-bind:class&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x5B58;&#x5728;</p>
+</blockquote>
+<h2 id="t133 &#x7ED1;&#x5B9A;&#x884C;&#x5185;&#x6837;&#x5F0F;">3 &#x7ED1;&#x5B9A;&#x884C;&#x5185;&#x6837;&#x5F0F; <a href="#t133 &#x7ED1;&#x5B9A;&#x884C;&#x5185;&#x6837;&#x5F0F;"> # </a></h2>
+<h3 id="t143.1 &#x76F4;&#x63A5;&#x7ED1;&#x5B9A;">3.1 &#x76F4;&#x63A5;&#x7ED1;&#x5B9A; <a href="#t143.1 &#x76F4;&#x63A5;&#x7ED1;&#x5B9A;"> # </a></h3>
+<pre><code class="lang-javascript">&lt;div v-bind:style=&quot;{color:&apos;red&apos;,background:&apos;yellow&apos;}&quot;&gt;&#x884C;&#x5185;&lt;/div&gt;
+</code></pre>
+<h3 id="t153.2 &#x7ED1;&#x5B9A;&#x5BF9;&#x8C61;">3.2 &#x7ED1;&#x5B9A;&#x5BF9;&#x8C61; <a href="#t153.2 &#x7ED1;&#x5B9A;&#x5BF9;&#x8C61;"> # </a></h3>
+<pre><code class="lang-javascript">&lt;div v-bind:style=&quot;className&quot;&gt;&#x884C;&#x5185;&lt;/div&gt;
+data:{
+    className:{color:&apos;red&apos;}
+}
+</code></pre>
+<h3 id="t163.3 &#x6570;&#x7EC4;&#x65B9;&#x5F0F;&#x7ED1;&#x5B9A;&#x591A;&#x7EC4;&#x5BF9;&#x8C61;">3.3 &#x6570;&#x7EC4;&#x65B9;&#x5F0F;&#x7ED1;&#x5B9A;&#x591A;&#x7EC4;&#x5BF9;&#x8C61; <a href="#t163.3 &#x6570;&#x7EC4;&#x65B9;&#x5F0F;&#x7ED1;&#x5B9A;&#x591A;&#x7EC4;&#x5BF9;&#x8C61;"> # </a></h3>
+<pre><code class="lang-javascript">&lt;div v-bind:style=&quot;[hello,world]&quot;&gt;2&#x4E2A;&#x6837;&#x5F0F;&lt;/div&gt;
+data:{
+    hello:{color:&apos;red&apos;},
+    world:{fontSize:&apos;50px&apos;}
+}
+</code></pre>
+<blockquote>
+<p>&#x5F53; v-bind:style &#x4F7F;&#x7528;&#x9700;&#x8981;&#x5382;&#x5546;&#x524D;&#x7F00;&#x7684; CSS &#x5C5E;&#x6027;&#x65F6;&#xFF0C;&#x5982; transform&#xFF0C;Vue.js&#x4F1A;&#x81EA;&#x52A8;&#x4FA6;&#x6D4B;&#x5E76;&#x6DFB;&#x52A0;&#x76F8;&#x5E94;&#x7684;&#x524D;&#x7F00;&#x3002;</p>
+</blockquote>
+<h2 id="t174.&#x8FC7;&#x6EE4;&#x5668;">4.&#x8FC7;&#x6EE4;&#x5668; <a href="#t174.&#x8FC7;&#x6EE4;&#x5668;"> # </a></h2>
+<h3 id="t184.1 &#x5185;&#x7F6E;&#x8FC7;&#x6EE4;&#x5668;">4.1 &#x5185;&#x7F6E;&#x8FC7;&#x6EE4;&#x5668; <a href="#t184.1 &#x5185;&#x7F6E;&#x8FC7;&#x6EE4;&#x5668;"> # </a></h3>
+<table>
+<thead>
+<tr>
+<th>&#x8FC7;&#x6EE4;&#x5668;&#x540D;&#x5B57;</th>
+<th>&#x4F5C;&#x7528;</th>
+<th>&#x8FC7;&#x6EE4;&#x5668;&#x540D;&#x5B57;</th>
+<th>&#x4F5C;&#x7528; </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>capitalize</td>
+<td>&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;</td>
+<td>uppercase</td>
+<td>&#x8F6C;&#x6362;&#x6210;&#x5927;&#x5199;</td>
+</tr>
+<tr>
+<td>lowercase</td>
+<td>&#x8F6C;&#x6362;&#x6210;&#x5C0F;&#x5199;</td>
+<td>currency</td>
+<td>&#x8D27;&#x5E01;&#x8FC7;&#x6EE4;&#x5668;</td>
+</tr>
+<tr>
+<td>pluralize</td>
+<td>&#x6839;&#x636E;&#x6570;&#x91CF;</td>
+<td>json</td>
+<td>&#x5BF9;&#x8C61;&#x8FC7;&#x6EE4;&#x5668;</td>
+</tr>
+<tr>
+<td>debounce</td>
+<td>&#x5EF6;&#x8FDF;&#x6570;&#x636E;&#x5237;&#x65B0;</td>
+<td>limitBy</td>
+<td>&#x9650;&#x5236;</td>
+</tr>
+<tr>
+<td>filterBy</td>
+<td>&#x8FC7;&#x6EE4;&#x5668;&#x5C5E;&#x6027;</td>
+<td>orderBy</td>
+<td>&#x6392;&#x5E8F;&#x8FC7;&#x6EE4;&#x5668;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="t194.1.1 capitalize">4.1.1 capitalize <a href="#t194.1.1 capitalize"> # </a></h4>
+<pre><code class="lang-javascript">{{ <span class="hljs-string">&apos;hello&apos;</span> | capitalize }} <span class="hljs-comment">//Hello</span>
+</code></pre>
+<h4 id="t204.1.2 uppercase">4.1.2 uppercase <a href="#t204.1.2 uppercase"> # </a></h4>
+<pre><code class="lang-javascript">{{ <span class="hljs-string">&apos;hello&apos;</span> | uppercase }} <span class="hljs-comment">//HELLO</span>
+</code></pre>
+<h4 id="t214.1.3 lowercase">4.1.3 lowercase <a href="#t214.1.3 lowercase"> # </a></h4>
+<pre><code class="lang-javascript">{{ <span class="hljs-string">&apos;HELLO&apos;</span> | lowercase  }} <span class="hljs-comment">//hello</span>
+</code></pre>
+<h4 id="t224.1.4 currency">4.1.4 currency <a href="#t224.1.4 currency"> # </a></h4>
+<pre><code class="lang-javascript">{{<span class="hljs-number">123.43123</span> | currency <span class="hljs-string">&apos;&#xFFE1;&apos;</span> <span class="hljs-number">2</span>}}
+</code></pre>
+<blockquote>
+<p>&#x4F20;&#x9012;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x65F6;&#x5019;,&#x7528;&#x7A7A;&#x683C;&#x5206;&#x5F00;</p>
+</blockquote>
+<h4 id="t234.1.5 pluralize">4.1.5 pluralize <a href="#t234.1.5 pluralize"> # </a></h4>
+<p>&#x9664;&#x4E86;1&#x6240;&#x6709;&#x7684;&#x90FD;&#x662F;&#x590D;&#x6570;</p>
+<pre><code class="lang-javascript">{{<span class="hljs-number">1</span> | pluralize <span class="hljs-string">&apos;item&apos;</span>}}
+</code></pre>
+<h4 id="t244.1.6 pluralize">4.1.6 pluralize <a href="#t244.1.6 pluralize"> # </a></h4>
+<p>&#x8F6C;&#x6362;&#x4E0D;&#x540C;&#x6570;&#x5B57;&#xFF0C;&#x6700;&#x5927;&#x4E3A;9&#x4E0D;&#x6EE1;&#x8DB3;&#x7684;&#x5747;&#x4E3A;&#x6700;&#x540E;&#x4E00;&#x9879;</p>
+<pre><code class="lang-javascript">{{<span class="hljs-number">9</span> | pluralize <span class="hljs-string">&apos;item&apos;</span> <span class="hljs-string">&apos;item2&apos;</span> <span class="hljs-string">&apos;item3&apos;</span> <span class="hljs-string">&apos;item4&apos;</span> <span class="hljs-string">&apos;item5&apos;</span> <span class="hljs-string">&apos;item6&apos;</span> <span class="hljs-string">&apos;item7&apos;</span> <span class="hljs-string">&apos;item8&apos;</span> <span class="hljs-string">&apos;item9&apos;</span> <span class="hljs-string">&apos;item10&apos;</span> <span class="hljs-string">&apos;item11&apos;</span>}}
+</code></pre>
+<h4 id="t254.1.7 debounce">4.1.7 debounce <a href="#t254.1.7 debounce"> # </a></h4>
+<p>&#x5EF6;&#x8FDF;&#x4E8B;&#x4EF6;&#x6267;&#x884C;&#x65F6;&#x95F4;</p>
+<pre><code class="lang-javascript">&lt;input @keyup=<span class="hljs-string">&quot;onKeyup | debounce 500&quot;</span>&gt;
+</code></pre>
+<h4 id="t264.1.8 limitBy">4.1.8 limitBy <a href="#t264.1.8 limitBy"> # </a></h4>
+<p>&#x663E;&#x793A;&#x51E0;&#x6761;&#xFF0C;&#x4ECE;&#x54EA;&#x6761;&#x5F00;&#x59CB;&#x663E;&#x793A;</p>
+<pre><code class="lang-javascript">&lt;button @click=&quot;count+=2&quot;&gt;&#x4E0B;&#x4E00;&#x9875;&lt;/button&gt;
+&lt;div v-for=&quot;a in arr | limitBy 2 count&quot;&gt;
+    {{a}}
+&lt;/div&gt;
+</code></pre>
+<h4 id="t274.1.9 filterBy">4.1.9 filterBy <a href="#t274.1.9 filterBy"> # </a></h4>
+<p>&#x5728;&#x6240;&#x7528;&#x6570;&#x636E;&#x4E2D;&#x8FC7;&#x6EE4;</p>
+<pre><code class="lang-javascript">&lt;div v-<span class="hljs-keyword">for</span>=<span class="hljs-string">&quot;item in items | filterBy &apos;hello&apos;&quot;</span>&gt;
+</code></pre>
+<p>&#x5728;&#x6307;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x8FC7;&#x6EE4;&#xFF0C;&#x8282;&#x7EA6;&#x6027;&#x80FD;</p>
+<pre><code class="lang-javascript">&lt;div v-<span class="hljs-keyword">for</span>=<span class="hljs-string">&quot;item in items | filterBy &apos;Tom&apos; in &apos;name&apos; &apos;phone&apos;&quot;</span>&gt;
+</code></pre>
+<h4 id="t284.1.10 orderBy">4.1.10 orderBy <a href="#t284.1.10 orderBy"> # </a></h4>
+<pre><code class="lang-javascript">&lt;button @click=&quot;order = order * -1&quot;&gt;&#x6392;&#x5E8F;&#x53CD;&lt;/button&gt;
+&lt;div v-for=&quot;item in items | orderBy &apos;name&apos; -1&quot;&gt;
+</code></pre>
+<h2 id="t295.&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x5668;">5.&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x5668; <a href="#t295.&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x5668;"> # </a></h2>
+<p>&#x901A;&#x8FC7;Vue.filter()&#x65B9;&#x6CD5;&#x6CE8;&#x518C;&#x8FC7;&#x6EE4;&#x5668;</p>
+<pre><code class="lang-javascript">Vue.filter(<span class="hljs-string">&apos;capitalize&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value,begin,end</span>) </span>{
+        <span class="hljs-keyword">return</span> value.slice(<span class="hljs-number">0</span>,begin)+value.slice(begin,end).toUpperCase()+value.slice(end);
+});
+</code></pre>
+<p>&#x5C06;&#x6570;&#x636E;&#x5199;&#x56DE;model,&#x5BF9;&#x5199;&#x5165;&#x7684;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#xFF0C;&#x5F53;&#x5931;&#x53BB;&#x7126;&#x70B9;&#x65F6;&#x5019;&#x7EE7;&#x7EED;&#x8FC7;&#x6EE4;</p>
+<pre><code class="lang-javascript">&lt;input type=<span class="hljs-string">&quot;text&quot;</span> v-model=<span class="hljs-string">&quot;hello | write 2&quot;</span>&gt;
+{{hello}}
+</code></pre>
+<pre><code class="lang-javascript">Vue.filter(<span class="hljs-string">&apos;write&apos;</span>,{
+    read: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value,key</span>) </span>{
+        <span class="hljs-keyword">return</span> value[key]
+    },
+    write: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val</span>) </span>{
+        <span class="hljs-keyword">return</span> val+<span class="hljs-string">&apos;zfpx&apos;</span>
+    }
+});
+</code></pre>
+<h2 id="t306.&#x8868;&#x5355;&#x5143;&#x7D20;">6.&#x8868;&#x5355;&#x5143;&#x7D20; <a href="#t306.&#x8868;&#x5355;&#x5143;&#x7D20;"> # </a></h2>
+<h3 id="t316.1 checkbox">6.1 checkbox <a href="#t316.1 checkbox"> # </a></h3>
+<p>&#x83B7;&#x53D6;checkbox&#x503C;&#x4E3A;&#x5F53;&#x524D;value&#x503C;,&#x5E76;&#x4E14;&#x6570;&#x636E;&#x8981;&#x4E3A;&#x6570;&#x7EC4;&#x7C7B;&#x578B;</p>
+<pre><code class="lang-javascript">&lt;input checked type=<span class="hljs-string">&quot;checkbox&quot;</span> value=<span class="hljs-string">&quot;&#x70B9;&#x51FB;&quot;</span> v-model=<span class="hljs-string">&quot;name&quot;</span> &gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;checkbox&quot;</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;&#x70B9;&#x51FB;1&quot;</span> <span class="hljs-attribute">v-model</span>=<span class="hljs-value">&quot;name&quot;</span> &gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;checkbox&quot;</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;&#x70B9;&#x51FB;2&quot;</span> <span class="hljs-attribute">v-model</span>=<span class="hljs-value">&quot;name&quot;</span> &gt;</span>
+{{name}}
+var vm = new Vue({
+    el:&quot;#app&quot;,
+    data:{
+       name:[],
+    }
+})
+</span></code></pre>
+<h3 id="t326.2 radio">6.2 radio <a href="#t326.2 radio"> # </a></h3>
+<pre><code class="lang-javascript">&lt;input type=<span class="hljs-string">&quot;radio&quot;</span> value=<span class="hljs-string">&quot;first&quot;</span> v-model=<span class="hljs-string">&quot;radio&quot;</span>&gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;radio&quot;</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;second&quot;</span> <span class="hljs-attribute">v-model</span>=<span class="hljs-value">&quot;radio&quot;</span>&gt;</span>
+{{radio}}
+</span></code></pre>
+<h3 id="t336.3 select">6.3 select <a href="#t336.3 select"> # </a></h3>
+<p>&#x5355;&#x9009;&#x65F6;&#x7C7B;&#x578B;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x591A;&#x9009;&#x65F6;&#x7C7B;&#x578B;&#x4E3A;&#x6570;&#x7EC4;</p>
+<pre><code class="lang-javascript">&lt;select v-model=<span class="hljs-string">&quot;selected&quot;</span> multiple &gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">option</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;4&quot;</span> <span class="hljs-attribute">selected</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-title">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">option</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;5&quot;</span>&gt;</span>b<span class="hljs-tag">&lt;/<span class="hljs-title">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">option</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;6&quot;</span>&gt;</span>c<span class="hljs-tag">&lt;/<span class="hljs-title">option</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">select</span>&gt;</span>
+{{selected}}
+</span></code></pre>
+<p>&#x52A8;&#x6001;&#x7ED1;&#x5B9A;&#x6570;&#x636E;</p>
+<pre><code class="lang-javascript">&lt;select v-model=<span class="hljs-string">&quot;name&quot;</span>&gt;
+  <span class="xml"><span class="hljs-comment">&lt;!--&#x7ED1;&#x5B9A;value &#x5230; Vue &#x5B9E;&#x4F8B;&#x7684;&#x4E00;&#x4E2A;&#x52A8;&#x6001;&#x5C5E;&#x6027;--&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">option</span> <span class="hljs-attribute">v-for</span>=<span class="hljs-value">&quot;a in ary&quot;</span> <span class="hljs-attribute">:value</span>=<span class="hljs-value">&quot;a.value&quot;</span>&gt;</span>{{a.name}}<span class="hljs-tag">&lt;/<span class="hljs-title">option</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">select</span>&gt;</span>
+</span></code></pre>
+<h3 id="t346.4 &#x8868;&#x5355;&#x5143;&#x7D20;&#x53C2;&#x6570;&#x7279;&#x6027;">6.4 &#x8868;&#x5355;&#x5143;&#x7D20;&#x53C2;&#x6570;&#x7279;&#x6027; <a href="#t346.4 &#x8868;&#x5355;&#x5143;&#x7D20;&#x53C2;&#x6570;&#x7279;&#x6027;"> # </a></h3>
+<h4 id="t356.4.1 lazy">6.4.1 lazy <a href="#t356.4.1 lazy"> # </a></h4>
+<p>&#x5C06;input&#x6539;&#x53D8;&#x4E3A;change</p>
+<pre><code class="lang-javascript">&lt;input type=<span class="hljs-string">&quot;text&quot;</span> v-model=<span class="hljs-string">&quot;data&quot;</span> lazy&gt;
+{{data}}
+</code></pre>
+<h4 id="t366.4.2 debounce">6.4.2 debounce <a href="#t366.4.2 debounce"> # </a></h4>
+<p>&#x5EF6;&#x65F6;&#x6570;&#x636E;&#x6539;&#x53D8;&#x65F6;&#x95F4;</p>
+<pre><code class="lang-javascript">&lt;input type=<span class="hljs-string">&quot;text&quot;</span> v-model=<span class="hljs-string">&quot;data&quot;</span> debounce=<span class="hljs-string">&quot;3000&quot;</span>&gt;
+{{data}}
+</code></pre>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>

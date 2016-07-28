@@ -61,7 +61,9 @@
             {
                 "Vue.js": [
                     "Vue入门.md",
-                    "Vue方法篇.md"
+                    "Vue方法篇.md",
+                    "Vue方法篇2.md",
+                    "Vue组件.md"
                 ]
             }
         ]
