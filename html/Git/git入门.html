@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Talent Coder</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Talent Coder
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../index.html">es6课程</a></li></ul></li><li><a href="#"><span></span>自动化工具</a><ul><li><a href="../../index.html">webpack基础</a></li><li><a href="../../index.html">webpack应用</a></li><li><a href="../../index.html">babel</a></li></ul></li><li><a href="#"><span></span>js基础</a><ul><li><a href="../../index.html">初识JS</a></li><li><a href="../../index.html">原型链</a></li><li><a href="../../index.html">原型深入</a></li><li><a href="../../index.html">JS常用方法</a></li><li><a href="../../index.html">预解析作用域闭包</a></li><li><a href="../../index.html">正则</a></li><li><a href="../../index.html">盒子模型</a></li></ul></li><li><a href="#"><span></span>nodejs</a><ul><li><a href="../../index.html">文件上传</a></li><li><a href="../../index.html">流</a></li><li><a href="../../index.html">express</a></li><li><a href="../../index.html">cookie</a></li><li><a href="../../index.html">session</a></li><li><a href="../../index.html">mongodb</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../index.html">angular入门</a></li><li><a href="../../index.html">angular基础</a></li><li><a href="../../index.html">指令</a></li><li><a href="../../index.html">服务</a></li><li><a href="../../index.html">route</a></li></ul></li><li><a href="#"><span></span>Vue.js</a><ul><li><a href="../../index.html">Vue入门</a></li><li><a href="../../index.html">Vue方法篇</a></li><li><a href="../../index.html">Vue方法篇2</a></li><li><a href="../../index.html">Vue组件</a></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../index.html">git入门</a></li></ul></li></ul>
+        </div>
+        
+        <!--
+        <div class="forkgithub"><a target="_blank" href="https://github.com/WakeUpMyPig/jw_blog.git">fork on github</a></div>
+        -->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t0git的使用">git的使用</a></li><li><a href="#t11.版本控制">1.版本控制</a><ul><li><a href="#t21.1 备份文件">1.1 备份文件</a></li><li><a href="#t31.2 记录历史">1.2 记录历史</a></li><li><a href="#t41.3 回到过去">1.3 回到过去</a></li><li><a href="#t51.4 多端共享">1.4 多端共享</a></li><li><a href="#t61.5 团队协作">1.5 团队协作</a></li></ul></li><li><a href="#t72.什么是git">2.什么是git</a></li><li><a href="#t83.git的安装">3.git的安装</a><ul><li><a href="#t93.1 windows下安装">3.1 windows下安装</a></li><li><a href="#t103.2 mac下安装">3.2 mac下安装</a></li></ul></li><li><a href="#t114. 配置git用户和邮箱">4. 配置git用户和邮箱</a></li><li><a href="#t125.初始化git">5.初始化git</a></li><li><a href="#t136.git中的三个区">6.git中的三个区</a></li><li><a href="#t147.git diff">7.git diff</a><ul><li><a href="#t157.1 工作区和暂存区">7.1 工作区和暂存区</a></li><li><a href="#t167.2 暂存区和历史区">7.2 暂存区和历史区</a></li><li><a href="#t177.3 工作区和版本库">7.3 工作区和版本库</a></li></ul></li><li><a href="#t188. 撤销">8. 撤销</a><ul><li><a href="#t198.1 撤销回git add的内容">8.1 撤销回git add的内容</a></li><li><a href="#t208.2 撤回文件">8.2 撤回文件</a></li></ul></li><li><a href="#t219.删除">9.删除</a></li><li><a href="#t229.1 删除暂存区和工作区">9.1 删除暂存区和工作区</a></li><li><a href="#t239.2 仅删除缓存区">9.2 仅删除缓存区</a></li><li><a href="#t2410. 恢复">10. 恢复</a><ul><li><a href="#t2510.1 恢复某个版本文件">10.1 恢复某个版本文件</a></li><li><a href="#t2610.2 通过版本id恢复">10.2 通过版本id恢复</a></li><li><a href="#t2710.3 恢复未来">10.3 恢复未来</a></li><li><a href="#t2810.4 快速版本回退">10.4 快速版本回退</a></li></ul></li><li><a href="#t2911. 同步远程仓库">11. 同步远程仓库</a><ul><li><a href="#t3011.1 gitHub">11.1 gitHub</a></li><li><a href="#t3111.2 添加远程仓库">11.2 添加远程仓库</a></li><li><a href="#t3211.3 添加忽略文件">11.3 添加忽略文件</a></li><li><a href="#t3311.4 推送代码">11.4 推送代码</a></li><li><a href="#t3411.5 查看">11.5 查看</a></li></ul></li><li><a href="#t3512.代码的合并">12.代码的合并</a><ul><li><a href="#t3612.1 git fetch">12.1 git fetch</a></li><li><a href="#t3712.2 git pull">12.2 git pull</a></li><li><a href="#t3813. 分支">13. 分支</a></li><li><a href="#t3914. tag版本">14. tag版本</a></li><li><a href="#t4015. 作业提交流程">15. 作业提交流程</a></li><li><a href="#t4115.1 第一次交作业流程(组长)">15.1 第一次交作业流程(组长)</a></li><li><a href="#t4215.2 第二次交作业流程(组员)">15.2 第二次交作业流程(组员)</a></li><li><a href="#t4315.3 第二次交作业流程(组长)">15.3 第二次交作业流程(组长)</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t0git&#x7684;&#x4F7F;&#x7528;">git&#x7684;&#x4F7F;&#x7528; <a href="#t0git&#x7684;&#x4F7F;&#x7528;"> # </a></h2>
+<h2 id="t11.&#x7248;&#x672C;&#x63A7;&#x5236;">1.&#x7248;&#x672C;&#x63A7;&#x5236; <a href="#t11.&#x7248;&#x672C;&#x63A7;&#x5236;"> # </a></h2>
+<h3 id="t21.1 &#x5907;&#x4EFD;&#x6587;&#x4EF6;">1.1 &#x5907;&#x4EFD;&#x6587;&#x4EF6; <a href="#t21.1 &#x5907;&#x4EFD;&#x6587;&#x4EF6;"> # </a></h3>
+<ul>
+<li>&#x7C7B;&#x4F3C;&#x4E8E;&#x7F51;&#x76D8;&#x5907;&#x4EFD;</li>
+<li>&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x4E5F;&#x9700;&#x8981;&#x5907;&#x4EFD;&#x3002;&#x4FEE;&#x6539;&#x5B8C;&#x4E86;&#x4EE5;&#x540E;&#x63D0;&#x4EA4;&#x7ED9;&#x7248;&#x672C;&#x5E93;&#x8FDB;&#x884C;&#x4FDD;&#x7BA1;&#xFF0C;&#x54EA;&#x4E00;&#x5929;&#x4EE3;&#x7801;&#x6CA1;&#x4E86;&#x4E5F;&#x53EF;&#x4EE5;&#x627E;&#x56DE;&#x6765;&#x3002;  </li>
+</ul>
+<h3 id="t31.2 &#x8BB0;&#x5F55;&#x5386;&#x53F2;">1.2 &#x8BB0;&#x5F55;&#x5386;&#x53F2; <a href="#t31.2 &#x8BB0;&#x5F55;&#x5386;&#x53F2;"> # </a></h3>
+<ul>
+<li>&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x6253;&#x6E38;&#x620F;&#x5C31;&#x8981;<code>&#x5B58;&#x6863;</code>&#xFF0C;&#x4E07;&#x4E00;&#x6302;&#x4E86;&#x8FD8;&#x53EF;&#x4EE5;&#x4ECE;&#x4E0A;&#x4E2A;&#x5B58;&#x6863;&#x7684;&#x5730;&#x65B9;&#x91CD;&#x73A9;&#x3002;</li>
+<li>&#x548C;&#x7F51;&#x76D8;&#x4E0D;&#x540C;&#xFF0C;&#x7F51;&#x76D8;&#x4FDD;&#x7559;&#x7684;&#x662F;&#x6700;&#x65B0;&#x7684;&#x72B6;&#x6001;&#xFF0C;<code>&#x5386;&#x53F2;&#x7684;&#x8BB0;&#x5F55;</code>&#x90FD;&#x6CA1;&#x6709;&#x4E86;&#xFF0C;&#x4FEE;&#x6539;&#x7684;&#x8BB0;&#x5F55;&#x4E5F;&#x90FD;&#x627E;&#x4E0D;&#x56DE;&#x6765;&#x4E86;</li>
+<li>&#x7F51;&#x76D8;&#x65E0;&#x6CD5;&#x77E5;&#x9053;&#x6587;&#x4EF6;&#x91CC;&#x7684;&#x67D0;&#x884C;<code>&#x4EE3;&#x7801;</code>&#x662F;&#x4F55;&#x4EBA;&#x5728;&#x54EA;&#x4E2A;&#x65F6;&#x95F4;&#x6DFB;&#x52A0;&#x8FDB;&#x53BB;&#x7684;  </li>
+</ul>
+<h3 id="t41.3 &#x56DE;&#x5230;&#x8FC7;&#x53BB;">1.3 &#x56DE;&#x5230;&#x8FC7;&#x53BB; <a href="#t41.3 &#x56DE;&#x5230;&#x8FC7;&#x53BB;"> # </a></h3>
+<ul>
+<li>&#x5982;&#x679C;&#x6211;&#x6709;&#x4E00;&#x5929;&#x4E0D;&#x5C0F;&#x5FC3;&#x5220;&#x9664;&#x4E86;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5386;&#x53F2;&#x5907;&#x4EFD;&#x627E;&#x56DE;&#x6765;</li>
+</ul>
+<h3 id="t51.4 &#x591A;&#x7AEF;&#x5171;&#x4EAB;">1.4 &#x591A;&#x7AEF;&#x5171;&#x4EAB; <a href="#t51.4 &#x591A;&#x7AEF;&#x5171;&#x4EAB;"> # </a></h3>
+<ul>
+<li>Git&#x4ED3;&#x5E93;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;PC&#x7AEF;&#x3001;Android&#x3001;IOS<code>&#x79FB;&#x52A8;&#x7AEF;</code>&#x7B49;&#x5404;&#x4E2A;&#x7EC8;&#x7AEF;&#x8BBF;&#x95EE;</li>
+<li>&#x53EF;&#x4EE5;<code>&#x968F;&#x65F6;&#x968F;&#x5730;</code>&#x4FEE;&#x6539;&#x4EE3;&#x7801;,&#x516C;&#x53F8;&#x6CA1;&#x5E72;&#x5B8C;&#x7684;&#x5DE5;&#x4F5C;&#x56DE;&#x5BB6;&#x63A5;&#x7740;&#x5E72;</li>
+</ul>
+<h3 id="t61.5 &#x56E2;&#x961F;&#x534F;&#x4F5C;">1.5 &#x56E2;&#x961F;&#x534F;&#x4F5C; <a href="#t61.5 &#x56E2;&#x961F;&#x534F;&#x4F5C;"> # </a></h3>
+<ul>
+<li>&#x591A;&#x4E2A;&#x4EBA;&#x6216;&#x56E2;&#x961F;<code>&#x5408;&#x4F5C;</code>&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x9879;&#x76EE;</li>
+<li>&#x5408;&#x5E76;&#x4EE3;&#x7801;&#x5904;&#x7406;<code>&#x51B2;&#x7A81;</code></li>
+</ul>
+<h2 id="t72.&#x4EC0;&#x4E48;&#x662F;git">2.&#x4EC0;&#x4E48;&#x662F;git <a href="#t72.&#x4EC0;&#x4E48;&#x662F;git"> # </a></h2>
+<ul>
+<li>&#x4E3A;&#x4E86;&#x544A;&#x522B;&#x624B;&#x52A8;&#x65B9;&#x5F0F;&#x7BA1;&#x7406;Linux&#x4EE3;&#x7801;,&#x5E76;&#x4E14;&#x7B26;&#x5408;&#x5F00;&#x6E90;&#x548C;&#x514D;&#x8D39;,Linus&#x82B1;&#x4E86;<code>&#x4E24;&#x5468;&#x65F6;&#x95F4;</code>&#x81EA;&#x5DF1;&#x7528; C &#x5199;&#x4E86;&#x4E00;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x7248;&#x672C;&#x63A7;&#x5236;&#x7CFB;&#x7EDF;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;Git</li>
+<li>Git&#x8FC5;&#x901F;&#x6210;&#x4E3A;&#x6700;&#x6D41;&#x884C;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x7248;&#x672C;&#x63A7;&#x5236;&#x7CFB;&#x7EDF;&#xFF0C;&#x5C24;&#x5176;&#x662F; 2008 &#x5E74; GitHub &#x7F51;&#x7AD9;&#x4E0A;&#x7EBF;&#x4E86;&#xFF0C;&#x5B83;&#x4E3A;&#x5F00;&#x6E90;&#x9879;&#x76EE; &#x514D;&#x8D39;&#x63D0;&#x4F9B;Git&#x5B58;&#x50A8; &#xFF0C;&#x65E0;&#x6570;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x5F00;&#x59CB;&#x8FC1;&#x79FB;&#x81F3;GitHub&#xFF0C;&#x5305;&#x62EC;jQuery&#xFF0C;PHP&#xFF0C;Ruby&#x7B49;&#x7B49;&#x3002;</li>
+</ul>
+<h2 id="t83.git&#x7684;&#x5B89;&#x88C5;">3.git&#x7684;&#x5B89;&#x88C5; <a href="#t83.git&#x7684;&#x5B89;&#x88C5;"> # </a></h2>
+<h3 id="t93.1 windows&#x4E0B;&#x5B89;&#x88C5;">3.1 windows&#x4E0B;&#x5B89;&#x88C5; <a href="#t93.1 windows&#x4E0B;&#x5B89;&#x88C5;"> # </a></h3>
+<p>&#x4E0B;&#x8F7D;&#x5730;&#x5740; <a href="http://git-scm.com">http://git-scm.com</a> </p>
+<p><img src="../../static/img/git/windowdownloadgit.jpg" alt="loading"><br><img src="../../static/img/git/gitinstall.jpg" alt="loading"><br><img src="../../static/img/git/gitstype.jpg" alt="loading">  </p>
+<h3 id="t103.2 mac&#x4E0B;&#x5B89;&#x88C5;">3.2 mac&#x4E0B;&#x5B89;&#x88C5; <a href="#t103.2 mac&#x4E0B;&#x5B89;&#x88C5;"> # </a></h3>
+<p>&#x4E0B;&#x8F7D;Homebrew<a href="http://brew.sh">http://brew.sh</a><br><img src="../../static/img/git/macinstallhomebrew.jpg" alt="loading">   </p>
+<ul>
+<li>&#x62F7;&#x8D1D;&#x5BF9;&#x5E94;&#x811A;&#x672C;&#x5230;&#x7EC8;&#x7AEF;&#x4E0B;&#x5B89;&#x88C5;HomeBrew</li>
+<li>&#x7136;&#x540E;&#x5728;&#x7EC8;&#x7AEF;&#x6267;&#x884C; brew install git&#x547D;&#x4EE4;&#x5B89;&#x88C5;*git</li>
+</ul>
+<blockquote>
+<p>&#x5B89;&#x88C5;xcode&#x4F1A;&#x9ED8;&#x8BA4;&#x4E0B;&#x8F7D;git</p>
+</blockquote>
+<h2 id="t114. &#x914D;&#x7F6E;git&#x7528;&#x6237;&#x548C;&#x90AE;&#x7BB1;">4. &#x914D;&#x7F6E;git&#x7528;&#x6237;&#x548C;&#x90AE;&#x7BB1; <a href="#t114. &#x914D;&#x7F6E;git&#x7528;&#x6237;&#x548C;&#x90AE;&#x7BB1;"> # </a></h2>
+<pre><code class="lang-javascript">$ git config --global user.name <span class="hljs-string">&quot;&#x4F60;&#x7684;github&#x7528;&#x6237;&#x540D;&quot;</span>    
+$ git config --global user.email <span class="hljs-string">&quot;&#x4F60;&#x7684;github&#x90AE;&#x7BB1;&quot;</span>
+</code></pre>
+<blockquote>
+<p>&#x4E0D;&#x914D;&#x7F6E;&#x7528;&#x6237;&#x540D;&#x548C;&#x90AE;&#x7BB1;&#x7684;&#x8BDD;&#x65E0;&#x6CD5;&#x63D0;&#x4EA4;,&#x56E0;&#x4E3A;git&#x4E0D;&#x77E5;&#x9053;&#x4F60;&#x662F;&#x8C01;</p>
+</blockquote>
+<p>&#x67E5;&#x770B;&#x914D;&#x7F6E;</p>
+<pre><code class="lang-javascript">$ git config --global user.name 
+$ git config --global user.email
+</code></pre>
+<p>&#x67E5;&#x770B;&#x6240;&#x6709;&#x914D;&#x7F6E;  </p>
+<pre><code class="lang-javascript">$ git config --list
+</code></pre>
+<h2 id="t125.&#x521D;&#x59CB;&#x5316;git">5.&#x521D;&#x59CB;&#x5316;git <a href="#t125.&#x521D;&#x59CB;&#x5316;git"> # </a></h2>
+<ul>
+<li>&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x76EE;&#x5F55; &#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x5165;&#x6B64;&#x76EE;&#x5F55;</li>
+<li>&#x70B9;&#x51FB;&#x53F3;&#x952E;&#x9009;&#x62E9;Git-Bash&#x6253;&#x5F00;&#x547D;&#x4EE4;&#x884C;</li>
+<li>&#x8F93;&#x5165;git init&#x547D;&#x4EE4;&#x628A;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x53D8;&#x6210;Git&#x53EF;&#x4EE5;&#x7BA1;&#x7406;&#x7684;&#x4ED3;&#x5E93;</li>
+</ul>
+<pre><code class="lang-javascript">$ git init
+</code></pre>
+<blockquote>
+<p>&#x901A;&#x8FC7;ls -al&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x6240;&#x6709;&#x6587;&#x4EF6;</p>
+</blockquote>
+<h2 id="t136.git&#x4E2D;&#x7684;&#x4E09;&#x4E2A;&#x533A;">6.git&#x4E2D;&#x7684;&#x4E09;&#x4E2A;&#x533A; <a href="#t136.git&#x4E2D;&#x7684;&#x4E09;&#x4E2A;&#x533A;"> # </a></h2>
+<p>&#x5DE5;&#x4F5C;&#x6D41;<br><a href="http://card.mugeda.com/campaigns/56d2c4a0a3664e3308000407/20160304090522/56d97729a3664e9c65000047/index.html">http://card.mugeda.com/campaigns/56d2c4a0a3664e3308000407/20160304090522/56d97729a3664e9c65000047/index.html</a></p>
+<ul>
+<li><p>&#x5DE5;&#x4F5C;&#x533A;  </p>
+<p>  &#x901A;&#x8FC7;git add &#x6DFB;&#x52A0;&#x5230;&#x6682;&#x5B58;&#x533A;</p>
+<pre><code class="lang-javascript">  $ git add <span class="hljs-string">&apos;&#x6587;&#x4EF6;&#x540D;&apos;</span>
+</code></pre>
+</li>
+<li><p>&#x6682;&#x5B58;&#x533A;<br>&#x7279;&#x70B9;:<code>&#x8FC7;&#x6E21;</code>&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x907F;&#x514D;<code>&#x8BEF;&#x64CD;&#x4F5C;</code>&#xFF0C;<code>&#x4FDD;&#x62A4;</code>&#x5DE5;&#x4F5C;&#x533A;&#x548C;&#x5386;&#x53F2;&#x533A;&#xFF0C;&#x5206;&#x652F;&#x5904;&#x7406;;   </p>
+<p>&#x901A;&#x8FC7;git commit &#x6DFB;&#x52A0;&#x5230;&#x5386;&#x53F2;&#x533A;</p>
+<pre><code class="lang-javascript">  $ git commit -m<span class="hljs-string">&quot;&#x6CE8;&#x91CA;&#x5185;&#x5BB9;&quot;</span>
+</code></pre>
+</li>
+<li><p>&#x5386;&#x53F2;&#x533A;  </p>
+<p>  &#x67E5;&#x770B;&#x5386;&#x53F2;&#x72B6;&#x6001;</p>
+<pre><code class="lang-javascript">  $ git log
+</code></pre>
+<blockquote>
+<p>&#x4FEE;&#x6539;&#x65F6;&#x901A;&#x8FC7;git status&#x67E5;&#x770B;&#x5F53;&#x524D;&#x72B6;&#x6001;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="t147.git diff">7.git diff <a href="#t147.git diff"> # </a></h2>
+<p>&#x4E0D;&#x540C;&#x533A;&#x7684;&#x4EE3;&#x7801;&#x6BD4;&#x8F83; </p>
+<h3 id="t157.1 &#x5DE5;&#x4F5C;&#x533A;&#x548C;&#x6682;&#x5B58;&#x533A;">7.1 &#x5DE5;&#x4F5C;&#x533A;&#x548C;&#x6682;&#x5B58;&#x533A; <a href="#t157.1 &#x5DE5;&#x4F5C;&#x533A;&#x548C;&#x6682;&#x5B58;&#x533A;"> # </a></h3>
+<pre><code class="lang-javascript">$ git diff
+</code></pre>
+<h3 id="t167.2 &#x6682;&#x5B58;&#x533A;&#x548C;&#x5386;&#x53F2;&#x533A;">7.2 &#x6682;&#x5B58;&#x533A;&#x548C;&#x5386;&#x53F2;&#x533A; <a href="#t167.2 &#x6682;&#x5B58;&#x533A;&#x548C;&#x5386;&#x53F2;&#x533A;"> # </a></h3>
+<pre><code class="lang-javascript">$ git diff --cached&#xFF08;--staged&#xFF09;
+</code></pre>
+<h3 id="t177.3 &#x5DE5;&#x4F5C;&#x533A;&#x548C;&#x7248;&#x672C;&#x5E93;">7.3 &#x5DE5;&#x4F5C;&#x533A;&#x548C;&#x7248;&#x672C;&#x5E93; <a href="#t177.3 &#x5DE5;&#x4F5C;&#x533A;&#x548C;&#x7248;&#x672C;&#x5E93;"> # </a></h3>
+<pre><code class="lang-javascript">$ git diff master
+</code></pre>
+<h2 id="t188. &#x64A4;&#x9500;">8. &#x64A4;&#x9500; <a href="#t188. &#x64A4;&#x9500;"> # </a></h2>
+<h3 id="t198.1 &#x64A4;&#x9500;&#x56DE;git add&#x7684;&#x5185;&#x5BB9;">8.1 &#x64A4;&#x9500;&#x56DE;git add&#x7684;&#x5185;&#x5BB9; <a href="#t198.1 &#x64A4;&#x9500;&#x56DE;git add&#x7684;&#x5185;&#x5BB9;"> # </a></h3>
+<pre><code class="lang-javascript">git reset Head <span class="hljs-string">&quot;&#x6587;&#x4EF6;&#x540D;&quot;</span>
+</code></pre>
+<h3 id="t208.2 &#x64A4;&#x56DE;&#x6587;&#x4EF6;">8.2 &#x64A4;&#x56DE;&#x6587;&#x4EF6; <a href="#t208.2 &#x64A4;&#x56DE;&#x6587;&#x4EF6;"> # </a></h3>
+<ul>
+<li>&#x5148;&#x4ECE;&#x7F13;&#x5B58;&#x533A;&#x64A4;&#x9500;,&#x7F13;&#x5B58;&#x533A;&#x65E0;&#x5185;&#x5BB9;&#xFF0C;&#x4ECE;&#x5386;&#x53F2;&#x533A;&#x57DF;&#x64A4;&#x9500;<pre><code class="lang-javascript">$ git checkout <span class="hljs-string">&quot;&#x6587;&#x4EF6;&#x540D;&quot;</span>
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>&#x6709;&#x7684;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x63D0;&#x4EA4;&#x65F6;&#x5408;&#x5E76;&#x5230;&#x4E0A;&#x4E00;&#x6B21;&#x7684;&#x63D0;&#x4EA4; git commit --amend</p>
+</blockquote>
+<h2 id="t219.&#x5220;&#x9664;">9.&#x5220;&#x9664; <a href="#t219.&#x5220;&#x9664;"> # </a></h2>
+<h2 id="t229.1 &#x5220;&#x9664;&#x6682;&#x5B58;&#x533A;&#x548C;&#x5DE5;&#x4F5C;&#x533A;">9.1 &#x5220;&#x9664;&#x6682;&#x5B58;&#x533A;&#x548C;&#x5DE5;&#x4F5C;&#x533A; <a href="#t229.1 &#x5220;&#x9664;&#x6682;&#x5B58;&#x533A;&#x548C;&#x5DE5;&#x4F5C;&#x533A;"> # </a></h2>
+<p>&#x5220;&#x9664;&#x6682;&#x5B58;&#x533A;&#x4E2D;&#x7684;&#x5185;&#x5BB9;,&#x5E76;&#x4E14;&#x4FDD;&#x8BC1;&#x5DE5;&#x4F5C;&#x533A;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5DF2;&#x7ECF;&#x4E0D;&#x5B58;&#x5728;</p>
+<pre><code class="lang-javascript">$ git rm <span class="hljs-string">&quot;&#x6587;&#x4EF6;&#x540D;&quot;</span>
+</code></pre>
+<blockquote>
+<p>&#x82E5;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5219;&#x4E0D;&#x80FD;&#x5220;&#x9664;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;-f&#x53C2;&#x6570;&#x5220;&#x9664;</p>
+</blockquote>
+<h2 id="t239.2 &#x4EC5;&#x5220;&#x9664;&#x7F13;&#x5B58;&#x533A;">9.2 &#x4EC5;&#x5220;&#x9664;&#x7F13;&#x5B58;&#x533A; <a href="#t239.2 &#x4EC5;&#x5220;&#x9664;&#x7F13;&#x5B58;&#x533A;"> # </a></h2>
+<pre><code class="lang-javascript">$ git rm --cached <span class="hljs-string">&quot;&#x6587;&#x4EF6;&#x540D;&quot;</span>
+</code></pre>
+<h2 id="t2410. &#x6062;&#x590D;">10. &#x6062;&#x590D; <a href="#t2410. &#x6062;&#x590D;"> # </a></h2>
+<h3 id="t2510.1 &#x6062;&#x590D;&#x67D0;&#x4E2A;&#x7248;&#x672C;&#x6587;&#x4EF6;">10.1 &#x6062;&#x590D;&#x67D0;&#x4E2A;&#x7248;&#x672C;&#x6587;&#x4EF6; <a href="#t2510.1 &#x6062;&#x590D;&#x67D0;&#x4E2A;&#x7248;&#x672C;&#x6587;&#x4EF6;"> # </a></h3>
+<pre><code class="lang-javascript">$ git checkout commit_id filename &#x67D0;&#x4E2A;&#x6587;&#x4EF6;
+</code></pre>
+<h3 id="t2610.2 &#x901A;&#x8FC7;&#x7248;&#x672C;id&#x6062;&#x590D;">10.2 &#x901A;&#x8FC7;&#x7248;&#x672C;id&#x6062;&#x590D; <a href="#t2610.2 &#x901A;&#x8FC7;&#x7248;&#x672C;id&#x6062;&#x590D;"> # </a></h3>
+<pre><code class="lang-javascript">$ git reset --hard commit_id
+</code></pre>
+<h3 id="t2710.3 &#x6062;&#x590D;&#x672A;&#x6765;">10.3 &#x6062;&#x590D;&#x672A;&#x6765; <a href="#t2710.3 &#x6062;&#x590D;&#x672A;&#x6765;"> # </a></h3>
+<p>&#x67E5;&#x770B;&#x5F53;&#x65F6;&#x56DE;&#x6EDA;&#x65F6;&#x7684;&#x7248;&#x672C;</p>
+<pre><code class="lang-javascript">$ git reflog
+</code></pre>
+<h3 id="t2810.4 &#x5FEB;&#x901F;&#x7248;&#x672C;&#x56DE;&#x9000;">10.4 &#x5FEB;&#x901F;&#x7248;&#x672C;&#x56DE;&#x9000; <a href="#t2810.4 &#x5FEB;&#x901F;&#x7248;&#x672C;&#x56DE;&#x9000;"> # </a></h3>
+<pre><code class="lang-javascript">$ git reset --hard HEAD^
+$ git reset --hard HEAD~<span class="hljs-number">3</span>
+</code></pre>
+<h2 id="t2911. &#x540C;&#x6B65;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;">11. &#x540C;&#x6B65;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93; <a href="#t2911. &#x540C;&#x6B65;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;"> # </a></h2>
+<h3 id="t3011.1 gitHub">11.1 gitHub <a href="#t3011.1 gitHub"> # </a></h3>
+<ul>
+<li>&#x6CE8;&#x518C;&#x8D26;&#x53F7;</li>
+<li>&#x65B0;&#x5EFA;&#x9879;&#x76EE;  </li>
+</ul>
+<h3 id="t3111.2 &#x6DFB;&#x52A0;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;">11.2 &#x6DFB;&#x52A0;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93; <a href="#t3111.2 &#x6DFB;&#x52A0;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;"> # </a></h3>
+<pre><code class="lang-javascript">$ git remote add origin <span class="hljs-string">&quot;&#x5730;&#x5740;&quot;</span>
+</code></pre>
+<h3 id="t3211.3 &#x6DFB;&#x52A0;&#x5FFD;&#x7565;&#x6587;&#x4EF6;">11.3 &#x6DFB;&#x52A0;&#x5FFD;&#x7565;&#x6587;&#x4EF6; <a href="#t3211.3 &#x6DFB;&#x52A0;&#x5FFD;&#x7565;&#x6587;&#x4EF6;"> # </a></h3>
+<pre><code class="lang-javascript">$ touch .gitignore
+$ echo .DS_Store
+$ echo node_modules
+$ echo .idea
+</code></pre>
+<h3 id="t3311.4 &#x63A8;&#x9001;&#x4EE3;&#x7801;">11.4 &#x63A8;&#x9001;&#x4EE3;&#x7801; <a href="#t3311.4 &#x63A8;&#x9001;&#x4EE3;&#x7801;"> # </a></h3>
+<pre><code class="lang-javascript">$ git push origin master
+</code></pre>
+<h3 id="t3411.5 &#x67E5;&#x770B;">11.5 &#x67E5;&#x770B; <a href="#t3411.5 &#x67E5;&#x770B;"> # </a></h3>
+<pre><code class="lang-javascript">$ git remote &#x67E5;&#x770B;&#x540D;&#x5B57;
+$ git remote -v &#x67E5;&#x770B;&#x5730;&#x5740;
+</code></pre>
+<h2 id="t3512.&#x4EE3;&#x7801;&#x7684;&#x5408;&#x5E76;">12.&#x4EE3;&#x7801;&#x7684;&#x5408;&#x5E76; <a href="#t3512.&#x4EE3;&#x7801;&#x7684;&#x5408;&#x5E76;"> # </a></h2>
+<h3 id="t3612.1 git fetch">12.1 git fetch <a href="#t3612.1 git fetch"> # </a></h3>
+<pre><code class="lang-javascript">$ git fetch
+</code></pre>
+<p>&#x62C9;&#x53D6;&#x8FC7;&#x6765;&#x624B;&#x52A8;&#x5408;&#x5E76;</p>
+<pre><code class="lang-javascript">$ git diff master origin/master
+$ git merge origin/master
+</code></pre>
+<h3 id="t3712.2 git pull">12.2 git pull <a href="#t3712.2 git pull"> # </a></h3>
+<p>&#x62C9;&#x53D6;&#x5E76;&#x5408;&#x5E76;</p>
+<pre><code class="lang-javascript">git pull
+</code></pre>
+<h3 id="t3813. &#x5206;&#x652F;">13. &#x5206;&#x652F; <a href="#t3813. &#x5206;&#x652F;"> # </a></h3>
+<h3 id="t3914. tag&#x7248;&#x672C;">14. tag&#x7248;&#x672C; <a href="#t3914. tag&#x7248;&#x672C;"> # </a></h3>
+<h3 id="t4015. &#x4F5C;&#x4E1A;&#x63D0;&#x4EA4;&#x6D41;&#x7A0B;">15. &#x4F5C;&#x4E1A;&#x63D0;&#x4EA4;&#x6D41;&#x7A0B; <a href="#t4015. &#x4F5C;&#x4E1A;&#x63D0;&#x4EA4;&#x6D41;&#x7A0B;"> # </a></h3>
+<h3 id="t4115.1 &#x7B2C;&#x4E00;&#x6B21;&#x4EA4;&#x4F5C;&#x4E1A;&#x6D41;&#x7A0B;(&#x7EC4;&#x957F;)">15.1 &#x7B2C;&#x4E00;&#x6B21;&#x4EA4;&#x4F5C;&#x4E1A;&#x6D41;&#x7A0B;(&#x7EC4;&#x957F;) <a href="#t4115.1 &#x7B2C;&#x4E00;&#x6B21;&#x4EA4;&#x4F5C;&#x4E1A;&#x6D41;&#x7A0B;(&#x7EC4;&#x957F;)"> # </a></h3>
+<ul>
+<li><code>fork</code>&#x73E0;&#x5CF0;&#x57F9;&#x8BAD;&#x8BB2;&#x5E08;&#x7684;&#x4F5C;&#x4E1A;&#x4ED3;&#x5E93;</li>
+<li>&#x628A;&#x81EA;&#x5DF1;&#x7684;&#x4ED3;&#x5E93;<code>&#x4E0B;&#x8F7D;</code>&#x5230;&#x672C;&#x5730;</li>
+<li>&#x628A;&#x81EA;&#x5DF1;&#x7684;&#x4F5C;&#x4E1A; <code>&#x4E0A;&#x4F20;</code>&#x5230;&#x81EA;&#x5DF1;&#x7684;github&#x4ED3;&#x5E93;</li>
+<li>&#x53D1;<code>pull request</code>&#x7ED9;&#x8BB2;&#x5E08;</li>
+<li>&#x6DFB;&#x52A0;&#x7EC4;&#x5458;&#x8D26;&#x53F7;  </li>
+</ul>
+<h3 id="t4215.2 &#x7B2C;&#x4E8C;&#x6B21;&#x4EA4;&#x4F5C;&#x4E1A;&#x6D41;&#x7A0B;(&#x7EC4;&#x5458;)">15.2 &#x7B2C;&#x4E8C;&#x6B21;&#x4EA4;&#x4F5C;&#x4E1A;&#x6D41;&#x7A0B;(&#x7EC4;&#x5458;) <a href="#t4215.2 &#x7B2C;&#x4E8C;&#x6B21;&#x4EA4;&#x4F5C;&#x4E1A;&#x6D41;&#x7A0B;(&#x7EC4;&#x5458;)"> # </a></h3>
+<ul>
+<li>&#x514B;&#x9686;&#x7EC4;&#x957F;&#x9879;&#x76EE;</li>
+<li>&#x5148;<code>&#x62C9;&#x53D6;</code>&#x7EC4;&#x957F;&#x4ED3;&#x5E93;&#x6700;&#x65B0;&#x4EE3;&#x7801;</li>
+<li>&#x5C06;&#x81EA;&#x5DF1;&#x7684;&#x4F5C;&#x4E1A;&#xFF08;&#x653E;&#x5165;&#x5BF9;&#x5E94;&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF09;</li>
+<li>git add/git commit</li>
+<li>&#x518D;push&#x524D;&#x62C9;&#x53D6;&#x7EC4;&#x957F;&#x4ED3;&#x5E93;&#x6700;&#x65B0;&#x4EE3;&#x7801;</li>
+<li>push&#x5230;&#x7EC4;&#x957F;&#x4ED3;&#x5E93;</li>
+</ul>
+<h3 id="t4315.3 &#x7B2C;&#x4E8C;&#x6B21;&#x4EA4;&#x4F5C;&#x4E1A;&#x6D41;&#x7A0B;(&#x7EC4;&#x957F;)">15.3 &#x7B2C;&#x4E8C;&#x6B21;&#x4EA4;&#x4F5C;&#x4E1A;&#x6D41;&#x7A0B;(&#x7EC4;&#x957F;) <a href="#t4315.3 &#x7B2C;&#x4E8C;&#x6B21;&#x4EA4;&#x4F5C;&#x4E1A;&#x6D41;&#x7A0B;(&#x7EC4;&#x957F;)"> # </a></h3>
+<ul>
+<li>&#x5728;&#x672C;&#x5730;<code>&#x589E;&#x52A0;</code>&#x8BB2;&#x5E08;&#x4ED3;&#x5E93;</li>
+<li><code>&#x62C9;&#x53D6;</code>&#x81EA;&#x5DF1;&#x7684;&#x6700;&#x65B0;&#x4EE3;&#x7801;</li>
+<li><code>&#x62C9;&#x53D6;</code>&#x8001;&#x5E08;&#x7684;&#x6700;&#x65B0;&#x7684;&#x4EE3;&#x7801;,&#x5982;&#x679C;&#x51B2;&#x7A81;&#x9700;&#x8981;&#x89E3;&#x51B3;&#x51B2;&#x7A81;</li>
+<li>&#x628A;&#x81EA;&#x5DF1;&#x7684;&#x4F5C;&#x4E1A; &#x62F7;&#x8D1D;&#x8FDB;&#x53BB;(&#x5982;&#x679C;&#x7EC4;&#x957F;&#x6CA1;&#x6709;&#x8981;&#x63D0;&#x4EA4;&#x7684;&#x4E1C;&#x897F;&#x53EF;&#x7701;&#x7565;)</li>
+<li>&#x628A;&#x81EA;&#x5DF1;&#x7684;&#x4F5C;&#x4E1A;&#x4E0A;<code>&#x4F20;&#x5230;</code>&#x81EA;&#x5DF1;&#x7684;github&#x4ED3;&#x5E93;(&#x5982;&#x679C;&#x7EC4;&#x957F;&#x6CA1;&#x6709;&#x8981;&#x63D0;&#x4EA4;&#x7684;&#x4E1C;&#x897F;&#x53EF;&#x7701;&#x7565;)</li>
+<li>&#x53D1;<code>pull request</code>&#x7ED9;&#x8BB2;&#x5E08;</li>
+</ul>
+<hr>
+<blockquote>
+<p>&#x53C2;&#x8003;&#x6559;&#x7A0B;<a href="http://school.zhufengpeixun.cn/course/31">http://school.zhufengpeixun.cn/course/31</a></p>
+</blockquote>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
