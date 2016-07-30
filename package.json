@@ -36,13 +36,18 @@
                     "JS常用方法.md",
                     "预解析作用域闭包.md",
                     "正则.md",
-                    "盒子模型.md"
+                    "盒子模型.md",
+                    "1.md",
+                    "js基础知识.md",
+                    "预解析作用域闭包this.md"
                 ]
             },
             {
                 "nodejs": [
-                    "文件上传.md",
+                    "模块.md",
+                    "buffer.md",
                     "流.md",
+                    "文件上传.md",
                     "express.md",
                     "cookie.md",
                     "session.md",

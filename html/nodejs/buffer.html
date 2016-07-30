@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Talent Coder</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Talent Coder
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/es6课程.html">es6课程</a></li></ul></li><li><a href="#"><span></span>自动化工具</a><ul><li><a href="../../html/自动化工具/webpack基础.html">webpack基础</a></li><li><a href="../../html/自动化工具/webpack应用.html">webpack应用</a></li><li><a href="../../html/自动化工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>js基础</a><ul><li><a href="../../html/js基础/初识JS.html">初识JS</a></li><li><a href="../../html/js基础/原型链.html">原型链</a></li><li><a href="../../html/js基础/原型深入.html">原型深入</a></li><li><a href="../../html/js基础/JS常用方法.html">JS常用方法</a></li><li><a href="../../html/js基础/预解析作用域闭包.html">预解析作用域闭包</a></li><li><a href="../../html/js基础/正则.html">正则</a></li><li><a href="../../html/js基础/盒子模型.html">盒子模型</a></li><li><a href="../../html/js基础/1.html">1</a></li><li><a href="../../html/js基础/js基础知识.html">js基础知识</a></li><li><a href="../../html/js基础/预解析作用域闭包this.html">预解析作用域闭包this</a></li></ul></li><li><a href="#"><span></span>nodejs</a><ul><li><a href="../../html/nodejs/模块.html">模块</a></li><li class="active"><a href="../../html/nodejs/buffer.html">buffer</a></li><li><a href="../../html/nodejs/流.html">流</a></li><li><a href="../../html/nodejs/文件上传.html">文件上传</a></li><li><a href="../../html/nodejs/express.html">express</a></li><li><a href="../../html/nodejs/cookie.html">cookie</a></li><li><a href="../../html/nodejs/session.html">session</a></li><li><a href="../../html/nodejs/mongodb.html">mongodb</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../html/AngularJS/angular基础.html">angular基础</a></li><li><a href="../../html/AngularJS/指令.html">指令</a></li><li><a href="../../html/AngularJS/服务.html">服务</a></li><li><a href="../../html/AngularJS/route.html">route</a></li></ul></li><li><a href="#"><span></span>Vue.js</a><ul><li><a href="../../html/Vue.js/Vue入门.html">Vue入门</a></li><li><a href="../../html/Vue.js/Vue方法篇.html">Vue方法篇</a></li><li><a href="../../html/Vue.js/Vue方法篇2.html">Vue方法篇2</a></li><li><a href="../../html/Vue.js/Vue组件.html">Vue组件</a></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git入门.html">git入门</a></li></ul></li></ul>
+        </div>
+        
+        <!--
+        <div class="forkgithub"><a target="_blank" href="https://github.com/WakeUpMyPig/jw_blog.git">fork on github</a></div>
+        -->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01. 什么是Buffer">1. 什么是Buffer</a></li><li><a href="#t12. 什么是字节">2. 什么是字节</a></li><li><a href="#t23. 定义buffer的三种方式">3. 定义buffer的三种方式</a><ul><li><a href="#t33.1 通过长度定义buffer">3.1 通过长度定义buffer</a></li><li><a href="#t43.2 通过数组定义buffer">3.2 通过数组定义buffer</a></li><li><a href="#t53.3 字符串创建">3.3 字符串创建</a></li></ul></li><li><a href="#t64.buffer常用方法">4.buffer常用方法</a><ul><li><a href="#t74.1 fill方法">4.1 fill方法</a></li><li><a href="#t84.2 write方法">4.2 write方法</a></li><li><a href="#t94.3 toString方法">4.3 toString方法</a></li><li><a href="#t104.4 slice方法">4.4 slice方法</a></li><li><a href="#t114.5 copy方法">4.5 copy方法</a></li><li><a href="#t124.6 concat方法">4.6 concat方法</a></li><li><a href="#t134.7 isBuffer">4.7 isBuffer</a></li><li><a href="#t144.8 length">4.8 length</a></li></ul></li><li><a href="#t155.进制转换">5.进制转换</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t01. &#x4EC0;&#x4E48;&#x662F;Buffer">1. &#x4EC0;&#x4E48;&#x662F;Buffer <a href="#t01. &#x4EC0;&#x4E48;&#x662F;Buffer"> # </a></h2>
+<ul>
+<li>&#x7F13;&#x51B2;&#x533A;Buffer&#x662F;&#x6682;&#x65F6;&#x5B58;&#x653E;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x6570;&#x636E;&#x7684;&#x4E00;&#x6BB5;&#x5185;&#x5B58;&#x3002;</li>
+<li>JS&#x8BED;&#x8A00;&#x6CA1;&#x6709;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x800C;&#x5728;&#x5904;&#x7406;TCP&#x548C;&#x6587;&#x4EF6;&#x6D41;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FC5;&#x987B;&#x8981;&#x5904;&#x7406;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x3002;</li>
+<li>NodeJS&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;Buffer&#x5BF9;&#x8C61;&#x6765;&#x63D0;&#x4F9B;&#x5BF9;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x7684;&#x64CD;&#x4F5C;</li>
+<li>&#x662F;&#x4E00;&#x4E2A;&#x8868;&#x793A;&#x56FA;&#x5B9A;&#x5185;&#x5B58;&#x5206;&#x914D;&#x7684;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x8981;&#x653E;&#x5230;&#x7F13;&#x5B58;&#x533A;&#x4E2D;&#x7684;&#x5B57;&#x8282;&#x6570;&#x9700;&#x8981;&#x63D0;&#x524D;&#x786E;&#x5B9A;</li>
+<li>Buffer&#x597D;&#x6BD4;&#x7531;&#x4E00;&#x4E2A;&#x591A;&#x4F4D;&#x5B57;&#x8282;&#x5143;&#x7D20;&#x7EC4;&#x6210;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x6548;&#x7684;&#x5728;javascript&#x4E2D;&#x8868;&#x793A;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;  </li>
+</ul>
+<h2 id="t12. &#x4EC0;&#x4E48;&#x662F;&#x5B57;&#x8282;">2. &#x4EC0;&#x4E48;&#x662F;&#x5B57;&#x8282; <a href="#t12. &#x4EC0;&#x4E48;&#x662F;&#x5B57;&#x8282;"> # </a></h2>
+<ul>
+<li>&#x5B57;&#x8282;(Byte)&#x662F;&#x8BA1;&#x7B97;&#x673A;&#x5B58;&#x50A8;&#x65F6;&#x7684;&#x4E00;&#x79CD;&#x8BA1;&#x91CF;&#x5355;&#x4F4D;&#xFF0C;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x7B49;&#x4E8E;8&#x4F4D;&#x4E8C;&#x8FDB;&#x5236;&#x6570;</li>
+<li>&#x4E00;&#x4E2A;&#x4F4D;&#x5C31;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;0&#x6216;1&#xFF0C;&#x6BCF;8&#x4E2A;&#x4F4D;&#xFF08;bit&#xFF09;&#x7EC4;&#x6210;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#xFF08;Byte&#xFF09;</li>
+<li>&#x5B57;&#x8282;&#x662F;&#x901A;&#x8FC7;&#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#x4FE1;&#x606F;&#x7684;&#x5355;&#x4F4D;</li>
+<li>&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x6700;&#x5927;&#x503C;&#x5341;&#x8FDB;&#x5236;&#x6570;&#x662F;255  </li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> sum =<span class="hljs-number">0</span>;
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++){
+  sum += <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>,i);
+}
+</code></pre>
+<h2 id="t23. &#x5B9A;&#x4E49;buffer&#x7684;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;">3. &#x5B9A;&#x4E49;buffer&#x7684;&#x4E09;&#x79CD;&#x65B9;&#x5F0F; <a href="#t23. &#x5B9A;&#x4E49;buffer&#x7684;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;"> # </a></h2>
+<h3 id="t33.1 &#x901A;&#x8FC7;&#x957F;&#x5EA6;&#x5B9A;&#x4E49;buffer">3.1 &#x901A;&#x8FC7;&#x957F;&#x5EA6;&#x5B9A;&#x4E49;buffer <a href="#t33.1 &#x901A;&#x8FC7;&#x957F;&#x5EA6;&#x5B9A;&#x4E49;buffer"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">new</span> Buffer(size);
+</code></pre>
+<h3 id="t43.2 &#x901A;&#x8FC7;&#x6570;&#x7EC4;&#x5B9A;&#x4E49;buffer">3.2 &#x901A;&#x8FC7;&#x6570;&#x7EC4;&#x5B9A;&#x4E49;buffer <a href="#t43.2 &#x901A;&#x8FC7;&#x6570;&#x7EC4;&#x5B9A;&#x4E49;buffer"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">new</span> Buffer(array);
+</code></pre>
+<blockquote>
+<p>&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x4E3A;0-255&#x4E4B;&#x95F4;;</p>
+</blockquote>
+<h3 id="t53.3 &#x5B57;&#x7B26;&#x4E32;&#x521B;&#x5EFA;">3.3 &#x5B57;&#x7B26;&#x4E32;&#x521B;&#x5EFA; <a href="#t53.3 &#x5B57;&#x7B26;&#x4E32;&#x521B;&#x5EFA;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">new</span> Buffer(str,[encoding]);
+</code></pre>
+<h2 id="t64.buffer&#x5E38;&#x7528;&#x65B9;&#x6CD5;">4.buffer&#x5E38;&#x7528;&#x65B9;&#x6CD5; <a href="#t64.buffer&#x5E38;&#x7528;&#x65B9;&#x6CD5;"> # </a></h2>
+<h3 id="t74.1 fill&#x65B9;&#x6CD5;">4.1 fill&#x65B9;&#x6CD5; <a href="#t74.1 fill&#x65B9;&#x6CD5;"> # </a></h3>
+<p>&#x624B;&#x52A8;&#x521D;&#x59CB;&#x5316;,&#x64E6;&#x5E72;&#x51C0;&#x684C;&#x5B50;,&#x5C06;buffer&#x5185;&#x5BB9;&#x6E05;0</p>
+<pre><code class="lang-javascript">buffer.fill(<span class="hljs-number">0</span>);
+</code></pre>
+<h3 id="t84.2 write&#x65B9;&#x6CD5;">4.2 write&#x65B9;&#x6CD5; <a href="#t84.2 write&#x65B9;&#x6CD5;"> # </a></h3>
+<p>string, offset, length, encoding</p>
+<pre><code class="lang-javascript">buffer.write(<span class="hljs-string">&apos;&#x73E0;&apos;</span>,<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-string">&apos;utf8&apos;</span>);
+buffer.write(<span class="hljs-string">&apos;&#x5CF0;&apos;</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-string">&apos;utf8&apos;</span>); <span class="hljs-comment">//&#x73E0;&#x5CF0;</span>
+</code></pre>
+<h3 id="t94.3 toString&#x65B9;&#x6CD5;">4.3 toString&#x65B9;&#x6CD5; <a href="#t94.3 toString&#x65B9;&#x6CD5;"> # </a></h3>
+<p>&#x5C06;buffer&#x8F6C;&#x6362;&#x6210;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B; start end &#x662F;&#x622A;&#x53D6;&#x7684;buffer&#x7684;&#x957F;&#x5EA6;</p>
+<pre><code class="lang-javascript">buffer.toString(<span class="hljs-string">&apos;utf8&apos;</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>)
+</code></pre>
+<h3 id="t104.4 slice&#x65B9;&#x6CD5;">4.4 slice&#x65B9;&#x6CD5; <a href="#t104.4 slice&#x65B9;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript">buffer.slice(<span class="hljs-number">0</span>,<span class="hljs-number">4</span>);
+</code></pre>
+<p>&#x622A;&#x53D6;&#x4E71;&#x7801;&#x95EE;&#x9898;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> StringDecoder  = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;string_decoder&apos;</span>).StringDecoder;
+<span class="hljs-keyword">var</span> sd = <span class="hljs-keyword">new</span> StringDecoder;
+<span class="hljs-keyword">var</span> buffer = <span class="hljs-keyword">new</span> Buffer(<span class="hljs-string">&apos;&#x73E0;&#x5CF0;&apos;</span>);
+<span class="hljs-built_in">console</span>.log(sd.write(buffer.slice(<span class="hljs-number">0</span>,<span class="hljs-number">4</span>)));
+<span class="hljs-built_in">console</span>.log(sd.write(buffer.slice(<span class="hljs-number">4</span>)));
+</code></pre>
+<h3 id="t114.5 copy&#x65B9;&#x6CD5;">4.5 copy&#x65B9;&#x6CD5; <a href="#t114.5 copy&#x65B9;&#x6CD5;"> # </a></h3>
+<p>&#x590D;&#x5236;Buffer &#x628A;&#x591A;&#x4E2A;buffer&#x62F7;&#x8D1D;&#x5230;&#x4E00;&#x4E2A;&#x5927;buffer&#x4E0A;</p>
+<pre><code class="lang-javascript">sourceBuffer.copy(targetBuffer,targetstart,sourcestart,sourceend);
+</code></pre>
+<h3 id="t124.6 concat&#x65B9;&#x6CD5;">4.6 concat&#x65B9;&#x6CD5; <a href="#t124.6 concat&#x65B9;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript">Buffer.concat([buf1,buf2],length);
+</code></pre>
+<blockquote>
+<p>&#x5B9E;&#x73B0;concat&#x65B9;&#x6CD5;</p>
+</blockquote>
+<h3 id="t134.7 isBuffer">4.7 isBuffer <a href="#t134.7 isBuffer"> # </a></h3>
+<p>&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;buffer</p>
+<pre><code class="lang-javascript">Buffer.isBuffer
+</code></pre>
+<h3 id="t144.8 length">4.8 length <a href="#t144.8 length"> # </a></h3>
+<p>&#x83B7;&#x53D6;&#x5B57;&#x8282;&#x957F;&#x5EA6;(&#x663E;&#x793A;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6240;&#x4EE3;&#x8868;buffer&#x7684;&#x957F;&#x5EA6;)</p>
+<pre><code class="lang-javascript">Buffer.byteLength(<span class="hljs-string">&quot;&#x73E0;&#x5CF0;&quot;</span>);
+buffer.length;
+</code></pre>
+<h2 id="t155.&#x8FDB;&#x5236;&#x8F6C;&#x6362;">5.&#x8FDB;&#x5236;&#x8F6C;&#x6362; <a href="#t155.&#x8FDB;&#x5236;&#x8F6C;&#x6362;"> # </a></h2>
+<ul>
+<li>&#x5C06;&#x4EFB;&#x610F;&#x8FDB;&#x5236;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x5341;&#x8FDB;&#x5236;<ul>
+<li>parseInt(&quot;11&quot;, 2); // 3 2&#x8FDB;&#x5236;&#x8F6C;10&#x8FDB;&#x5236;</li>
+<li>parseInt(&quot;77&quot;, 8); // 63 8&#x8FDB;&#x5236;&#x8F6C;10&#x8FDB;&#x5236;</li>
+<li>parseInt(&quot;e7&quot;, 16); //175 16&#x8FDB;&#x5236;&#x8F6C;10&#x8FDB;&#x5236;</li>
+</ul>
+</li>
+<li>&#x5C06;10&#x8FDB;&#x5236;&#x8F6C;&#x6362;&#x4E3A;&#x5176;&#x5B83;&#x8FDB;&#x5236;&#x5B57;&#x7B26;&#x4E32;<ul>
+<li>(3).toString(2)) // &quot;11&quot; &#x5341;&#x8FDB;&#x5236;&#x8F6C;2&#x8FDB;&#x5236;</li>
+<li>(17).toString(16) // &quot;11&quot; &#x5341;&#x8FDB;&#x5236;&#x8F6C;16&#x8FDB;&#x5236;</li>
+<li>(33).toString(32) // &quot;11&quot; &#x5341;&#x63D0;&#x5236;&#x8F6C;32&#x8FDB;&#x5236;</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>base64&#x7684;&#x8F6C;&#x6362;</p>
+</blockquote>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
