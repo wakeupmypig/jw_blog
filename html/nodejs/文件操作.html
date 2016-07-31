@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Talent Coder</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Talent Coder
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/es6课程.html">es6课程</a></li></ul></li><li><a href="#"><span></span>自动化工具</a><ul><li><a href="../../html/自动化工具/webpack基础.html">webpack基础</a></li><li><a href="../../html/自动化工具/webpack应用.html">webpack应用</a></li><li><a href="../../html/自动化工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>js基础</a><ul><li><a href="../../html/js基础/初识JS.html">初识JS</a></li><li><a href="../../html/js基础/原型链.html">原型链</a></li><li><a href="../../html/js基础/原型深入.html">原型深入</a></li><li><a href="../../html/js基础/JS常用方法.html">JS常用方法</a></li><li><a href="../../html/js基础/预解析作用域闭包.html">预解析作用域闭包</a></li><li><a href="../../html/js基础/正则.html">正则</a></li><li><a href="../../html/js基础/盒子模型.html">盒子模型</a></li><li><a href="../../html/js基础/1.html">1</a></li><li><a href="../../html/js基础/js基础知识.html">js基础知识</a></li><li><a href="../../html/js基础/预解析作用域闭包this.html">预解析作用域闭包this</a></li></ul></li><li><a href="#"><span></span>nodejs</a><ul><li><a href="../../html/nodejs/模块.html">模块</a></li><li><a href="../../html/nodejs/buffer.html">buffer</a></li><li><a href="../../html/nodejs/流.html">流</a></li><li><a href="../../html/nodejs/文件上传.html">文件上传</a></li><li><a href="../../html/nodejs/express.html">express</a></li><li><a href="../../html/nodejs/cookie.html">cookie</a></li><li><a href="../../html/nodejs/session.html">session</a></li><li><a href="../../html/nodejs/mongodb.html">mongodb</a></li><li class="active"><a href="../../html/nodejs/文件操作.html">文件操作</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../html/AngularJS/angular基础.html">angular基础</a></li><li><a href="../../html/AngularJS/指令.html">指令</a></li><li><a href="../../html/AngularJS/服务.html">服务</a></li><li><a href="../../html/AngularJS/route.html">route</a></li></ul></li><li><a href="#"><span></span>Vue.js</a><ul><li><a href="../../html/Vue.js/Vue入门.html">Vue入门</a></li><li><a href="../../html/Vue.js/Vue方法篇.html">Vue方法篇</a></li><li><a href="../../html/Vue.js/Vue方法篇2.html">Vue方法篇2</a></li><li><a href="../../html/Vue.js/Vue组件.html">Vue组件</a></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git入门.html">git入门</a></li></ul></li></ul>
+        </div>
+        
+        <!--
+        <div class="forkgithub"><a target="_blank" href="https://github.com/WakeUpMyPig/jw_blog.git">fork on github</a></div>
+        -->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t0fs核心模块">fs核心模块</a></li><li><a href="#t1读取文件">读取文件</a></li><li><a href="#t2写文件">写文件</a></li><li><a href="#t3目录操作">目录操作</a><ul><li><a href="#t4创建目录">创建目录</a></li><li><a href="#t5判断一个文件是否存在">判断一个文件是否存在</a></li><li><a href="#t6读取目录下所有的文件">读取目录下所有的文件</a></li><li><a href="#t7查看文件目录信息">查看文件目录信息</a></li></ul></li><li><a href="#t8路径处理path模块">路径处理path模块</a><ul><li><a href="#t9path.join">path.join</a></li><li><a href="#t10path.basename">path.basename</a></li><li><a href="#t11path.extname">path.extname</a></li><li><a href="#t12path.sep">path.sep</a></li><li><a href="#t13path.delimiter">path.delimiter</a></li><li><a href="#t14path.normalize">path.normalize</a></li><li><a href="#t15resolve">resolve</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t0fs&#x6838;&#x5FC3;&#x6A21;&#x5757;">fs&#x6838;&#x5FC3;&#x6A21;&#x5757; <a href="#t0fs&#x6838;&#x5FC3;&#x6A21;&#x5757;"> # </a></h2>
+<p>Node.js&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;Api,&#x540C;&#x6B65;&#x65B9;&#x6CD5;&#x548C;&#x5F02;&#x6B65;&#x65B9;&#x6CD5;&#x540C;&#x65F6;&#x51FA;&#x73B0;</p>
+<h2 id="t1&#x8BFB;&#x53D6;&#x6587;&#x4EF6;">&#x8BFB;&#x53D6;&#x6587;&#x4EF6; <a href="#t1&#x8BFB;&#x53D6;&#x6587;&#x4EF6;"> # </a></h2>
+<ul>
+<li>&#x5F02;&#x6B65;&#x8BFB;&#x53D6; readFile</li>
+<li>&#x540C;&#x6B65;&#x8BFB;&#x53D6; readFileSync  </li>
+</ul>
+<h2 id="t2&#x5199;&#x6587;&#x4EF6;">&#x5199;&#x6587;&#x4EF6; <a href="#t2&#x5199;&#x6587;&#x4EF6;"> # </a></h2>
+<ul>
+<li>&#x5F02;&#x6B65;&#x5199;&#x5165; writeFile</li>
+<li>&#x540C;&#x6B65;&#x5199;&#x5165; writeFileSync</li>
+</ul>
+<blockquote>
+<p>&#x62F7;&#x8D1D;&#x6587;&#x4EF6;</p>
+</blockquote>
+<h2 id="t3&#x76EE;&#x5F55;&#x64CD;&#x4F5C;">&#x76EE;&#x5F55;&#x64CD;&#x4F5C; <a href="#t3&#x76EE;&#x5F55;&#x64CD;&#x4F5C;"> # </a></h2>
+<h3 id="t4&#x521B;&#x5EFA;&#x76EE;&#x5F55;">&#x521B;&#x5EFA;&#x76EE;&#x5F55; <a href="#t4&#x521B;&#x5EFA;&#x76EE;&#x5F55;"> # </a></h3>
+<pre><code class="lang-javascript">fs.mkdirSync(<span class="hljs-string">&apos;a/b/c/d&apos;</span>);
+</code></pre>
+<blockquote>
+<p>&#x8981;&#x6C42;&#x7236;&#x76EE;&#x5F55;&#x5FC5;&#x987B;&#x5B58;&#x5728;</p>
+</blockquote>
+<h3 id="t5&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;">&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728; <a href="#t5&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;"> # </a></h3>
+<pre><code class="lang-javascript">fs.existsSync(<span class="hljs-string">&apos;./a&apos;</span>);
+</code></pre>
+<h3 id="t6&#x8BFB;&#x53D6;&#x76EE;&#x5F55;&#x4E0B;&#x6240;&#x6709;&#x7684;&#x6587;&#x4EF6;">&#x8BFB;&#x53D6;&#x76EE;&#x5F55;&#x4E0B;&#x6240;&#x6709;&#x7684;&#x6587;&#x4EF6; <a href="#t6&#x8BFB;&#x53D6;&#x76EE;&#x5F55;&#x4E0B;&#x6240;&#x6709;&#x7684;&#x6587;&#x4EF6;"> # </a></h3>
+<pre><code class="lang-javascript">fs.readdirSync(<span class="hljs-string">&apos;&apos;</span>);
+</code></pre>
+<h3 id="t7&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4FE1;&#x606F;">&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4FE1;&#x606F; <a href="#t7&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4FE1;&#x606F;"> # </a></h3>
+<pre><code class="lang-javascript">fs.statSync(<span class="hljs-string">&apos;./e/&apos;</span>+item);
+</code></pre>
+<h2 id="t8&#x8DEF;&#x5F84;&#x5904;&#x7406;path&#x6A21;&#x5757;">&#x8DEF;&#x5F84;&#x5904;&#x7406;path&#x6A21;&#x5757; <a href="#t8&#x8DEF;&#x5F84;&#x5904;&#x7406;path&#x6A21;&#x5757;"> # </a></h2>
+<p>path&#x662F;node&#x4E2D;&#x4E13;&#x95E8;&#x5904;&#x7406;&#x8DEF;&#x5F84;&#x7684;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x6A21;&#x5757;</p>
+<h3 id="t9path.join">path.join <a href="#t9path.join"> # </a></h3>
+<p>&#x5C06;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x503C;&#x5B57;&#x7B26;&#x4E32;&#x7ED3;&#x5408;&#x4E3A;&#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x5B57;&#x7B26;&#x4E32;</p>
+<h3 id="t10path.basename">path.basename <a href="#t10path.basename"> # </a></h3>
+<p>&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x540D;</p>
+<h3 id="t11path.extname">path.extname <a href="#t11path.extname"> # </a></h3>
+<p>&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;&#x6269;&#x5C55;&#x540D;</p>
+<h3 id="t12path.sep">path.sep <a href="#t12path.sep"> # </a></h3>
+<p>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x63D0;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x5206;&#x9694;&#x7B26;</p>
+<h3 id="t13path.delimiter">path.delimiter <a href="#t13path.delimiter"> # </a></h3>
+<p>&#x5C5E;&#x6027;&#x503C;&#x4E3A;&#x7CFB;&#x7EDF;&#x6307;&#x5B9A;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;</p>
+<h3 id="t14path.normalize">path.normalize <a href="#t14path.normalize"> # </a></h3>
+<p>&#x5C06;&#x975E;&#x6807;&#x51C6;&#x7684;&#x8DEF;&#x5F84;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x5316;&#x4E3A;&#x6807;&#x51C6;&#x8DEF;&#x5F84;&#x5B57;&#x7B26;&#x4E32;  &#x7279;&#x70B9;&#xFF1A;  </p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x89E3;&#x6790; . &#x548C; ..</li>
+<li>&#x591A;&#x4E2A;&#x6760;&#x53EF;&#x4EE5;&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x4E2A;&#x6760;</li>
+<li>&#x5728;windows&#x4E0B;&#x53CD;&#x6760;&#x4F1A;&#x8F6C;&#x5316;&#x6210;&#x6B63;&#x6760;</li>
+<li>&#x5982;&#x7ED3;&#x5C3E;&#x4EE5;&#x6760;&#x7ED3;&#x5C3E;&#x7684;&#xFF0C;&#x5219;&#x4FDD;&#x7559;&#x659C;&#x6760;  </li>
+</ul>
+<h3 id="t15resolve">resolve <a href="#t15resolve"> # </a></h3>
+<p>&#x53D6;&#x5F97;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84; &#x7279;&#x70B9;&#xFF1A;  </p>
+<ul>
+<li>&#x4EE5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6839;&#x76EE;&#x5F55;&#x4E3A;&#x8D77;&#x70B9;</li>
+<li>&#x5982;&#x679C;&#x53C2;&#x6570;&#x662F;&#x666E;&#x901A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x610F;&#x601D;&#x662F;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x7684;&#x4E0B;&#x7EA7;&#x76EE;&#x5F55;</li>
+<li>&#x5982;&#x679C;&#x53C2;&#x6570;&#x662F;.. &#x56DE;&#x5230;&#x4E0A;&#x4E00;&#x7EA7;&#x76EE;&#x5F55;</li>
+<li>&#x5982;&#x679C;&#x662F;/&#x5F00;&#x5934;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x7EDD;&#x5BF9;&#x7684;&#x6839;&#x8DEF;&#x5F84;</li>
+</ul>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
