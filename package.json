@@ -37,9 +37,7 @@
                     "预解析作用域闭包.md",
                     "正则.md",
                     "盒子模型.md",
-                    "1.md",
-                    "js基础知识.md",
-                    "预解析作用域闭包this.md"
+                    "js基础知识.md"
                 ]
             },
             {
@@ -69,7 +67,11 @@
                     "Vue入门.md",
                     "Vue方法篇.md",
                     "Vue方法篇2.md",
-                    "Vue组件.md"
+                    "todo.md",
+                    "vue-resource.md",
+                    "Vue组件.md",
+                    "Vue指令.md",
+                    "route.md"
                 ]
             },
             {
