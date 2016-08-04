@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Talent Coder</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Talent Coder
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/es6课程.html">es6课程</a></li></ul></li><li><a href="#"><span></span>自动化工具</a><ul><li><a href="../../html/自动化工具/webpack基础.html">webpack基础</a></li><li><a href="../../html/自动化工具/webpack应用.html">webpack应用</a></li><li><a href="../../html/自动化工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>js基础</a><ul><li><a href="../../html/js基础/初识JS.html">初识JS</a></li><li><a href="../../html/js基础/原型链.html">原型链</a></li><li><a href="../../html/js基础/原型深入.html">原型深入</a></li><li><a href="../../html/js基础/JS常用方法.html">JS常用方法</a></li><li><a href="../../html/js基础/预解析作用域闭包.html">预解析作用域闭包</a></li><li><a href="../../html/js基础/正则.html">正则</a></li><li><a href="../../html/js基础/盒子模型.html">盒子模型</a></li><li><a href="../../html/js基础/js基础知识.html">js基础知识</a></li></ul></li><li><a href="#"><span></span>nodejs</a><ul><li><a href="../../html/nodejs/模块.html">模块</a></li><li><a href="../../html/nodejs/buffer.html">buffer</a></li><li><a href="../../html/nodejs/文件操作.html">文件操作</a></li><li><a href="../../html/nodejs/流.html">流</a></li><li><a href="../../html/nodejs/文件上传.html">文件上传</a></li><li><a href="../../html/nodejs/express.html">express</a></li><li><a href="../../html/nodejs/cookie.html">cookie</a></li><li><a href="../../html/nodejs/session.html">session</a></li><li><a href="../../html/nodejs/mongodb.html">mongodb</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../html/AngularJS/angular基础.html">angular基础</a></li><li><a href="../../html/AngularJS/指令.html">指令</a></li><li><a href="../../html/AngularJS/服务.html">服务</a></li><li><a href="../../html/AngularJS/route.html">route</a></li></ul></li><li><a href="#"><span></span>Vue.js</a><ul><li><a href="../../html/Vue.js/Vue入门.html">Vue入门</a></li><li><a href="../../html/Vue.js/Vue方法篇.html">Vue方法篇</a></li><li><a href="../../html/Vue.js/Vue方法篇2.html">Vue方法篇2</a></li><li><a href="../../html/Vue.js/todo.html">todo</a></li><li class="active"><a href="../../html/Vue.js/vue-resource.html">vue-resource</a></li><li><a href="../../html/Vue.js/Vue组件.html">Vue组件</a></li><li><a href="../../html/Vue.js/Vue指令.html">Vue指令</a></li><li><a href="../../html/Vue.js/route.html">route</a></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git入门.html">git入门</a></li></ul></li></ul>
+        </div>
+        
+        <!--
+        <div class="forkgithub"><a target="_blank" href="https://github.com/WakeUpMyPig/jw_blog.git">fork on github</a></div>
+        -->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t0vue-resource">vue-resource</a><ul><li><a href="#t11.http操作">1.http操作</a></li><li><a href="#t22.创建resource">2.创建resource</a></li></ul></li><li><a href="#t33.使用resource完成操作">3.使用resource完成操作</a><ul><li><a href="#t43.1 基本布局">3.1 基本布局</a></li><li><a href="#t53.2 进行操作">3.2 进行操作</a></li><li><a href="#t63.3 后台服务的搭建">3.3 后台服务的搭建</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t0vue-resource">vue-resource <a href="#t0vue-resource"> # </a></h2>
+<p>&#x5B89;&#x88C5;resource</p>
+<pre><code class="lang-javascript">$ npm install vue-resource
+</code></pre>
+<h3 id="t11.http&#x64CD;&#x4F5C;">1.http&#x64CD;&#x4F5C; <a href="#t11.http&#x64CD;&#x4F5C;"> # </a></h3>
+<p>&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x53EF;&#x4EE5;&#x5E94;&#x7528;Vue.http&#x6216;&#x8005;&#x5728;vue&#x7684;&#x5B9E;&#x4F8B;&#x4E2D;this.$http.</p>
+<pre><code class="lang-javascript">Vue.http.get(<span class="hljs-string">&apos;/someUrl&apos;</span>, [options]).then(successCallback, errorCallback);
+Vue.http.post(<span class="hljs-string">&apos;/someUrl&apos;</span>, [body], [options]).then(successCallback, errorCallback);
+</code></pre>
+<p>http&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-javascript">get(url, [options])
+head(url, [options])
+<span class="hljs-keyword">delete</span>(url, [options])
+jsonp(url, [options])
+post(url, [body], [options])
+put(url, [body], [options])
+patch(url, [body], [options])
+</code></pre>
+<h3 id="t22.&#x521B;&#x5EFA;resource">2.&#x521B;&#x5EFA;resource <a href="#t22.&#x521B;&#x5EFA;resource"> # </a></h3>
+<pre><code class="lang-javascript">resource(url, [params], [actions], [options])
+</code></pre>
+<p>restful&#x98CE;&#x683C;</p>
+<pre><code class="lang-javascript">get: {method: <span class="hljs-string">&apos;GET&apos;</span>},
+save: {method: <span class="hljs-string">&apos;POST&apos;</span>},
+query: {method: <span class="hljs-string">&apos;GET&apos;</span>},
+update: {method: <span class="hljs-string">&apos;PUT&apos;</span>},
+remove: {method: <span class="hljs-string">&apos;DELETE&apos;</span>},
+<span class="hljs-keyword">delete</span>: {method: <span class="hljs-string">&apos;DELETE&apos;</span>}
+</code></pre>
+<h2 id="t33.&#x4F7F;&#x7528;resource&#x5B8C;&#x6210;&#x64CD;&#x4F5C;">3.&#x4F7F;&#x7528;resource&#x5B8C;&#x6210;&#x64CD;&#x4F5C; <a href="#t33.&#x4F7F;&#x7528;resource&#x5B8C;&#x6210;&#x64CD;&#x4F5C;"> # </a></h2>
+<h3 id="t43.1 &#x57FA;&#x672C;&#x5E03;&#x5C40;">3.1 &#x57FA;&#x672C;&#x5E03;&#x5C40; <a href="#t43.1 &#x57FA;&#x672C;&#x5E03;&#x5C40;"> # </a></h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;app&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">table</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;table table-bordered&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">td</span>&gt;</span>&#x4E66;&#x540D;<span class="hljs-tag">&lt;/<span class="hljs-title">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">td</span>&gt;</span>&#x4E66;&#x7684;&#x4FE1;&#x606F;<span class="hljs-tag">&lt;/<span class="hljs-title">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">td</span> <span class="hljs-attribute">colspan</span>=<span class="hljs-value">&quot;2&quot;</span>&gt;</span>&#x64CD;&#x4F5C;<span class="hljs-tag">&lt;/<span class="hljs-title">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">tr</span> <span class="hljs-attribute">v-for</span>=<span class="hljs-value">&quot;book in books&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">td</span>&gt;</span>{{book.name}}<span class="hljs-tag">&lt;/<span class="hljs-title">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">td</span>&gt;</span>{{book.price}}<span class="hljs-tag">&lt;/<span class="hljs-title">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn-danger&quot;</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&quot;del(book)&quot;</span>&gt;</span>&#x5220;&#x9664;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn-primary&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">data-target</span>=<span class="hljs-value">&quot;.bs-example-modal-lg&quot;</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&quot;update(book)&quot;</span>&gt;</span>&#x4FEE;&#x6539;&#x6309;&#x94AE;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">table</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal fade bs-example-modal-lg&quot;</span> <span class="hljs-attribute">tabindex</span>=<span class="hljs-value">&quot;-1&quot;</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;dialog&quot;</span> <span class="hljs-attribute">aria-labelledby</span>=<span class="hljs-value">&quot;myLargeModalLabel&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal-dialog modal-lg&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal-content&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form-group  &quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">label</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;control-label&quot;</span>&gt;</span>&#x4E66;&#x7684;&#x540D;&#x5B57;<span class="hljs-tag">&lt;/<span class="hljs-title">label</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form-control&quot;</span> <span class="hljs-attribute">v-model</span>=<span class="hljs-value">&quot;book.name&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form-group&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">label</span>  <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;control-label&quot;</span>&gt;</span>&#x4E66;&#x7684;&#x4EF7;&#x683C;<span class="hljs-tag">&lt;/<span class="hljs-title">label</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form-control&quot;</span> <span class="hljs-attribute">v-model</span>=<span class="hljs-value">&quot;book.price&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn&quot;</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&quot;sure()&quot;</span>&gt;</span>&#x4FEE;&#x6539;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<h3 id="t53.2 &#x8FDB;&#x884C;&#x64CD;&#x4F5C;">3.2 &#x8FDB;&#x884C;&#x64CD;&#x4F5C; <a href="#t53.2 &#x8FDB;&#x884C;&#x64CD;&#x4F5C;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue({
+    el:<span class="hljs-string">&apos;#app&apos;</span>,
+    data:{
+      book:{
+          price:<span class="hljs-string">&apos;&apos;</span>,
+          name:<span class="hljs-string">&apos;&apos;</span>,
+      },
+      books:[]
+    },
+    ready(){
+        <span class="hljs-keyword">this</span>.resource =  <span class="hljs-keyword">this</span>.$resource(<span class="hljs-string">&apos;/books{/id}&apos;</span>);
+        <span class="hljs-keyword">this</span>.resource.get().then((data)=&gt;{
+            <span class="hljs-keyword">this</span>.$set(<span class="hljs-string">&apos;books&apos;</span>,data.json());
+        })
+    },
+    methods:{
+        del: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">book</span>) </span>{
+           <span class="hljs-keyword">this</span>.resource.delete({id:book.id}).then(data=&gt;{
+               <span class="hljs-keyword">this</span>.$set(<span class="hljs-string">&apos;books&apos;</span>,data.json());
+           });
+        }
+        ,update: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">book</span>) </span>{
+            <span class="hljs-keyword">this</span>.$set(<span class="hljs-string">&apos;book&apos;</span>,book);
+        },
+        sure: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.resource.update({id:<span class="hljs-keyword">this</span>.book.id},{book:<span class="hljs-keyword">this</span>.book}).then(data=&gt;{
+                <span class="hljs-keyword">this</span>.$set(<span class="hljs-string">&apos;books&apos;</span>,data.json());
+                $(<span class="hljs-string">&apos;.modal&apos;</span>).modal(<span class="hljs-string">&apos;toggle&apos;</span>);
+            });
+        }
+    }
+})
+</code></pre>
+<h3 id="t63.3 &#x540E;&#x53F0;&#x670D;&#x52A1;&#x7684;&#x642D;&#x5EFA;">3.3 &#x540E;&#x53F0;&#x670D;&#x52A1;&#x7684;&#x642D;&#x5EFA; <a href="#t63.3 &#x540E;&#x53F0;&#x670D;&#x52A1;&#x7684;&#x642D;&#x5EFA;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
+<span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+<span class="hljs-keyword">var</span> bodyParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;body-parser&apos;</span>);
+<span class="hljs-keyword">var</span> app = express();
+app.use(bodyParser());
+<span class="hljs-built_in">console</span>.log(path.resolve(<span class="hljs-string">&apos;lib&apos;</span>));
+<span class="hljs-keyword">var</span> books = [{
+    id:<span class="hljs-number">1</span>,
+    name:<span class="hljs-string">&apos;nodejs&apos;</span>,
+    price:<span class="hljs-number">20</span>
+},{
+    id:<span class="hljs-number">2</span>,
+    name:<span class="hljs-string">&apos;vue&apos;</span>,
+    price:<span class="hljs-number">10</span>
+},{
+    id:<span class="hljs-number">3</span>,
+    name:<span class="hljs-string">&apos;react&apos;</span>,
+    price:<span class="hljs-number">30</span>
+}];
+app.use(express.static(path.resolve(<span class="hljs-string">&apos;lib&apos;</span>)));
+app.get(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    res.sendFile(<span class="hljs-string">&apos;./1.html&apos;</span>,{root:__dirname})
+});
+app.get(<span class="hljs-string">&apos;/books&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    res.contentType(<span class="hljs-string">&apos;application/json&apos;</span>);
+    res.send(books)
+});
+app.delete(<span class="hljs-string">&apos;/books/:id&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    books = books.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{
+        <span class="hljs-keyword">return</span> req.params.id != item.id;
+    });
+    res.send(books)
+});
+app.put(<span class="hljs-string">&apos;/books/:id&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req,res</span>) </span>{
+    books = books.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">books</span>) </span>{
+        <span class="hljs-keyword">if</span>(books.id == req.params.id){
+            <span class="hljs-keyword">var</span> book  = req.body.book;
+            books = book;
+        }
+        <span class="hljs-keyword">return</span> books;
+    });
+    res.send(books);
+});
+app.listen(<span class="hljs-number">8080</span>);
+</code></pre>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
