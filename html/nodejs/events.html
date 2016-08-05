@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Talent Coder</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Talent Coder
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/es6课程.html">es6课程</a></li></ul></li><li><a href="#"><span></span>自动化工具</a><ul><li><a href="../../html/自动化工具/webpack基础.html">webpack基础</a></li><li><a href="../../html/自动化工具/webpack应用.html">webpack应用</a></li><li><a href="../../html/自动化工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>js基础</a><ul><li><a href="../../html/js基础/初识JS.html">初识JS</a></li><li><a href="../../html/js基础/原型链.html">原型链</a></li><li><a href="../../html/js基础/原型深入.html">原型深入</a></li><li><a href="../../html/js基础/JS常用方法.html">JS常用方法</a></li><li><a href="../../html/js基础/预解析作用域闭包.html">预解析作用域闭包</a></li><li><a href="../../html/js基础/正则.html">正则</a></li><li><a href="../../html/js基础/盒子模型.html">盒子模型</a></li><li><a href="../../html/js基础/js基础知识.html">js基础知识</a></li></ul></li><li><a href="#"><span></span>nodejs</a><ul><li><a href="../../html/nodejs/模块.html">模块</a></li><li><a href="../../html/nodejs/buffer.html">buffer</a></li><li><a href="../../html/nodejs/文件操作.html">文件操作</a></li><li><a href="../../html/nodejs/流.html">流</a></li><li><a href="../../html/nodejs/文件上传.html">文件上传</a></li><li><a href="../../html/nodejs/express.html">express</a></li><li><a href="../../html/nodejs/cookie.html">cookie</a></li><li><a href="../../html/nodejs/session.html">session</a></li><li><a href="../../html/nodejs/mongodb.html">mongodb</a></li><li class="active"><a href="../../html/nodejs/events.html">events</a></li><li><a href="../../html/nodejs/http.html">http</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../html/AngularJS/angular基础.html">angular基础</a></li><li><a href="../../html/AngularJS/指令.html">指令</a></li><li><a href="../../html/AngularJS/服务.html">服务</a></li><li><a href="../../html/AngularJS/route.html">route</a></li></ul></li><li><a href="#"><span></span>Vue.js</a><ul><li><a href="../../html/Vue.js/Vue入门.html">Vue入门</a></li><li><a href="../../html/Vue.js/Vue方法篇.html">Vue方法篇</a></li><li><a href="../../html/Vue.js/Vue方法篇2.html">Vue方法篇2</a></li><li><a href="../../html/Vue.js/todo.html">todo</a></li><li><a href="../../html/Vue.js/vue-resource.html">vue-resource</a></li><li><a href="../../html/Vue.js/Vue组件.html">Vue组件</a></li><li><a href="../../html/Vue.js/Vue指令.html">Vue指令</a></li><li><a href="../../html/Vue.js/route.html">route</a></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git入门.html">git入门</a></li></ul></li></ul>
+        </div>
+        
+        <!--
+        <div class="forkgithub"><a target="_blank" href="https://github.com/WakeUpMyPig/jw_blog.git">fork on github</a></div>
+        -->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t0事件">事件</a></li><li><a href="#t11.events模块">1.events模块</a></li><li><a href="#t22.绑定事件">2.绑定事件</a><ul><li><a href="#t32.1 用法">2.1 用法</a></li><li><a href="#t42.2 使用">2.2 使用</a></li></ul></li><li><a href="#t53.发射事件">3.发射事件</a><ul><li><a href="#t63.1 用法">3.1 用法</a></li><li><a href="#t73.2 使用">3.2 使用</a></li></ul></li><li><a href="#t84.绑定一次事件">4.绑定一次事件</a><ul><li><a href="#t94.1 用法">4.1 用法</a></li><li><a href="#t104.2 使用">4.2 使用</a></li></ul></li><li><a href="#t115.解除监听">5.解除监听</a><ul><li><a href="#t125.1 用法">5.1 用法</a></li><li><a href="#t135.2 使用">5.2 使用</a></li></ul></li><li><a href="#t146.解除所有监听">6.解除所有监听</a><ul><li><a href="#t156.1 用法">6.1 用法</a></li><li><a href="#t166.2 使用">6.2 使用</a></li></ul></li><li><a href="#t177.设置最大监听数">7.设置最大监听数</a><ul><li><a href="#t187.1 用法">7.1 用法</a></li><li><a href="#t197.2 使用">7.2 使用</a></li></ul></li><li><a href="#t208.获取监听函数">8.获取监听函数</a><ul><li><a href="#t218.1 用法">8.1 用法</a></li><li><a href="#t228.2 使用">8.2 使用</a></li></ul></li><li><a href="#t239.获得监听个数">9.获得监听个数</a><ul><li><a href="#t249.1 用法">9.1 用法</a></li><li><a href="#t259.2 使用">9.2 使用</a></li></ul></li><li><a href="#t2610.实现订阅发布">10.实现订阅发布</a><ul><li><a href="#t2710.1 订阅">10.1 订阅</a></li><li><a href="#t2810.2 发布">10.2 发布</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t0&#x4E8B;&#x4EF6;">&#x4E8B;&#x4EF6; <a href="#t0&#x4E8B;&#x4EF6;"> # </a></h2>
+<p>&#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x6A21;&#x5F0F;&#xFF0C;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x95F4;&#x7684;&#x4E00;&#x79CD;<code>&#x4E00;&#x5BF9;&#x591A;</code>&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x4E00;&#x4E2A;&#x53D1;&#x5E03;&#x8005;&#x53EF;&#x4EE5;&#x5BF9;&#x5E94;&#x591A;&#x4E2A;&#x8BA2;&#x9605;&#x8005;&#xFF0C;&#x5F53;&#x53D1;&#x5E03;&#x8005;<code>&#x53D1;&#x751F;&#x53D8;&#x5316;</code>&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ED6;&#x53EF;&#x4EE5;&#x5C06;&#x6D88;&#x606F;&#x4E00;&#x4E00;&#x901A;&#x77E5;&#x7ED9;&#x6240;&#x6709;&#x7684;&#x8BA2;&#x9605;&#x8005;,&#x5F53;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x4E8E;&#x5B83;&#x7684;&#x5BF9;&#x8C61;&#x90FD;<code>&#x5F97;&#x5230;&#x901A;&#x77E5;&#x5E76;&#x88AB;&#x81EA;&#x52A8;&#x66F4;&#x65B0;</code>&#x3002;</p>
+<h2 id="t11.events&#x6A21;&#x5757;">1.events&#x6A21;&#x5757; <a href="#t11.events&#x6A21;&#x5757;"> # </a></h2>
+<p>node&#x4E2D;&#x5F88;&#x591A;&#x6A21;&#x5757;&#x90FD;&#x7EE7;&#x627F;&#x81EA;events</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> EventEmmiter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>);
+</code></pre>
+<h2 id="t22.&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;">2.&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6; <a href="#t22.&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;"> # </a></h2>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;on&#x65B9;&#x6CD5;&#x548C;addListener&#x65B9;&#x6CD5;&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;  </p>
+<h3 id="t32.1 &#x7528;&#x6CD5;">2.1 &#x7528;&#x6CD5; <a href="#t32.1 &#x7528;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript">on(event,listener);
+addListener(event,listener);
+</code></pre>
+<h3 id="t42.2 &#x4F7F;&#x7528;">2.2 &#x4F7F;&#x7528; <a href="#t42.2 &#x4F7F;&#x7528;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> EventEmmiter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>);
+<span class="hljs-keyword">var</span> util = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;util&apos;</span>);
+<span class="hljs-function"><span class="hljs-keyword">function</span>  <span class="hljs-title">Girl</span>(<span class="hljs-params"></span>) </span>{}
+util.inherits(Girl,EventEmmiter);
+<span class="hljs-keyword">var</span> girl = <span class="hljs-keyword">new</span> Girl();
+girl.on(<span class="hljs-string">&apos;&#x5E05;&#x54E5;&#x6765;&#x4E86;&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x559C;&#x6B22;&#x5E05;&#x54E5;&apos;</span>);
+});
+</code></pre>
+<h2 id="t53.&#x53D1;&#x5C04;&#x4E8B;&#x4EF6;">3.&#x53D1;&#x5C04;&#x4E8B;&#x4EF6; <a href="#t53.&#x53D1;&#x5C04;&#x4E8B;&#x4EF6;"> # </a></h2>
+<h3 id="t63.1 &#x7528;&#x6CD5;">3.1 &#x7528;&#x6CD5; <a href="#t63.1 &#x7528;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript">emit(event,args);
+</code></pre>
+<h3 id="t73.2 &#x4F7F;&#x7528;">3.2 &#x4F7F;&#x7528; <a href="#t73.2 &#x4F7F;&#x7528;"> # </a></h3>
+<pre><code class="lang-javascript">girl.emit(<span class="hljs-string">&apos;&#x5E05;&#x54E5;&#x6765;&#x4E86;&apos;</span>);
+</code></pre>
+<h2 id="t84.&#x7ED1;&#x5B9A;&#x4E00;&#x6B21;&#x4E8B;&#x4EF6;">4.&#x7ED1;&#x5B9A;&#x4E00;&#x6B21;&#x4E8B;&#x4EF6; <a href="#t84.&#x7ED1;&#x5B9A;&#x4E00;&#x6B21;&#x4E8B;&#x4EF6;"> # </a></h2>
+<p>&#x7ED1;&#x5B9A;&#x4E00;&#x6B21;,&#x591A;&#x6B21;&#x89E6;&#x53D1;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;</p>
+<h3 id="t94.1 &#x7528;&#x6CD5;">4.1 &#x7528;&#x6CD5; <a href="#t94.1 &#x7528;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript">once(event,listener);
+</code></pre>
+<h3 id="t104.2 &#x4F7F;&#x7528;">4.2 &#x4F7F;&#x7528; <a href="#t104.2 &#x4F7F;&#x7528;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> come = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x9001;&#x4E2A;&#x98DE;&#x543B;&apos;</span>);
+};
+girl.once(<span class="hljs-string">&apos;&#x5E05;&#x54E5;&#x6765;&#x4E86;&apos;</span>,come);
+girl.emit(<span class="hljs-string">&apos;&#x5E05;&#x54E5;&#x6765;&#x4E86;&apos;</span>);
+girl.emit(<span class="hljs-string">&apos;&#x5E05;&#x54E5;&#x6765;&#x4E86;&apos;</span>);
+</code></pre>
+<h2 id="t115.&#x89E3;&#x9664;&#x76D1;&#x542C;">5.&#x89E3;&#x9664;&#x76D1;&#x542C; <a href="#t115.&#x89E3;&#x9664;&#x76D1;&#x542C;"> # </a></h2>
+<h3 id="t125.1 &#x7528;&#x6CD5;">5.1 &#x7528;&#x6CD5; <a href="#t125.1 &#x7528;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript">girl.removeListener(event,listener);
+</code></pre>
+<h3 id="t135.2 &#x4F7F;&#x7528;">5.2 &#x4F7F;&#x7528; <a href="#t135.2 &#x4F7F;&#x7528;"> # </a></h3>
+<pre><code class="lang-javascript">girl.on(<span class="hljs-string">&apos;&#x5E05;&#x54E5;&#x6765;&#x4E86;&apos;</span>,come);
+girl.removeListener(<span class="hljs-string">&apos;&#x5E05;&#x54E5;&#x6765;&#x4E86;&apos;</span>,come);
+girl.emit(<span class="hljs-string">&apos;&#x5E05;&#x54E5;&#x6765;&#x4E86;&apos;</span>);
+</code></pre>
+<h2 id="t146.&#x89E3;&#x9664;&#x6240;&#x6709;&#x76D1;&#x542C;">6.&#x89E3;&#x9664;&#x6240;&#x6709;&#x76D1;&#x542C; <a href="#t146.&#x89E3;&#x9664;&#x6240;&#x6709;&#x76D1;&#x542C;"> # </a></h2>
+<p>&#x901A;&#x8FC7;&#x4E8B;&#x4EF6;&#x540D;,&#x79FB;&#x9664;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0D;&#x52A0;&#x53C2;&#x6570;&#x7684;&#x65B9;&#x5F0F;&#x79FB;&#x9664;&#x6240;&#x6709;&#x76D1;&#x542C;</p>
+<h3 id="t156.1 &#x7528;&#x6CD5;">6.1 &#x7528;&#x6CD5; <a href="#t156.1 &#x7528;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript">removeAllListeners(event);
+</code></pre>
+<h3 id="t166.2 &#x4F7F;&#x7528;">6.2 &#x4F7F;&#x7528; <a href="#t166.2 &#x4F7F;&#x7528;"> # </a></h3>
+<pre><code class="lang-javascript">girl.removeAllListeners(<span class="hljs-string">&apos;&#x5E05;&#x54E5;&#x6765;&#x4E86;&apos;</span>);
+girl.removeAllListeners();
+</code></pre>
+<h2 id="t177.&#x8BBE;&#x7F6E;&#x6700;&#x5927;&#x76D1;&#x542C;&#x6570;">7.&#x8BBE;&#x7F6E;&#x6700;&#x5927;&#x76D1;&#x542C;&#x6570; <a href="#t177.&#x8BBE;&#x7F6E;&#x6700;&#x5927;&#x76D1;&#x542C;&#x6570;"> # </a></h2>
+<p>&#x9ED8;&#x8BA4;&#x6700;&#x5927;&#x76D1;&#x542C;&#x6570;&#x4E3A;10,&#x8D85;&#x8FC7;&#x6700;&#x5927;&#x76D1;&#x542C;&#x6570;&#x4F1A;&#x4EA7;&#x751F;&#x8B66;&#x544A;</p>
+<h3 id="t187.1 &#x7528;&#x6CD5;">7.1 &#x7528;&#x6CD5; <a href="#t187.1 &#x7528;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript">setMaxListeners(count);
+</code></pre>
+<h3 id="t197.2 &#x4F7F;&#x7528;">7.2 &#x4F7F;&#x7528; <a href="#t197.2 &#x4F7F;&#x7528;"> # </a></h3>
+<p>&#x5728;&#x76D1;&#x542C;&#x4E4B;&#x524D;&#x8BBE;&#x7F6E;&#x6700;&#x5927;&#x76D1;&#x542C;&#x6570;</p>
+<pre><code class="lang-javascript">setMaxListeners(<span class="hljs-number">3</span>);
+</code></pre>
+<h2 id="t208.&#x83B7;&#x53D6;&#x76D1;&#x542C;&#x51FD;&#x6570;">8.&#x83B7;&#x53D6;&#x76D1;&#x542C;&#x51FD;&#x6570; <a href="#t208.&#x83B7;&#x53D6;&#x76D1;&#x542C;&#x51FD;&#x6570;"> # </a></h2>
+<h3 id="t218.1 &#x7528;&#x6CD5;">8.1 &#x7528;&#x6CD5; <a href="#t218.1 &#x7528;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript">girl.listeners(event);
+</code></pre>
+<h3 id="t228.2 &#x4F7F;&#x7528;">8.2 &#x4F7F;&#x7528; <a href="#t228.2 &#x4F7F;&#x7528;"> # </a></h3>
+<pre><code class="lang-javascript">girl.listeners(<span class="hljs-string">&apos;&#x5E05;&#x54E5;&#x6765;&#x4E86;&apos;</span>);
+</code></pre>
+<h2 id="t239.&#x83B7;&#x5F97;&#x76D1;&#x542C;&#x4E2A;&#x6570;">9.&#x83B7;&#x5F97;&#x76D1;&#x542C;&#x4E2A;&#x6570; <a href="#t239.&#x83B7;&#x5F97;&#x76D1;&#x542C;&#x4E2A;&#x6570;"> # </a></h2>
+<h3 id="t249.1 &#x7528;&#x6CD5;">9.1 &#x7528;&#x6CD5; <a href="#t249.1 &#x7528;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript">girl.listenerCount(event);
+</code></pre>
+<h3 id="t259.2 &#x4F7F;&#x7528;">9.2 &#x4F7F;&#x7528; <a href="#t259.2 &#x4F7F;&#x7528;"> # </a></h3>
+<pre><code class="lang-javascript">girl.listenerCount(<span class="hljs-string">&apos;&#x5E05;&#x54E5;&#x6765;&#x4E86;&apos;</span>);
+</code></pre>
+<h2 id="t2610.&#x5B9E;&#x73B0;&#x8BA2;&#x9605;&#x53D1;&#x5E03;">10.&#x5B9E;&#x73B0;&#x8BA2;&#x9605;&#x53D1;&#x5E03; <a href="#t2610.&#x5B9E;&#x73B0;&#x8BA2;&#x9605;&#x53D1;&#x5E03;"> # </a></h2>
+<h3 id="t2710.1 &#x8BA2;&#x9605;">10.1 &#x8BA2;&#x9605; <a href="#t2710.1 &#x8BA2;&#x9605;"> # </a></h3>
+<pre><code class="lang-javascript">Observable.prototype.on = Observable.prototype.addListener = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event, listener</span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._events[event]) {
+        <span class="hljs-keyword">this</span>._events[event].push(listener);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">this</span>._events[event] = [listener];
+    }
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>._events[event].length&gt;<span class="hljs-keyword">this</span>._maxListeners){
+        <span class="hljs-built_in">console</span>.error(<span class="hljs-string">&apos;maxListener reached!&apos;</span>);
+    }
+}
+</code></pre>
+<h3 id="t2810.2 &#x53D1;&#x5E03;">10.2 &#x53D1;&#x5E03; <a href="#t2810.2 &#x53D1;&#x5E03;"> # </a></h3>
+<pre><code class="lang-javascript">Observable.prototype.emit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>)</span>{
+    <span class="hljs-keyword">var</span> args = <span class="hljs-built_in">Array</span>.prototype.slice.call(<span class="hljs-built_in">arguments</span>,<span class="hljs-number">1</span>);
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>._events[event]){
+        <span class="hljs-keyword">var</span> listeners = <span class="hljs-keyword">this</span>._events[event];
+        listeners.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">listener</span>)</span>{
+            listener.apply(<span class="hljs-literal">null</span>,args);
+        });
+    }
+}
+</code></pre>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>

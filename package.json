@@ -50,7 +50,9 @@
                     "express.md",
                     "cookie.md",
                     "session.md",
-                    "mongodb.md"
+                    "mongodb.md",
+                    "events.md",
+                    "http.md"
                 ]
             },
             {
