@@ -15,53 +15,10 @@
     "idoc": {
         "theme": "blog",
         "md": [
-            "首页.md",
+            "index.md",
             {
-                "JAVASCRIPT": [
-                    "es6课程.md"
-                ]
-            },
-            {
-                "自动化工具": [
-                    "webpack基础.md",
-                    "webpack应用.md",
-                    "babel.md"
-                ]
-            },
-            {
-                "js基础": [
-                    "初识JS.md",
-                    "原型链.md",
-                    "原型深入.md",
-                    "JS常用方法.md",
-                    "预解析作用域闭包.md",
-                    "正则.md",
-                    "盒子模型.md"
-                ]
-            },
-            {
-                "nodejs": [
-                    "文件上传.md",
-                    "流.md",
-                    "express.md",
-                    "cookie.md",
-                    "session.md",
-                    "mongodb.md"
-                ]
-            },
-            {
-                "AngularJS": [
-                    "angular入门.md",
-                    "angular基础.md",
-                    "指令.md",
-                    "服务.md",
-                    "route.md"
-                ]
-            },
-            {
-                "Vue.js": [
-                    "Vue入门.md",
-                    "Vue方法篇.md"
+                "aaa": [
+                    "vue-jw.md"
                 ]
             }
         ]

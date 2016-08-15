@@ -3,56 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>zhufengidoc</title>
-
+    <title>Talent Coder</title>
+        
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
 </head>
 <body>
 <div class="navbar navbar-line">
     <div class="container">
         <div class="logo">
-
-                zhufengidoc
-
+            
+                Talent Coder
+            
         </div>
         <input type="checkbox" id="idoc_nav" />
         <div class="menu_tree">
-        <ul><li><a href="../index.html">angular</a></li><li><a href="#"><span></span>使用方法</a><ul><li><a href="../html/使用方法/js初级.html">js初级</a></li><li><a href="../html/使用方法/webstorage.html">webstorage</a></li></ul></li><li class="active"><a href="../html/index.html">index</a></li></ul>
+        <ul><li><a href="#"><span></span>aaa</a><ul><li><a href="../html/aaa/vue-jw.html">vue-jw</a></li></ul></li><li class="active"><a href="../html/index.html">index</a></li><li><a href="#"><span></span>aaa</a><ul><li><a href="../html/aaa/vue-jw.html">vue-jw</a></li></ul></li></ul>
         </div>
-
-
+        
+        <!--
+        <div class="forkgithub"><a target="_blank" href="https://github.com/WakeUpMyPig/jw_blog.git">fork on github</a></div>
+        -->
 
         <section class="idoc_nav_btn">
             <label for="idoc_nav"><span></span></label>
         </section>
     </div>
-
+    
 </div>
 
 
 
 
 <div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t0idoc">idoc</a></li></ul>
+        </div>
 
-    <div class="page-toc">
-        <ul><li><a href="#t0idoc">idoc</a></li></ul>
-    </div>
+        <div class="content markdown-body">
 
-    <div class="content markdown-body">
-        <h1 id="t0idoc">idoc <a href="#t0idoc"> # </a></h1>
+            <h1 id="t0idoc">idoc <a href="#t0idoc"> # </a></h1>
 
-        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
-    </div>
 
+        </div>
+    
 </div>
-
-<script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
 <style>
     .page-toc{
         overflow: hidden;
         position:fixed;
         left:50%;
-        margin-left:550px;
+        margin-left:250px;
 	width:350px
     }
     .page-toc > ul li{
@@ -78,27 +79,127 @@
     }
 
     .markdown-body{
-	font-size: 140% ! important;
+	font-size: 120% ! important;
+        max-width:800px;
     }
     .container{
-       font-size: 120% ! important;
+       font-size: 110% ! important;
     }
     html,body,.container{
       font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
     }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
 </style>
-
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
 <script>
-
+if(!$('.understand-me').length){
 var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
 var count =  bar/26/2;
 var barHeight = $('.page-toc').outerHeight();
-var barH = $('.page-toc').height();
 $('.page-toc li').eq(0).children('a').addClass('red');
 var arr = [];
-$("h2,h3").each(function () {
+$("h1,h2,h3,h4,h5,h6").each(function () {
     arr.push($(this).position().top);
 });
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
 function dark(){
     var top =  Math.abs($('.page-toc > ul').position().top);
     var cur = $(document).scrollTop();
@@ -112,19 +213,26 @@ function dark(){
     }
     $('.page-toc li a').removeClass('red');
     $('.page-toc li').eq(i).children('a').addClass('red');
-    if(i> arr.length-count){
-        $(' .page-toc > ul').css('top',-(barHeight-bar));
-        return;
-    }
-    if(i>count){
-        $(' .page-toc > ul').css('top',-26*(i-count));
-    }else{
-        $(' .page-toc > ul').css('top',0);
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
     }
 }
-if(barHeight>barH){
-    $(window).on('scroll',dark);
+$(window).on('scroll',dark);
 }
 </script>
+
 </body>
 </html>
+
+
+<script>
+
+</script>
