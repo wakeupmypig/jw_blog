@@ -15,7 +15,6 @@
     "idoc": {
         "theme": "blog",
         "md": [
-            "index.md",
             {
                 "JAVASCRIPT": [
                     "es6课程.md"
@@ -79,11 +78,17 @@
             {
                 "Git": [
                     "git入门.md"
-                  ],
+                ],
                 "aaa": [
                     "vue-jw.md"
                 ]
-            }
+            },
+            {
+                "JAVASCRIPT": [
+                    "es6课程.md"
+                ]
+            },
+            "首页.md"
         ]
     }
 }
